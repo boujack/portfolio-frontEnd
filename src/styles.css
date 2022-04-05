@@ -1,26 +1,26 @@
 @font-face{
     font-family: "Spaceport";
-    src: url("../assets/fonts/Spaceport.otf");
+    src: url("assets/fonts/Spaceport.otf");
 }
 @font-face{
     font-family: "ArcadeClassic";
-    src: url("../assets/fonts/ArcadeClassic.ttf");
+    src: url("assets/fonts/ArcadeClassic.ttf");
 }
 @font-face{
     font-family: "Cyberverse";
-    src: url("../assets/fonts/Cyberverse.otf");
+    src: url("assets/fonts/Cyberverse.otf");
 }
 @font-face{
     font-family: "Conthrax";
-    src: url("../assets/fonts/conthrax.ttf");
+    src: url("assets/fonts/conthrax.ttf");
 }
 @font-face{
     font-family: "GlitchInside";
-    src: url("../assets/fonts/GlitchInside.otf");
+    src: url("assets/fonts/GlitchInside.otf");
 }
 @font-face{
     font-family: "ShareTech";
-    src: url("../assets/fonts/ShareTechMono.ttf");
+    src: url("assets/fonts/ShareTechMono.ttf");
 }
 
 :root{
@@ -155,7 +155,6 @@ img,a{
     grid-auto-columns: 1fr;
     background-color: rgba(0,0,0,0.8);
     background-position: 50% 50%;
-    /* background-image: url("../assets/circuit_banner_2.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     justify-items: center;
@@ -382,7 +381,7 @@ img,a{
     text-shadow: 0 0 0.2rem var(--bd-color-1);
     display:none;
     background-position: 0% 0%;
-    background-image: url("../assets/background_skill.png");
+    background-image: url("assets/background_skill.png");
     background-repeat: no-repeat;
     background-size: cover;
 
