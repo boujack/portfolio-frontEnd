@@ -14,6 +14,13 @@ import { CuadroXpComponent } from './components/cuadro-xp/cuadro-xp.component';
 import { CuadroEdComponent } from './components/cuadro-ed/cuadro-ed.component';
 import { CuadroSkComponent } from './components/cuadro-sk/cuadro-sk.component';
 import { CuadroPyComponent } from './components/cuadro-py/cuadro-py.component';
+import { ModalsComponent } from './components/modals/modals.component';
+import { ModalLoginComponent } from './components/modal-login/modal-login.component';
+import { ModalXpComponent } from './components/modal-xp/modal-xp.component';
+import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
+import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
+import { ModalPyComponent } from './components/modal-py/modal-py.component';
+import { ModalDescComponent } from './components/modal-desc/modal-desc.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +36,14 @@ import { CuadroPyComponent } from './components/cuadro-py/cuadro-py.component';
     CuadroXpComponent,
     CuadroEdComponent,
     CuadroSkComponent,
-    CuadroPyComponent
+    CuadroPyComponent,
+    ModalsComponent,
+    ModalLoginComponent,
+    ModalXpComponent,
+    ModalEdComponent,
+    ModalSkComponent,
+    ModalPyComponent,
+    ModalDescComponent
   ],
   imports: [
     BrowserModule
