@@ -1,0 +1,21 @@
+export class Habilidad
+{
+    orden:number;
+    modulo:number;
+    name:string;
+    angulo:number=0;
+    x:number=0;
+    y:number=0;
+	constructor(name:string,modulo:number,orden:number)
+	{	
+		this.orden=orden;
+		this.modulo=modulo;
+		this.name=name;
+	}
+	setAttribs(n:number)
+	{
+		this.angulo=-90+(360/n)*this.orden;
+		this.x=Math.round(this.modulo*Math.cos(this.angulo*Math.PI/180));
+		this.y=Math.round(this.modulo*Math.sin(this.angulo*Math.PI/180));
+	}	
+}
