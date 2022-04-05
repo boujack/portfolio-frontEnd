@@ -150,8 +150,8 @@ img,a{
     max-width: calc(100%-1rem);
     height: 85vh;
     grid-template-areas: 
-    '. profile .'
-    'placa placa placa';
+    'profile'
+    'placa';
     grid-auto-columns: 1fr;
     background-color: rgba(0,0,0,0.8);
     background-position: 50% 50%;
@@ -624,6 +624,7 @@ button.rm{
     #menu-button{
         position:absolute;
         right: 1rem;
+        top:1rem;
         display:block;
         z-index: 10;
         width: fit-content;
