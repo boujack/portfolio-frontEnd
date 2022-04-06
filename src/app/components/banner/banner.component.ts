@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onKeyEnter(ev:KeyboardEvent){
+    console.log(ev.key);
+  }
 }

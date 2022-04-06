@@ -21,6 +21,7 @@ import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
 import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
 import { ModalPyComponent } from './components/modal-py/modal-py.component';
 import { ModalDescComponent } from './components/modal-desc/modal-desc.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ModalDescComponent } from './components/modal-desc/modal-desc.component
     ModalDescComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
