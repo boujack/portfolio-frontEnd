@@ -1,0 +1,196 @@
+
+/*Cuadro de perfil*/
+.foto-perfil{
+    position:relative;
+    min-width: var(--foto-perfil-size);
+    max-width: 13rem;
+    border-radius: 50%;
+    transform: rotateZ(-45deg);
+    animation-duration: 5s;
+    animation-name: glow-5;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+}
+.edit-prof-img{
+    position:absolute;
+    top:1rem;
+    right: 1rem;
+    z-index: 1000;
+    transform: rotateZ(-45deg);
+}
+.profile-frame{
+    min-width: var(--foto-perfil-size);
+    max-width: 13rem;
+    border:solid 0.2rem var(--bd-color-2);
+    box-shadow: 0 0 1rem var(--bd-color-2);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(0.2rem);
+    transform: rotateZ(45deg);
+    overflow:hidden
+}
+.cuadro-perfil{
+    position: relative;
+    grid-area:profile;
+    display:flex;
+    align-items: center;
+    padding:1.5rem;
+    width: fit-content;
+    
+}
+.cuadro-perfil[animation="false"]{
+    filter:brightness(0%);
+}
+.cuadro-perfil[animation="true"]{
+    animation-duration: 3s;
+    animation-name: turn-on;
+    animation-iteration-count: 1;
+    animation-direction: forward;
+}
+.icono-seccion{
+    max-height: var(--icono-habilidades);
+    padding:0.2rem;
+    border: transparent;
+    border-radius: 2rem;
+    transform: scale3d(1,1,1);
+    transition: transform 300ms ease-in-out;    
+}
+.icono-seccion:hover{
+    transform: scale3d(2,2,2);
+    transition: transform 300ms ease-in-out;
+}
+.apartados-perfil{
+    list-style: none;
+    position: absolute;
+    justify-content: left;
+    align-items: center;
+    padding:0px;
+    margin:0px;
+    transform: translate3d(0,calc(-0.5*var(--icono-habilidades)),0);
+}
+.apartados-perfil>li{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    transform-origin: calc(-0.48 * var(--foto-perfil-size));
+    transform: translateX(calc(var(--foto-perfil-size))) rotateZ(calc(var(--ang-separacion)*var(--i)));
+}
+
+.tooltip
+{
+    font-family: 'Conthrax';
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(0.5rem);
+    color:rgb(166, 161, 202);
+    font-size: calc(var(--foto-perfil-size) / 9);
+    padding: 0.1rem;
+    margin:0rem 0rem 0rem 0rem;
+    border:solid slateblue 0.1rem;
+    padding-top: 0.2rem;
+    max-height: 2rem;
+    position: absolute;
+    text-shadow: 0 0 0.5rem slateblue;
+    box-shadow: 0 0 0.5rem slateblue;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+.tooltip-left{
+    left:calc(-1.2*var(--icono-habilidades));
+}
+.sk-1{
+    display: flex;
+    align-items: center;
+    transform:rotateZ(144deg);
+    animation-duration: 5s;
+    animation-name: glow-1;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+}
+.sk-2{
+    display: flex;
+    align-items: center;
+    transform:rotateZ(36deg);
+    animation-duration: 5s;
+    animation-name: glow-2;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+}
+.sk-3{
+    display: flex;
+    align-items: center;
+    transform:rotateZ(-36deg);
+    animation-duration: 5s;
+    animation-name: glow-3;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+}
+.sk-4{
+    display: flex;
+    align-items: center;
+    transform:rotateZ(-144deg);
+    animation-duration: 5s;
+    animation-name: glow-4;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+}
+.sk-1:hover .tooltip{
+    transform: scaleX(1) translateX(-7ch) skewX(-10deg);
+    transition: transform 300ms ease-in-out;
+}
+.sk-2:hover .tooltip{
+    transform: scaleX(1) translateX(4ch) skewX(-10deg);
+    transition: transform 300ms ease-in-out;
+}
+.sk-3:hover .tooltip{
+    transform: scaleX(1) translateX(5ch) skewX(-10deg);
+    transition: transform 300ms ease-in-out;
+}
+.sk-4:hover .tooltip{
+    transform: scaleX(1) translateX(-6ch) skewX(-10deg);
+    transition: transform 300ms ease-in-out;
+}
+@media (max-width:40em)
+{
+    .tooltip{
+        font-size: calc(var(--foto-perfil-size) / 12);
+    }
+}
+@keyframes glow-1 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(100%) hue-rotate(120deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-2 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(100%) hue-rotate(120deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-3 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(100%) hue-rotate(120deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-4 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(100%) hue-rotate(120deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}  
+@keyframes glow-5 {
+    0% {filter: invert(0%) hue-rotate(120deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(120deg);}
+}

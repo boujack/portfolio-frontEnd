@@ -1,0 +1,97 @@
+
+.redesSocLogo{
+    max-height:2rem;
+    margin:0.5rem;
+    transform: scale3d(1,1,1);
+    transition: transform 300ms ease-in-out;
+}
+.redesSocLogo:hover{
+
+    transform: scale3d(1.5,1.5,1.5);
+    transition: transform 300ms ease-in-out;
+}
+.primary-navbar span{
+    display:none;
+    font-size: 1rem;
+    font-family: 'GlitchInside';
+}
+.primary-navbar>ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-right: 1em;
+    transform:translateX(0%);
+    margin:0;
+}
+.primary-navbar{
+    display:grid;
+    grid-area:red-soc;
+    align-items: center;
+    justify-content: right;
+    padding:0em;
+    margin:0;
+}
+
+@media (min-width:40em)
+{
+    .primary-navbar{
+        display: flex;
+    }
+}
+@media (max-width:40em)
+{
+    .primary-navbar>ul{
+        display:flex;
+        flex-direction: column;
+        list-style: none;
+        align-items: center;       
+        padding: 1rem;
+        transform:translateX(0%);
+        margin:0;
+        grid-row-start:2;
+    }
+    #login-button{
+        grid-row-start: 3;
+    }
+    .primary-navbar a{
+        display: flex;
+        align-items: center;
+    }
+    .primary-navbar[data-visible="false"]{
+        
+        transform:translateX(100%) scaleX(0);
+        transition: transform 300ms ease-out;
+    }
+    .primary-navbar{
+        position:absolute;
+        right: 0;
+        top: 0;
+        background-color: rgba(0,0,0,0.5);
+        backdrop-filter: blur(0.5rem);
+        height: 100vh;
+        width: auto;
+        display:grid;
+        grid-template-rows: var(--navbar-height) auto auto;
+        align-items: center;
+        justify-content:initial;
+        padding:0em;
+        margin:0;
+        overflow: hidden;
+        transform:translateY(0%) scaleX(1);
+        transition: transform 300ms ease-out;
+    }
+    .redesSocLogo{
+        max-height:2rem;
+        margin:0.5rem;
+        transform: scale3d(1,1,1);
+        transition: transform 300ms ease-in-out;
+    }
+    .redesSocLogo:hover{
+    
+        transform: scale3d(1.5,1.5,1.5);
+        transition: transform 300ms ease-in-out;
+    }
+    .primary-navbar span{
+        display:flex;
+    }
+}

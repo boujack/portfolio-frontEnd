@@ -1,0 +1,57 @@
+.scroll-border{
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem var(--bd-color-1);
+    background: var(--bg-color-1);
+}
+.banner{
+    position: relative;
+    display:grid;
+    margin:0.5rem;
+    max-width: calc(100%-1rem);
+    height: 85vh;
+    grid-template-areas: 
+    'profile'
+    'placa';
+    grid-auto-columns: 1fr;
+    background-color: rgba(0,0,0,0.8);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-items: center;
+    align-items: center;
+    animation-duration: 5s;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+    overflow: hidden;
+}
+.banner-bg{
+    position:absolute;    
+}
+.banner-bg[animation="false"]{
+    filter:brightness(0%);
+}
+.banner-bg[animation="true"]{
+    animation-duration: 6s;
+    animation-name: turn-on;
+    animation-iteration-count: 1;
+    animation-direction: forward;
+}
+.edit-bg-img{
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    z-index: 1000;
+}
+@keyframes turn-on{
+    from{filter:brightness(0%);}
+    to{filter:brightness(100%);}
+}
+@keyframes wave {
+    0% {backdrop-filter: invert(10%);}
+    20%{backdrop-filter: invert(0%);}
+    40%{backdrop-filter: invert(0%);}
+    60%{backdrop-filter: invert(0%);}
+    80%{backdrop-filter: invert(0%);}
+    100%{backdrop-filter: invert(10%);}
+}

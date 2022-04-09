@@ -1,0 +1,42 @@
+.placa-descripcion{
+    display: flex;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem var(--bd-color-2);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(0.5rem);    
+    height: auto;
+    grid-area:placa;
+    margin:1rem;
+    padding:1rem;
+    max-width: 75vw;
+}
+.placa-descripcion[animation="true"]{
+    min-height: 40%;
+    animation-duration: 0.5s;
+    animation-name: console;
+    animation-iteration-count: 1;
+    animation-direction: forward;
+}
+.type-description{
+    color:limegreen;
+    font-family: 'ShareTech';
+    text-shadow: 0 0 0.2rem limegreen;
+    font-size: 1.1rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#blink-t
+{
+    border-right: .5em solid green; 
+    animation: 
+    blink-caret .4s step-end infinite; 
+}
+@keyframes blink-caret {
+    from, to { border-color: lime }
+    50% { border-color: transparent; }
+  }
+
+@keyframes console{
+    from{transform:scaleY(0);}
+    to{transform:scaleY(1);}
+}

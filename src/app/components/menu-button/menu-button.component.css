@@ -1,0 +1,19 @@
+@media (min-width:40em)
+{
+    #menu-button{
+        display:none;
+    }
+}
+@media (max-width:40em)
+{
+    #menu-button{
+        position:absolute;
+        right: 1rem;
+        top:1rem;
+        display:block;
+        z-index: 10;
+        width: fit-content;
+        height: auto;
+        font-size: 1rem;
+    }
+}
