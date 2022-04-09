@@ -1,5 +1,35 @@
 #login-button{
+    --angulo:18deg;
     font-weight: 800;
     padding:6px;
     margin: 1rem;
+    /* border: 1px solid transparent;
+    animation-duration: 1s;
+    animation-name: grad;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+    box-shadow:none; */
+}
+@keyframes grad {
+    0% {border-image: linear-gradient(calc(0*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    5%{border-image: linear-gradient(calc(1*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    10%{border-image: linear-gradient(calc(2*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    15%{border-image: linear-gradient(calc(3*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    20%{border-image: linear-gradient(calc(4*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    25%{border-image: linear-gradient(calc(5*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    30%{border-image: linear-gradient(calc(6*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    35%{border-image: linear-gradient(calc(7*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    40%{border-image: linear-gradient(calc(8*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    45%{border-image: linear-gradient(calc(9*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    50%{border-image: linear-gradient(calc(10*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    55%{border-image: linear-gradient(calc(11*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    60%{border-image: linear-gradient(calc(12*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    65%{border-image: linear-gradient(calc(13*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    70%{border-image: linear-gradient(calc(14*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    75%{border-image: linear-gradient(calc(15*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    80%{border-image: linear-gradient(calc(16*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    85%{border-image: linear-gradient(calc(17*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    90%{border-image: linear-gradient(calc(18*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    95%{border-image: linear-gradient(calc(19*var(--angulo)),lime,rgba(0,0,0,0))10%;}
+    100%{border-image: linear-gradient(calc(20*var(--angulo)),lime,rgba(0,0,0,0))10%;}
 }
