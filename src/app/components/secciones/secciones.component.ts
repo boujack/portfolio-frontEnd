@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-secciones',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secciones.component.css']
 })
 export class SeccionesComponent implements OnInit {
-
-  constructor() { }
+  @Output() educacion:any;
+  constructor(private dbService:DatosService) { }
 
   ngOnInit(): void {
+    this.dbService.getData().subscribe(data => {
+      this.educacion=data.educacion;
+    })
   }
 
 }

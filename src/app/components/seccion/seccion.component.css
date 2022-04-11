@@ -1,0 +1,97 @@
+.detalle-skill{
+    margin:0.5rem;
+    min-height: calc(100vh - 1rem - var(--navbar-height));
+    font-family: 'Conthrax';
+    justify-content: left;
+    align-items: center;
+    padding:0.1rem;
+    border-radius:1rem;
+    box-shadow: 0 0 0.5rem var(--bd-color-1);
+    background:  rgba(0,0,0,0.8);;
+    color:white;
+    text-shadow: 0 0 0.2rem var(--bd-color-1);
+    display:none;
+    background-position: 0% 0%;
+    background-image: url("src/assets/background_skill.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.detalle-skill[data-visible="true"]{
+    display:block;
+    animation-duration: 0.5s;
+    animation-name: unfold;
+    animation-direction: forward;
+}
+.descripcion-skill{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items: center;
+    justify-content: left;
+    border-radius:1rem;
+    box-shadow: 0 0 0.2rem var(--bd-color-1);
+    background: rgba(24,21,48,0.5);
+    backdrop-filter: blur(0.5rem);
+    color:white;
+    text-shadow: 0 0 0.2rem var(--bd-color-1);
+    margin: 2rem;
+    padding: 1rem;
+    box-shadow: 0 0 0.5rem var(--bd-color-1);
+}
+.h1-skill{
+    grid-column:span 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.descripcion-skill input[disabled]{
+    background-color: transparent;
+    border:none;
+    color:white;
+    text-shadow: 0 0 0.2rem var(--bd-color-1);
+    font-family: 'Conthrax';
+}
+.descripcion-skill input{
+    background-color: rgb(61, 61, 61);
+    color:rgb(21, 255, 0);
+    text-shadow: 0 0 0.2rem rgb(21, 255, 0);
+    font-family: 'Conthrax';
+    box-sizing:border-box;
+    width: 100%;
+}
+.titulo-skill-div{
+    display:flex;
+    align-items: center;
+    color:white;
+    text-shadow: var(--bd-color-1);
+}
+.titulo-skill{
+    justify-content: left;
+    padding:0.5rem;
+    width:100%;
+}
+.edit-buttons{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    width:100%;
+}
+button.add{
+    height: 2rem;
+    width: auto;
+    margin: 0.5rem;
+}
+button.edit{
+    height: 2rem;
+    width: auto;
+    margin: 0.5rem;
+}
+button.ok{
+    height: 2rem;
+    width: auto;
+    margin: 0.5rem;
+}
+button.rm{
+    position:absolute;
+    right:1rem;
+    top:1rem;
+}

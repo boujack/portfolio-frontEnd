@@ -22,6 +22,9 @@ import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
 import { ModalPyComponent } from './components/modal-py/modal-py.component';
 import { ModalDescComponent } from './components/modal-desc/modal-desc.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SeccionComponent } from './components/seccion/seccion.component';
+
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,11 +47,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ModalEdComponent,
     ModalSkComponent,
     ModalPyComponent,
-    ModalDescComponent
+    ModalDescComponent,
+    SeccionComponent
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

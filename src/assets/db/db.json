@@ -1,0 +1,48 @@
+{
+    "experiencia":[
+                    {
+                        "id":1,
+                        "labels":["Empresa","Puesto","Fecha Ingreso","Fecha Egreso"],
+                        "empresa":"Naturgy",
+                        "puesto":"Administrativo",
+                        "feIngreso":"23-10-2017",
+                        "feEgreso":"23-10-2040"
+                    }
+                ],
+    "educacion":[
+                    {
+                        "id":1,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "establecimiento":"EET Nº8",
+                        "titulo":"Tecnico Electronico",
+                        "feIngreso":"2004-03-01",
+                        "feEgreso":"2008-12-22"
+                    },
+                    {
+                        "id":2,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "establecimiento":"Unlam",
+                        "titulo":"Ing.Electronico",
+                        "feIngreso":"2009-04-01",
+                        "feEgreso":"2023-12-23"
+                    }
+                ],
+    "proyectos":[
+                    {
+                        "id":1,
+                        "labels":["Proyecto","Descripcion","Fecha Inicio","Fecha Fin"],
+                        "proyecto":"Portfolio",
+                        "descripcion":"TP Final Arg. Programa",
+                        "feInicio":"2021-11-01",
+                        "feFin":"2022-05-31"
+                    }
+                ],
+    "habilidades":{
+                    "mgc":85,
+                    "str":68,
+                    "int":75,
+                    "spr":55,
+                    "dst":45,
+                    "sta":95
+                }
+}
