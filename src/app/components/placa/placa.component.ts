@@ -9,7 +9,7 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class PlacaComponent implements OnInit {
   key:any;
-  animate:any;
+  animate:string="false";
   description:string="Press Enter to Start"
   d:Subject<string>=new Subject;
   newDesc:string;
@@ -25,6 +25,7 @@ export class PlacaComponent implements OnInit {
         if(this.newDesc.charAt(i)!=' ')
           await this.delay(100);
       }
+      this.animate="false";
     });
   }
   
@@ -34,6 +35,7 @@ export class PlacaComponent implements OnInit {
       if(this.newDesc!=data.descripcion){
         this.newDesc=data.descripcion;
         this.d.next(data.descripcion);
+        this.animate="true"
       }
       this.clkSvc.enableUI();     
     })

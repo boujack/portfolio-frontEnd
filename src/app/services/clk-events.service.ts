@@ -12,6 +12,7 @@ export interface Boton{
 export class ClkEventsService {
   private enabled:boolean=false;
   private btnClicked:Subject<Boton> = new Subject;
+  private uiStatus:Subject<boolean> = new Subject;
   constructor() {
 
    }
@@ -24,5 +25,9 @@ export class ClkEventsService {
   }
   enableUI(){
     this.enabled=true;
+    this.uiStatus.next(true);
+  }
+  getUIStatus():Observable<boolean>{
+    return this.uiStatus.asObservable();
   }
 }

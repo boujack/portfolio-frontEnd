@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { ClkEventsService } from 'src/app/services/clk-events.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,10 +8,15 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
   @Output() thisStyle:any;
-  columnas:any="single-column"
-  constructor() { }
+  columnas:any="single-column";
+  animate:string="false";
+  constructor(private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
+    this.clkSvc.getUIStatus().subscribe(data => {
+      if(data)
+        this.animate="true";
+    })
   }
   sectOpen(){
     console.log("duo-column");
