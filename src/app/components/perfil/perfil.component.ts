@@ -14,11 +14,16 @@ export class PerfilComponent implements OnInit {
   private skBtn:Boton={id:2,name:"sk",pressed:false};
   private pyBtn:Boton={id:3,name:"py",pressed:false};
   private imgBtn:Boton={id:4,name:"img",pressed:false};
+  animate:string="false";
 
   constructor(private clkService:ClkEventsService) {
   }
 
   ngOnInit(): void {
+    this.clkService.getUIStatus().subscribe(data=>{
+      if(data)
+        this.animate="true";
+    })
   }
   
   runeClick(a:number){

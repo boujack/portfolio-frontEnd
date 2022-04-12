@@ -79,7 +79,7 @@
     background-color: rgba(0,0,0,0.8);
     backdrop-filter: blur(0.5rem);
     color:rgb(166, 161, 202);
-    font-size: calc(var(--foto-perfil-size) / 9);
+    font-size: calc(var(--foto-perfil-size) / 10);
     padding: 0.1rem;
     margin:0rem 0rem 0rem 0rem;
     border:solid slateblue 0.1rem;

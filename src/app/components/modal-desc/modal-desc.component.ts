@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-desc',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-desc.component.css']
 })
 export class ModalDescComponent implements OnInit {
-
+  @Input() visible:string;
   constructor() { }
 
   ngOnInit(): void {

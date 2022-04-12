@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ClkEventsService } from 'src/app/services/clk-events.service';
 
 @Component({
   selector: 'app-login-button',
@@ -7,14 +8,14 @@ import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/co
 })
 export class LoginButtonComponent implements OnInit {
   logged:boolean=false;
-  @Output() loginClick = new EventEmitter;
-  constructor(private elementRef:ElementRef) {
+  constructor(private clkSvc:ClkEventsService) {
   }
 
   ngOnInit(): void {
   }
   onClick(){
-    this.loginClick.emit();
+    console.log("login-button");
+    this.clkSvc.setBtnClk({id:5,name:"logModal",pressed:true});    
   }
 
 }

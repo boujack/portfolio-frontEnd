@@ -11,7 +11,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  toggleEditButton(){
-    console.log("Navbar Login");
-  }
 }

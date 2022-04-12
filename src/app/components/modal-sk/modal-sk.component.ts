@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-sk',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-sk.component.css']
 })
 export class ModalSkComponent implements OnInit {
-
+  @Input() visible:string;
   constructor() { }
 
   ngOnInit(): void {
