@@ -10,15 +10,19 @@ export interface Boton{
   providedIn: 'root'
 })
 export class ClkEventsService {
-
+  private enabled:boolean=false;
   private btnClicked:Subject<Boton> = new Subject;
   constructor() {
 
    }
   setBtnClk(btn:Boton){
-    this.btnClicked.next(btn);
+    if(this.enabled)
+      this.btnClicked.next(btn);
   }
   getBtnClk():Observable<Boton>{
     return this.btnClicked.asObservable();
+  }
+  enableUI(){
+    this.enabled=true;
   }
 }

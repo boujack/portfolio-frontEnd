@@ -60,5 +60,6 @@
                     "spr":55,
                     "dst":45,
                     "sta":95
-                }
+                },
+    "descripcion":"Esta es una descripcion de prueba para probar que se puede hacer algo en este framework vergocho"
 }
