@@ -15,7 +15,7 @@ export class LoginButtonComponent implements OnInit {
   }
   onClick(){
     console.log("login-button");
-    this.clkSvc.setBtnClk({id:5,name:"logModal",pressed:true});    
+    this.clkSvc.setBtnClk({id:15,name:"logModal",pressed:true});    
   }
 
 }

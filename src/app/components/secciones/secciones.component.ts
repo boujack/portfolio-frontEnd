@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
 import { DatosService } from 'src/app/services/datos.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
+import { faEdit, faPlus, faCheck} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-secciones',
@@ -16,6 +16,10 @@ export class SeccionesComponent implements OnInit {
   @Output() seccion:string="";
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
+  faEdit=faEdit;
+  faCheck=faCheck;
+  faPlus=faPlus;
+  @Output() edicion:boolean=true;
 
 
   constructor(private dbService:DatosService, private clkService:ClkEventsService) { }
@@ -29,7 +33,7 @@ export class SeccionesComponent implements OnInit {
 
   onFrameChange(){
     this.currStyle=this.hiddenStyle;
-    if(this.frameId!==5){
+    if(this.frameId<4&&this.frameId>=0){
       this.sOpen.emit();
     }
     this.dbService.getData().subscribe(data => {

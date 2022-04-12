@@ -1,5 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-modals',
@@ -7,43 +8,21 @@ import { ClkEventsService } from 'src/app/services/clk-events.service';
   styleUrls: ['./modals.component.css']
 })
 export class ModalsComponent implements OnInit {
-  @Output() logVis:string="false";
-  @Output() xpVis:string="false";
-  @Output() edVis:string="false";
-  @Output() skVis:string="false";
-  @Output() pyVis:string="false";
-  @Output() descVis:string="false";
+  visible:string="false"
+  modalId:number=0;
+  faXmark=faXmark;
   constructor(private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
     this.clkSvc.getBtnClk().subscribe(data=>{
-      switch(data.name){
-        case "logModal":{
-          this.logVis="true"
-          break;
-        }
-        case "xpModal":{
-          this.xpVis="true"
-          break;
-        }
-        case "edModal":{
-          this.edVis="true"
-          break;
-        }
-        case "skModal":{
-          this.skVis="true"
-          break;
-        }
-        case "pyModal":{
-          this.pyVis="true"
-          break;
-        }
-        case "descModal":{
-          this.descVis="true"
-          break;
-        }
+      if(data.id>=10 && data.id<20){
+        this.visible="true";
+        this.modalId=data.id;
       }
     })
   }
-
+  modalClose(){
+    this.visible="false";
+    this.modalId=0;
+  }
 }

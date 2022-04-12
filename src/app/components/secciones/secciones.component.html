@@ -2,4 +2,20 @@
 <app-cuadro-ed></app-cuadro-ed>
 <app-cuadro-sk></app-cuadro-sk>
 <app-cuadro-py></app-cuadro-py> -->
-<app-seccion [sec]="sec" [seccion]="seccion" [currStyle]="currStyle"></app-seccion>
+<div class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
+    <div class="titulo-skill-div">
+        <h2 class="titulo-skill">{{seccion}}</h2>
+        <div class="edit-buttons">
+            <button class="ok ed-ok button-or" *ngIf="edicion">
+                <fa-icon [icon]="faCheck"></fa-icon>
+            </button>
+            <button class="edit ed-edit button-or" *ngIf="edicion">
+                <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+            <button class="add ed-add button-or" *ngIf="edicion">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <app-seccion [sec]="sec" [edicion]="edicion"></app-seccion>
+</div>

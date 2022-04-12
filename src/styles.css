@@ -43,8 +43,8 @@ body{
 }
 .button-or{
     border-radius: 0rem;
-    box-shadow: 0 0 0.5rem rgb(21, 255, 0);
-    text-shadow: 0 0 0.5rem rgb(21, 255, 0);
+    box-shadow: 0 0 0.3rem rgb(21, 255, 0);
+    text-shadow: 0 0 0.2rem rgb(21, 255, 0);
     background: rgba(21,255,0,0.3);
     color:rgb(21, 255, 0);
     backdrop-filter: blur(0.7rem);
