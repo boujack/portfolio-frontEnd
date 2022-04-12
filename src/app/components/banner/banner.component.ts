@@ -6,11 +6,14 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  @Output() thisStyle:any;
+  columnas:any="single-column"
   constructor() { }
 
   ngOnInit(): void {
   }
-  onKeyEnter(ev:KeyboardEvent){
-    console.log(ev.key);
+  sectOpen(){
+    console.log("duo-column");
+    this.columnas="duo-column";
   }
 }

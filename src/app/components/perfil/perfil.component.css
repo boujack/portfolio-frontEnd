@@ -30,12 +30,10 @@
 }
 .cuadro-perfil{
     position: relative;
-    grid-area:profile;
     display:flex;
     align-items: center;
     padding:1.5rem;
     width: fit-content;
-    
 }
 .cuadro-perfil[animation="false"]{
     filter:brightness(0%);

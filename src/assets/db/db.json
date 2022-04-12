@@ -3,38 +3,54 @@
                     {
                         "id":1,
                         "labels":["Empresa","Puesto","Fecha Ingreso","Fecha Egreso"],
-                        "empresa":"Naturgy",
-                        "puesto":"Administrativo",
-                        "feIngreso":"23-10-2017",
-                        "feEgreso":"23-10-2040"
+                        "titulo":"Naturgy",
+                        "subtitulo":"Administrativo",
+                        "fecha_0":"2017-10-23",
+                        "fecha_1":"2040-10-23"
                     }
                 ],
     "educacion":[
                     {
                         "id":1,
                         "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
-                        "establecimiento":"EET Nº8",
-                        "titulo":"Tecnico Electronico",
-                        "feIngreso":"2004-03-01",
-                        "feEgreso":"2008-12-22"
+                        "titulo":"EET Nº8",
+                        "subtitulo":"Tecnico Electronico",
+                        "fecha_0":"2004-03-01",
+                        "fecha_1":"2008-12-22"
                     },
                     {
                         "id":2,
                         "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
-                        "establecimiento":"Unlam",
-                        "titulo":"Ing.Electronico",
-                        "feIngreso":"2009-04-01",
-                        "feEgreso":"2023-12-23"
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
+                    },
+                    {
+                        "id":3,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
+                    },
+                    {
+                        "id":4,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
                     }
                 ],
     "proyectos":[
                     {
                         "id":1,
                         "labels":["Proyecto","Descripcion","Fecha Inicio","Fecha Fin"],
-                        "proyecto":"Portfolio",
-                        "descripcion":"TP Final Arg. Programa",
-                        "feInicio":"2021-11-01",
-                        "feFin":"2022-05-31"
+                        "titulo":"Portfolio",
+                        "subtitulo":"TP Final Arg. Programa",
+                        "fecha_0":"2021-11-01",
+                        "fecha_1":"2022-05-31"
                     }
                 ],
     "habilidades":{

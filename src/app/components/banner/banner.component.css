@@ -1,6 +1,6 @@
 .scroll-border{
-    border-radius: 1rem;
-    box-shadow: 0 0 0.5rem var(--bd-color-1);
+    border-radius: 0rem;
+    box-shadow: 0 0 0.2rem var(--bd-color-1);
     background: var(--bg-color-1);
 }
 .banner{
@@ -9,9 +9,6 @@
     margin:0.5rem;
     max-width: calc(100%-1rem);
     height: 85vh;
-    grid-template-areas: 
-    'profile'
-    'placa';
     grid-auto-columns: 1fr;
     background-color: rgba(0,0,0,0.8);
     background-position: 50% 50%;
@@ -26,7 +23,8 @@
     overflow: hidden;
 }
 .banner-bg{
-    position:absolute;    
+    position:absolute; 
+    z-index:-10;   
 }
 .banner-bg[animation="false"]{
     filter:brightness(0%);

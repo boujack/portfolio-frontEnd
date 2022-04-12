@@ -1,5 +1,17 @@
-<div class="banner scroll-border">
-    <img src="assets/circuit_banner_2.png" alt="" class="banner-bg" animation="false"><button class="button-or edit edit-bg-img" hidden>E</button>
-    <app-perfil></app-perfil>
-    <app-placa></app-placa>
+<div class="banner scroll-border pantalla" [ngClass]="columnas">
+    <img src="assets/circuit_banner_2.png" alt="" class="banner-bg" animation="false">
+    <button class="button-or edit edit-bg-img" hidden></button>
+    <app-perfil 
+        [ngStyle]="{'grid-area':'profile'}"
+        >
+    </app-perfil>
+    <app-placa 
+        [ngStyle]="{'grid-area':'placa'}"
+        >
+    </app-placa>
+    <app-secciones 
+        [ngStyle]="{'grid-area':'skill'}"
+        (sOpen)="sectOpen()"
+        >
+    </app-secciones>  
 </div>

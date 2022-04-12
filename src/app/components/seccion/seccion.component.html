@@ -1,20 +1,20 @@
-<div class="detalle-skill" id="ed-frame" data-visible="true">
+<div class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
     <div class="titulo-skill-div">
-        <h2 class="titulo-skill">Educación</h2>
+        <h2 class="titulo-skill">{{seccion}}</h2>
         <div class="edit-buttons">
             <button class="ok ed-ok button-or" hidden>Ok</button>
             <button class="edit ed-edit button-or" hidden>Edit</button>
             <button class="add ed-add button-or" hidden>Add</button>
         </div>
     </div>
-    <div *ngFor="let e of educacion" class="descripcion-skill">
-        <input class="h1-skill" type="text" name="instituto" value={{e.establecimiento}} disabled>
+    <div *ngFor="let e of sec" class="descripcion-skill">
+        <input class="h1-skill" type="text" name="instituto" value={{e.titulo}} disabled>
         <button class="rm button-or" hidden>X</button>
         <label for="titulo">{{e.labels[1]+":"}}</label>
-        <input type="text" name="titulo" value={{e.titulo}} disabled>
+        <input type="text" name="titulo" value={{e.subtitulo}} disabled>
         <label for="fe-ingreso">{{e.labels[2]+":"}}</label>
-        <input type="date" name="fe-ingreso" value={{e.feIngreso}} disabled>
+        <input type="date" name="fe-ingreso" value={{e.fecha_0}} disabled>
         <label for="fe-egreso">{{e.labels[3]+":"}}</label> 
-        <input type="date" name="fe-egreso" value={{e.feEgreso}} disabled>
+        <input type="date" name="fe-egreso" value={{e.fecha_1}} disabled>
     </div>
 </div>

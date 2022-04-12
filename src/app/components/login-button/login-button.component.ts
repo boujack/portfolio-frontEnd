@@ -12,7 +12,6 @@ export class LoginButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.logged);
   }
   onClick(){
     this.loginClick.emit();

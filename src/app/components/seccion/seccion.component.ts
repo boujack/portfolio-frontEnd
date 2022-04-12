@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-seccion',
@@ -7,7 +6,10 @@ import { DatosService } from 'src/app/services/datos.service';
   styleUrls: ['./seccion.component.css']
 })
 export class SeccionComponent implements OnInit {
-  @Input() educacion:any;
+  @Input() sec:any;
+  @Input() seccion:string="";
+  @Input() visible:string="false";
+  @Input() currStyle:any;
   constructor() { }
 
   ngOnInit(): void {
