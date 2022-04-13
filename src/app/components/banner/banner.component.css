@@ -53,3 +53,6 @@
     80%{backdrop-filter: invert(0%);}
     100%{backdrop-filter: invert(10%);}
 }
+.bg-file{
+    display: none;
+}

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
@@ -13,7 +14,9 @@ export class BannerComponent implements OnInit {
   animate:string="false";
   faEdit=faEdit;
   edicion:boolean;
-  constructor(private clkSvc:ClkEventsService) { }
+  bgFile:string="circuit_banner_3.png";
+
+  constructor(private clkSvc:ClkEventsService, private http:HttpClient) { }
 
   ngOnInit(): void {
     this.clkSvc.getUIStatus().subscribe(data => {
@@ -26,5 +29,11 @@ export class BannerComponent implements OnInit {
   }
   sectOpen(){
     this.columnas="duo-column";
+  }
+  bgImgSelected(e:any){
+    const file:File = e.target.files[0];
+        if(file){
+          this.bgFile = file.name;
+        }
   }
 }

@@ -1,11 +1,17 @@
 <div class="cuadro-perfil" [attr.animation]="animate">
     <div class="profile-frame">
+        <input 
+        type="file" 
+        #profImgFile 
+        class="prof-file"
+        (change)="profImgSelected($event)">
         <button 
             class="button-or edit edit-prof-img" 
-            *ngIf="edicion">
+            *ngIf="edicion"
+            (click)="profImgFile.click()">
             <fa-icon [icon]="faEdit"></fa-icon>    
         </button>
-        <img class="foto-perfil" src="assets/profile.png" alt="">
+        <img class="foto-perfil" [src]="'assets/'+profFile" alt="">
     </div>
     <ul class="apartados-perfil">
         <li style="--i:1.6;"><div class="sk-1" (click)="runeClick(0)"><a href="#skill"><img title="Experiencia" class="icono-seccion" src="assets/exp_rune_5.png" alt=""></a><h1 class="tooltip tooltip-left">Experiencia</h1></div></li>

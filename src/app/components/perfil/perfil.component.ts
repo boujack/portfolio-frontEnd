@@ -18,6 +18,7 @@ export class PerfilComponent implements OnInit {
   animate:string="false";
   edicion:boolean=false;
   faEdit=faEdit;
+  profFile:string="profile.png"
 
   constructor(private clkService:ClkEventsService) {
   }
@@ -63,5 +64,11 @@ export class PerfilComponent implements OnInit {
         break;
       }
     }
+  }
+  profImgSelected(e:any){
+    const file:File = e.target.files[0];
+        if(file){
+          this.profFile = file.name;
+        }
   }
 }
