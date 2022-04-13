@@ -45,7 +45,7 @@ export class ModalGenericoComponent implements OnInit {
     
   }
   addXp(e:string,p:string,fi:string,fe:string){
-    console.log("added");
+    this.dataSvc.addData();
   }
   ngOnChange(){
     this.titulo=this.titles[this.modalId-10];

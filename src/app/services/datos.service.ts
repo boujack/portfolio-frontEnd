@@ -12,6 +12,9 @@ export class DatosService {
     return this.dbJson.get('./assets/db/db.json');
   }
   removeData(){
-    
+    console.log("remove DB data");
+  }
+  addData(){
+    console.log("add DB data");
   }
 }

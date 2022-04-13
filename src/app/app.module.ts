@@ -10,10 +10,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { PlacaComponent } from './components/placa/placa.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
-import { CuadroXpComponent } from './components/cuadro-xp/cuadro-xp.component';
-import { CuadroEdComponent } from './components/cuadro-ed/cuadro-ed.component';
 import { CuadroSkComponent } from './components/cuadro-sk/cuadro-sk.component';
-import { CuadroPyComponent } from './components/cuadro-py/cuadro-py.component';
 import { ModalsComponent } from './components/modals/modals.component';
 import { ModalLoginComponent } from './components/modal-login/modal-login.component';
 import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
@@ -35,10 +32,7 @@ import { ModalGenericoComponent } from './components/modal-generico/modal-generi
     PlacaComponent,
     PerfilComponent,
     SeccionesComponent,
-    CuadroXpComponent,
-    CuadroEdComponent,
     CuadroSkComponent,
-    CuadroPyComponent,
     ModalsComponent,
     ModalLoginComponent,
     ModalSkComponent,
