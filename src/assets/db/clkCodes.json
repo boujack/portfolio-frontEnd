@@ -19,6 +19,11 @@
         "13":"modal_add",
         "23":"modal_submit"
     },
+    "perfil_img":{
+        "4":"file_browser",
+        "14":"",
+        "24":"img_submit"
+    },
     "login":{
         "5":"seccion",
         "15":"modal_login",

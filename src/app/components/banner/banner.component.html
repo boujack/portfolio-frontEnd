@@ -1,6 +1,10 @@
 <div class="banner scroll-border pantalla" [ngClass]="columnas">
     <img src="assets/circuit_banner_3.png" alt="" class="banner-bg" [attr.animation]="animate">
-    <button class="button-or edit edit-bg-img" hidden></button>
+    <button 
+        class="button-or edit edit-bg-img" 
+        *ngIf="edicion">
+        <fa-icon [icon]="faEdit"></fa-icon>
+    </button>
     <app-perfil 
         [ngStyle]="{'grid-area':'profile'}"
         >

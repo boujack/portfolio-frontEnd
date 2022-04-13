@@ -1,4 +1,8 @@
 <div class="placa-descripcion" [attr.animation]="animate">            
     <p class="type-description">{{description}}<span id="blink-t" class="type-description"></span></p>
-    <button class="button-or edit edit-desc" hidden>E</button>
+    <button 
+        class="button-or edit edit-desc" 
+        *ngIf="edicion">
+        <fa-icon [icon]="faEdit"></fa-icon>    
+    </button>
 </div>

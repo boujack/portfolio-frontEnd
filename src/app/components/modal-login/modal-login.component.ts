@@ -23,6 +23,7 @@ export class ModalLoginComponent implements OnInit {
           success=true;
           this.authError=false;
           this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});
+          this.clkSvc.setEdit(true);
           this.submit.emit("false");
         }
       }

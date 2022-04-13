@@ -28,14 +28,9 @@ export class SeccionesComponent implements OnInit {
         this.frameId=data.id;
         this.onFrameChange();
       }
-      if(data.id==25)
-      {
-        this.edicion=true;
-      }
-      if(data.id==45)
-      {
-        this.edicion=false;
-      }
+    })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
     })
   }
 

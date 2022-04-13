@@ -1,6 +1,10 @@
 <div class="cuadro-perfil" [attr.animation]="animate">
     <div class="profile-frame">
-        <button class="button-or edit edit-prof-img" hidden>E</button>
+        <button 
+            class="button-or edit edit-prof-img" 
+            *ngIf="edicion">
+            <fa-icon [icon]="faEdit"></fa-icon>    
+        </button>
         <img class="foto-perfil" src="assets/profile.png" alt="">
     </div>
     <ul class="apartados-perfil">

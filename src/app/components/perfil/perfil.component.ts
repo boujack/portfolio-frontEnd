@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { Boton } from 'src/app/services/clk-events.service';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-perfil',
@@ -15,6 +16,8 @@ export class PerfilComponent implements OnInit {
   private pyBtn:Boton={id:3,name:"py",pressed:false};
   private imgBtn:Boton={id:4,name:"img",pressed:false};
   animate:string="false";
+  edicion:boolean=false;
+  faEdit=faEdit;
 
   constructor(private clkService:ClkEventsService) {
   }
@@ -23,6 +26,9 @@ export class PerfilComponent implements OnInit {
     this.clkService.getUIStatus().subscribe(data=>{
       if(data)
         this.animate="true";
+    })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
     })
   }
   

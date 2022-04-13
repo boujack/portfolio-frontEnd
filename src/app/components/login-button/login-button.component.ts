@@ -13,12 +13,12 @@ export class LoginButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clkSvc.getBtnClk().subscribe(data=>{
-      if(data.id==25){
+    this.clkSvc.getEditStatus().subscribe(status=>{
+      if(status){
         this.loginText="Logout"
         this.logged=true;
       }
-      if(data.id==45){
+      else{
         this.loginText="Login"
         this.logged=false;
       }
@@ -28,7 +28,7 @@ export class LoginButtonComponent implements OnInit {
     if(!this.logged)
       this.clkSvc.setBtnClk({id:15,name:"logModal",pressed:true});
     else
-      this.clkSvc.setBtnClk({id:45,name:"logout",pressed:true});     
+      this.clkSvc.setEdit(false);    
   }
 
 }
