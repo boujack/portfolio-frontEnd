@@ -43,7 +43,7 @@ export class PlacaComponent implements OnInit {
     
   }
 
-  delay(ms: number) {
+  private delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 }

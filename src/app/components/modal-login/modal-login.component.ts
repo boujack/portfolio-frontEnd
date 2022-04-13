@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ClkEventsService } from 'src/app/services/clk-events.service';
+import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-modal-login',
@@ -6,10 +8,26 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./modal-login.component.css']
 })
 export class ModalLoginComponent implements OnInit {
-  @Input() visible:string;
-  constructor() { }
+  @Input() value:string;
+  authError:boolean=false;
+  constructor(private dataSvc:DatosService,private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
+  }
+  tryLogin(u:any,p:any){
+    this.dataSvc.getData().subscribe(data=>{
+      let success:boolean=false;
+      for(let user of data.users){
+        if(user.user===u && user.pass===p){
+          console.log("auth success");
+          success=true;
+          this.authError=false;
+          this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});
+        }
+      }
+      if(!success)
+        this.authError=true;
+    })
   }
 
 }

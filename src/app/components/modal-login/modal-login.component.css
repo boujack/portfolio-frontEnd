@@ -1,0 +1,9 @@
+.error-msg{
+    font-family: 'ShareTech';
+    animation: 
+    blink-caret-t 1s step-end infinite; 
+}
+@keyframes blink-caret-t {
+    from, to { color: lime }
+    50% { color: transparent; }
+  }

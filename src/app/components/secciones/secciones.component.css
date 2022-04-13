@@ -52,4 +52,18 @@ button.ok{
     width: auto;
     margin: 0.5rem;
 }
-
+.type-description{
+    color:white;
+    font-family: 'ShareTech';
+    text-shadow: 0 0 0.2rem white;
+    font-size: 1.5rem;
+    overflow: hidden;
+    margin: 0 auto;
+    border-right: .5em solid white; 
+    animation: 
+    blink-caret-w .4s step-end infinite; 
+}
+@keyframes blink-caret-w {
+    from, to { border-color: white}
+    50% { border-color: transparent; }
+  }

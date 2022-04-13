@@ -16,7 +16,7 @@ export class SeccionesComponent implements OnInit {
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
-  @Output() edicion:boolean=true;
+  @Output() edicion:boolean=false;
 
 
   constructor(private dbService:DatosService, private clkService:ClkEventsService) { }
@@ -28,6 +28,10 @@ export class SeccionesComponent implements OnInit {
         this.frameId=data.id;
         this.onFrameChange();
       }
+      if(data.id==25)
+      {
+        this.edicion=!this.edicion;
+      }
     })
   }
 
@@ -37,6 +41,7 @@ export class SeccionesComponent implements OnInit {
     this.dbService.getData().subscribe(data => {
       this.seccion=this.seccArray[this.frameId];
       this.currStyle="true";
+      this.typeSeccion();
       switch(this.frameId)
       {
         case 0:{
@@ -62,8 +67,19 @@ export class SeccionesComponent implements OnInit {
       }
     })
   }
+  async typeSeccion(){
+    let aux:string=this.seccion;
+    this.seccion="";
+    for(let i=0;i<aux.length;i++)
+    {
+      await this.delay(100);
+      this.seccion=this.seccion+aux.charAt(i);      
+    }
+  }
   addSeccion(){
     this.clkService.setBtnClk({id:this.frameId+10,name:"addSec",pressed:true});
   }
-
+  private delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 }
