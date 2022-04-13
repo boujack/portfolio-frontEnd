@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Iceland&family=Rubik+Glitch&family=Turret+Road:wght@300&display=swap');
+/* font-family: 'Goldman', cursive;
+font-family: 'Iceland', cursive;
+font-family: 'Rubik Glitch', cursive;
+font-family: 'Turret Road', cursive; */
+
 @font-face{
     font-family: "Spaceport";
     src: url("assets/fonts/Spaceport.otf");
@@ -49,7 +55,7 @@ body{
     color:rgb(21, 255, 0);
     backdrop-filter: blur(0.7rem);
     border:none;
-    font-family:'GlitchInside';
+    font-family:'Goldman';
     cursor:pointer;
     font-weight: 800;
     padding:0.2rem;

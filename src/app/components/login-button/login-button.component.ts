@@ -14,7 +14,6 @@ export class LoginButtonComponent implements OnInit {
   ngOnInit(): void {
   }
   onClick(){
-    console.log("login-button");
     this.clkSvc.setBtnClk({id:15,name:"logModal",pressed:true});    
   }
 

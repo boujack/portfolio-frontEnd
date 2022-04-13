@@ -19,7 +19,6 @@ export class BannerComponent implements OnInit {
     })
   }
   sectOpen(){
-    console.log("duo-column");
     this.columnas="duo-column";
   }
 }

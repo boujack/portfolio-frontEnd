@@ -16,15 +16,13 @@ import { CuadroSkComponent } from './components/cuadro-sk/cuadro-sk.component';
 import { CuadroPyComponent } from './components/cuadro-py/cuadro-py.component';
 import { ModalsComponent } from './components/modals/modals.component';
 import { ModalLoginComponent } from './components/modal-login/modal-login.component';
-import { ModalXpComponent } from './components/modal-xp/modal-xp.component';
-import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
 import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
-import { ModalPyComponent } from './components/modal-py/modal-py.component';
 import { ModalDescComponent } from './components/modal-desc/modal-desc.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SeccionComponent } from './components/seccion/seccion.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { ModalGenericoComponent } from './components/modal-generico/modal-generico.component';
 
 @NgModule({
   declarations: [
@@ -43,12 +41,10 @@ import {HttpClientModule} from '@angular/common/http';
     CuadroPyComponent,
     ModalsComponent,
     ModalLoginComponent,
-    ModalXpComponent,
-    ModalEdComponent,
     ModalSkComponent,
-    ModalPyComponent,
     ModalDescComponent,
-    SeccionComponent
+    SeccionComponent,
+    ModalGenericoComponent
   ],
   imports: [
     BrowserModule,

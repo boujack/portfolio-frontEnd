@@ -1,9 +1,7 @@
 <div class="exp-modal-bg modal-bg" [attr.data-visible]="visible">
     <div class="relative-modal">
-        <app-modal-xp *ngIf="modalId==10"></app-modal-xp>
-        <app-modal-ed *ngIf="modalId==11"></app-modal-ed>
+        <app-modal-generico *ngIf="modalId>=10&&modalId<=13" [modalId]="modalId"></app-modal-generico>
         <app-modal-sk *ngIf="modalId==12"></app-modal-sk>
-        <app-modal-py *ngIf="modalId==13"></app-modal-py>
         <app-modal-login *ngIf="modalId==15"></app-modal-login>
         <app-modal-desc *ngIf="modalId==16"></app-modal-desc>
         <span class="modal-close button-or" (click)="modalClose()">

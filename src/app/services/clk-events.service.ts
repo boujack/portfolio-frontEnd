@@ -19,7 +19,6 @@ export class ClkEventsService {
   setBtnClk(btn:Boton){
     if(this.enabled)
       this.btnClicked.next(btn);
-      console.log(btn);
   }
   getBtnClk():Observable<Boton>{
     return this.btnClicked.asObservable();

@@ -19,7 +19,6 @@ export class ModalLoginComponent implements OnInit {
       let success:boolean=false;
       for(let user of data.users){
         if(user.user===u && user.pass===p){
-          console.log("auth success");
           success=true;
           this.authError=false;
           this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});
