@@ -50,7 +50,7 @@
         margin:0;
         grid-row-start:2;
     }
-    #login-button{
+    app-login-button{
         grid-row-start: 3;
     }
     .primary-navbar a{
@@ -71,9 +71,10 @@
         height: 100vh;
         width: auto;
         display:grid;
-        grid-template-rows: var(--navbar-height) auto auto;
-        align-items: center;
+        grid-template-rows: var(--navbar-height) max-content auto;
+        align-items: initial;
         justify-content:initial;
+        justify-items: center;
         padding:0em;
         margin:0;
         overflow: hidden;

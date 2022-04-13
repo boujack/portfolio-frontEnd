@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-menu-button',
@@ -8,9 +8,15 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class MenuButtonComponent implements OnInit {
   faBars=faBars;
+  @Output() menu:EventEmitter<boolean> = new EventEmitter;
+  private status:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  menuToggle(){
+    this.status=!this.status
+    this.menu.emit(this.status);
+  }
 }
