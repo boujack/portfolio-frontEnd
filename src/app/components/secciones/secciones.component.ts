@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { faEdit, faPlus, faCheck} from '@fortawesome/free-solid-svg-icons';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-secciones',
@@ -9,15 +9,12 @@ import { faEdit, faPlus, faCheck} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./secciones.component.css']
 })
 export class SeccionesComponent implements OnInit {
-  @Input() frameId:number;  
-  visibleStyle:string="true";
-  hiddenStyle:string="false";
+  private seccArray:string[]=["Experiencia","Educacion","Hard & Soft Skills","Proyectos"];
+  @Input() frameId:number;
   @Output() sec:any;
   @Output() seccion:string="";
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
-  faEdit=faEdit;
-  faCheck=faCheck;
   faPlus=faPlus;
   @Output() edicion:boolean=true;
 
@@ -26,48 +23,47 @@ export class SeccionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clkService.getBtnClk().subscribe(data =>{
-      this.frameId=data.id;
-      this.onFrameChange();
+      if(data.id>=0 && data.id<10)
+      {
+        this.frameId=data.id;
+        this.onFrameChange();
+      }
     })
   }
 
   onFrameChange(){
-    this.currStyle=this.hiddenStyle;
-    if(this.frameId<4&&this.frameId>=0){
-      this.sOpen.emit();
-    }
+    this.currStyle="false";
+    this.sOpen.emit();
     this.dbService.getData().subscribe(data => {
+      this.seccion=this.seccArray[this.frameId];
+      this.currStyle="true";
       switch(this.frameId)
       {
         case 0:{
-          this.seccion="Experiencia";
-          this.sec=data.experiencia;
-          this.currStyle=this.visibleStyle;
+          this.sec=data.experiencia;          
           break;
         }
         case 1:{
-          this.seccion="Educacion";
-          this.sec=data.educacion;
-          this.currStyle=this.visibleStyle;          
+          this.sec=data.educacion;     
           break;
         }
         case 2:{
-          this.seccion="Hard & Soft Skills";
           this.sec=data.habilidades;
-          this.currStyle=this.visibleStyle;
           break;
         }
         case 3:{
-          this.seccion="Proyectos";
           this.sec=data.proyectos;
-          this.currStyle=this.visibleStyle;
           break;
         }
         default:{
+          this.currStyle="false";
           break;
         }
       }
     })
+  }
+  addSeccion(){
+    this.clkService.setBtnClk({id:this.frameId+10,name:"addSec",pressed:true});
   }
 
 }

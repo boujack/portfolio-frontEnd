@@ -1,14 +1,28 @@
-<div *ngFor="let e of sec" class="descripcion-skill">
-    <input class="h1-skill" type="text" name="instituto" value={{e.titulo}} disabled>
-    <button class="rm button-or" *ngIf="edicion">
-        <fa-icon [icon]="faTrash"></fa-icon>
-    </button>
+<div class="descripcion-skill">
+    <input class="h1-skill" type="text" name="instituto" value={{e.titulo}} [disabled]="disabled">
+    <div class="edit-buttons">
+        <button 
+            class="rm button-or" 
+            *ngIf="edicion"
+            (click)="remove()"
+            >
+            <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+        <button 
+            class="edit ed-edit button-or" 
+            *ngIf="edicion"
+            (click)="enableEdit()"
+            >
+            <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+    </div>
     <label for="titulo">{{e.labels[1]+":"}}</label>
-    <input type="text" name="titulo" value={{e.subtitulo}} disabled>
+    <input type="text" name="titulo" value={{e.subtitulo}} [disabled]="disabled">
     <label for="fe-ingreso">{{e.labels[2]+":"}}</label>
-    <input type="date" name="fe-ingreso" value={{e.fecha_0}} disabled>
+    <input type="date" name="fe-ingreso" value={{e.fecha_0}} [disabled]="disabled">
     <label for="fe-egreso">{{e.labels[3]+":"}}</label> 
-    <input type="date" name="fe-egreso" value={{e.fecha_1}} disabled>
+    <input type="date" name="fe-egreso" value={{e.fecha_1}} [disabled]="disabled">
 </div>
+
     
 

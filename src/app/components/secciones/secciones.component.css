@@ -45,17 +45,11 @@
     width:100%;
 }
 button.add{
-    height: 2rem;
-    width: auto;
-    margin: 0.5rem;
-}
-button.edit{
-    height: 2rem;
     width: auto;
     margin: 0.5rem;
 }
 button.ok{
-    height: 2rem;
     width: auto;
     margin: 0.5rem;
 }
+

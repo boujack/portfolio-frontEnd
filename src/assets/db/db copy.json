@@ -1,0 +1,65 @@
+{
+    "experiencia":[
+                    {
+                        "id":1,
+                        "labels":["Empresa","Puesto","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Naturgy",
+                        "subtitulo":"Administrativo",
+                        "fecha_0":"2017-10-23",
+                        "fecha_1":"2040-10-23"
+                    }
+                ],
+    "educacion":[
+                    {
+                        "id":1,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"EET Nº8",
+                        "subtitulo":"Tecnico Electronico",
+                        "fecha_0":"2004-03-01",
+                        "fecha_1":"2008-12-22"
+                    },
+                    {
+                        "id":2,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
+                    },
+                    {
+                        "id":3,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
+                    },
+                    {
+                        "id":4,
+                        "labels":["Institucion","Titulo","Fecha Ingreso","Fecha Egreso"],
+                        "titulo":"Unlam",
+                        "subtitulo":"Ing.Electronico",
+                        "fecha_0":"2009-04-01",
+                        "fecha_1":"2023-12-23"
+                    }
+                ],
+    "proyectos":[
+                    {
+                        "id":1,
+                        "labels":["Proyecto","Descripcion","Fecha Inicio","Fecha Fin"],
+                        "titulo":"Portfolio",
+                        "subtitulo":"TP Final Arg. Programa",
+                        "fecha_0":"2021-11-01",
+                        "fecha_1":"2022-05-31"
+                    }
+                ],
+    "habilidades":{
+                    "mgc":85,
+                    "str":68,
+                    "int":75,
+                    "spr":55,
+                    "dst":45,
+                    "sta":95
+                },
+    "descripcion":"Esta es una descripcion de prueba para probar que se puede hacer algo en este framework vergocho"
+}

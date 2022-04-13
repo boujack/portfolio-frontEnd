@@ -11,4 +11,7 @@ export class DatosService {
   getData():Observable<any>{
     return this.dbJson.get('./assets/db/db.json');
   }
+  removeData(){
+    
+  }
 }
