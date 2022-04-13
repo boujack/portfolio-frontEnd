@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-sk',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModalSkComponent implements OnInit {
   @Input() visible:string;
+  @Output() submit:EventEmitter<string> = new EventEmitter;
   constructor() { }
 
   ngOnInit(): void {

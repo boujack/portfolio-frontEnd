@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { DatosService } from 'src/app/services/datos.service';
 
@@ -9,6 +9,7 @@ import { DatosService } from 'src/app/services/datos.service';
 })
 export class ModalLoginComponent implements OnInit {
   @Input() value:string;
+  @Output() submit:EventEmitter<string> = new EventEmitter;
   authError:boolean=false;
   constructor(private dataSvc:DatosService,private clkSvc:ClkEventsService) { }
 
@@ -22,6 +23,7 @@ export class ModalLoginComponent implements OnInit {
           success=true;
           this.authError=false;
           this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});
+          this.submit.emit("false");
         }
       }
       if(!success)

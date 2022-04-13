@@ -1,4 +1,4 @@
-import { Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, Output, Input} from '@angular/core';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./modals.component.css']
 })
 export class ModalsComponent implements OnInit {
-  visible:string="false"
+  @Input() visible:string="false"
   @Output() modalId:number=0;
   faXmark=faXmark;
   constructor(private clkSvc:ClkEventsService) { }

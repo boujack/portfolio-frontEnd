@@ -1,0 +1,33 @@
+{
+    "experiencia":{
+        "0":"seccion",
+        "10":"modal_add",
+        "20":"modal_submit"
+    },
+    "educacion":{
+        "1":"seccion",
+        "11":"modal_add",
+        "21":"modal_submit"
+    },
+    "skills":{
+        "2":"seccion",
+        "12":"modal_add",
+        "22":"modal_submit"
+    },
+    "proyectos":{
+        "3":"seccion",
+        "13":"modal_add",
+        "23":"modal_submit"
+    },
+    "login":{
+        "5":"seccion",
+        "15":"modal_login",
+        "25":"login_success",
+        "45":"logout"
+    },
+    "descripcion":{
+        "6":"seccion",
+        "16":"modal_add",
+        "26":"modal_submit"
+    }
+}

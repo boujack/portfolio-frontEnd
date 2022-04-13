@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class ModalGenericoComponent implements OnInit {
   label:string[];
   titles:string[]=["Añadir Experiencia Laboral","Añadir Estudio","","Añadir Proyecto"];
   titulo:string;
+  @Output() submit:EventEmitter<string>=new EventEmitter;
   @Input() modalId:number;
   constructor(private dataSvc:DatosService) { }
 
@@ -46,6 +47,7 @@ export class ModalGenericoComponent implements OnInit {
   }
   addXp(e:string,p:string,fi:string,fe:string){
     this.dataSvc.addData();
+    this.submit.emit("false");
   }
   ngOnChange(){
     this.titulo=this.titles[this.modalId-10];

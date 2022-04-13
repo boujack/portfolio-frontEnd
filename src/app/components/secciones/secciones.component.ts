@@ -30,7 +30,11 @@ export class SeccionesComponent implements OnInit {
       }
       if(data.id==25)
       {
-        this.edicion=!this.edicion;
+        this.edicion=true;
+      }
+      if(data.id==45)
+      {
+        this.edicion=false;
       }
     })
   }
