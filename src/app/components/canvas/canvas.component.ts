@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild,HostListener } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { Habilidad } from 'src/models/Habilidad';
 
@@ -13,13 +13,17 @@ export class CanvasComponent implements OnInit {
   private ctx:any;
   @Input() ancho:number;
   @Input() alto:number;
+  private skillData:number[]=[50,50,50,50,50,50];
+  private skillLabel:string[]=["Magia","Fuerza","Inteligencia","Espiritu","Destreza","Stamina"];
+
   constructor(private dataSvc:DatosService) {
     
   }
 
   ngOnInit(): void {
     this.dataSvc.getSkData().subscribe(skData=>{
-      this.drawCanvas(skData[0],skData[1],skData[2],skData[3],skData[4],skData[5]);
+      this.skillData=skData;
+      this.drawCanvas(this.skillData);
     })
   }
   ngAfterViewInit(){
@@ -27,17 +31,23 @@ export class CanvasComponent implements OnInit {
     this.ctx = this.canvasEl.getContext('2d');
     this.ctx.canvas.width=this.ancho;
     this.ctx.canvas.height=this.alto;
-    this.drawCanvas()
-  }
-  onResize(){
-    console.log("resize");
+    this.drawCanvas(this.skillData)
   }
 
-  drawCanvas(mgc:number=85,str:number=68,int:number=75,spr:number=55,dst:number=48,sta:number=95){
-    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+  @HostListener('window:resize', ['$event'])
+    onResize(event:any) {
+      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+      let size = Math.min(this.ancho,this.alto);
+      this.ctx.canvas.width=this.ancho;
+      this.ctx.canvas.height=this.alto;
+      this.drawCanvas(this.skillData);
+  }
+
+  drawCanvas(skills:number[]){
+    
     let x_center = this.ctx.canvas.width / 2;
     let y_center = this.ctx.canvas.height / 2;
-    const graphModule = (Math.min(this.ctx.canvas.width, this.ctx.canvas.height) - 100) / 2;
+    const graphModule = (Math.min(this.ctx.canvas.width, this.ctx.canvas.height) - 150) / 2;
     let escala = graphModule / 100;
     let fontSize = this.ctx.canvas.height / 25;
     let fontWidth = fontSize / 2;
@@ -45,13 +55,9 @@ export class CanvasComponent implements OnInit {
     let fillColor = "rgba(21,255,0,0.9)";
 	
     // Fill with gradient
-
-    hab.push(new Habilidad("Magia", Math.round(mgc * escala), hab.length));
-    hab.push(new Habilidad("Fuerza", Math.round(str * escala), hab.length));
-    hab.push(new Habilidad("Inteligencia", Math.round(int * escala), hab.length));
-    hab.push(new Habilidad("Espiritu", Math.round(spr * escala), hab.length));
-    hab.push(new Habilidad("Destreza", Math.round(dst * escala), hab.length));
-    hab.push(new Habilidad("Stamina", Math.round(sta * escala), hab.length));
+    for(let i=0;i<skills.length;i++){
+      hab.push(new Habilidad(this.skillLabel[i], Math.round(skills[i] * escala), hab.length));
+    }
     for (let n of hab) {
       n.setAttribs(hab.length);
     }
