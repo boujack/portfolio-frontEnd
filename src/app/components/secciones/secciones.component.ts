@@ -17,6 +17,7 @@ export class SeccionesComponent implements OnInit {
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
   @Output() edicion:boolean=false;
+  isSkill:boolean=false;
 
 
   constructor(private dbService:DatosService, private clkService:ClkEventsService) { }
@@ -41,6 +42,7 @@ export class SeccionesComponent implements OnInit {
       this.seccion=this.seccArray[this.frameId];
       this.currStyle="true";
       this.typeSeccion();
+      this.isSkill=false;
       switch(this.frameId)
       {
         case 0:{
@@ -52,6 +54,7 @@ export class SeccionesComponent implements OnInit {
           break;
         }
         case 2:{
+          this.isSkill=true;
           this.sec=data.habilidades;
           break;
         }

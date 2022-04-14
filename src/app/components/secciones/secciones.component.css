@@ -63,6 +63,12 @@ button.ok{
     animation: 
     blink-caret-w .4s step-end infinite; 
 }
+.canvas-skill{
+    justify-content: left;
+    align-items: center;
+    width: 45vw;
+    height: 60vh;
+}
 @keyframes blink-caret-w {
     from, to { border-color: white}
     50% { border-color: transparent; }

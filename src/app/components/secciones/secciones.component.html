@@ -2,7 +2,7 @@
 <app-cuadro-ed></app-cuadro-ed>
 <app-cuadro-sk></app-cuadro-sk>
 <app-cuadro-py></app-cuadro-py> -->
-<div class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
+<div *ngIf="!isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
     <div class="titulo-skill-div">
         <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
         <div class="edit-buttons">
@@ -19,3 +19,21 @@
         <app-seccion [e]="e" [edicion]="edicion"></app-seccion>
     </div>
 </div>
+<div *ngIf="isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
+    <div class="titulo-skill-div">
+        <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
+        <div class="edit-buttons">
+            <button 
+                class="add ed-add button-or" 
+                *ngIf="edicion"
+                (click)="addSeccion()"
+                >
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <div class="descripcion-skill canvas-skill" #canvasDiv>
+        <app-canvas [ancho]="canvasDiv.clientWidth" [alto]="canvasDiv.clientHeight" #appCanv></app-canvas>
+    </div>
+</div>
+

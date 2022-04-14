@@ -1,11 +1,11 @@
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
-
+  private tempSk:Subject<number[]>=new Subject;
   constructor(private dbJson:HttpClient) { }
 
   getData():Observable<any>{
@@ -16,5 +16,11 @@ export class DatosService {
   }
   addData(){
     console.log("add DB data");
+  }
+  editData(sk:number[]){
+    this.tempSk.next(sk);
+  }
+  getSkData():Observable<number[]>{
+    return this.tempSk.asObservable();
   }
 }

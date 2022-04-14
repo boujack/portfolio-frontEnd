@@ -1,16 +1,20 @@
 <div class="modal">
     <h2>Editar Hard & Soft Skill Level</h2>
-    <label for="magia" class="etiqueta-modal">Magia</label>
-    <input type="number" name="magia" id="sk-magia">
-    <label for="fuerza" class="etiqueta-modal">Fuerza</label>
-    <input type="number" name="fuerza" id="sk-fuerza">
-    <label for="inteligencia" class="etiqueta-modal">Inteligencia</label>
-    <input type="number" name="inteligencia" id="sk-intel">
-    <label for="espiritu" class="etiqueta-modal">Espiritu</label>
-    <input type="number" name="espiritu" id="sk-spirit">
-    <label for="destreza" class="etiqueta-modal">Destreza</label>
-    <input type="number" name="destreza" id="sk-destreza">
-    <label for="stamina" class="etiqueta-modal">Stamina</label>
-    <input type="number" name="stamina" id="sk-stamina">
-    <button id="sk-submit" class="button-or submit-button">Aceptar</button>
+    <label class="etiqueta-modal">{{labels[0]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[0]}" #sk0>
+    <label class="etiqueta-modal">{{labels[1]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[1]}" #sk1>
+    <label class="etiqueta-modal">{{labels[2]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[2]}" #sk2>
+    <label class="etiqueta-modal">{{labels[3]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[3]}" #sk3>
+    <label class="etiqueta-modal">{{labels[4]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[4]}" #sk4>
+    <label class="etiqueta-modal">{{labels[5]}}</label>
+    <input type="number" [ngClass]="{'value-error':error[5]}" #sk5>
+    <button 
+        id="sk-submit" 
+        class="button-or submit-button"
+        (click)="validation([+sk0.value,+sk1.value,+sk2.value,+sk3.value,+sk4.value,+sk5.value])">
+        Aceptar</button>
 </div>

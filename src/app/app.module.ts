@@ -20,6 +20,7 @@ import { SeccionComponent } from './components/seccion/seccion.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { ModalGenericoComponent } from './components/modal-generico/modal-generico.component';
+import { CanvasComponent } from './components/canvas/canvas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ModalGenericoComponent } from './components/modal-generico/modal-generi
     ModalSkComponent,
     ModalDescComponent,
     SeccionComponent,
-    ModalGenericoComponent
+    ModalGenericoComponent,
+    CanvasComponent
   ],
   imports: [
     BrowserModule,
