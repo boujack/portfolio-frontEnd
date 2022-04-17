@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild,HostListener } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, HostListener } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { Habilidad } from 'src/models/Habilidad';
 
@@ -21,9 +21,10 @@ export class CanvasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSvc.getSkData().subscribe(skData=>{
-      this.skillData=skData;
-      this.drawCanvas(this.skillData);
+    this.dataSvc.getSkLabels().subscribe(skData=>{
+      this.skillLabel=skData;
+      this.skillData=this.dataSvc.getSkValues();
+      this.drawCanvas();
     })
   }
   ngAfterViewInit(){
@@ -31,20 +32,20 @@ export class CanvasComponent implements OnInit {
     this.ctx = this.canvasEl.getContext('2d');
     this.ctx.canvas.width=this.ancho;
     this.ctx.canvas.height=this.alto;
-    this.drawCanvas(this.skillData)
+    this.drawCanvas()
   }
 
   @HostListener('window:resize', ['$event'])
     onResize(event:any) {
-      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+      
       let size = Math.min(this.ancho,this.alto);
       this.ctx.canvas.width=this.ancho;
       this.ctx.canvas.height=this.alto;
-      this.drawCanvas(this.skillData);
+      this.drawCanvas();
   }
 
-  drawCanvas(skills:number[]){
-    
+  drawCanvas(){
+    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     let x_center = this.ctx.canvas.width / 2;
     let y_center = this.ctx.canvas.height / 2;
     const graphModule = (Math.min(this.ctx.canvas.width, this.ctx.canvas.height) - 150) / 2;
@@ -52,11 +53,10 @@ export class CanvasComponent implements OnInit {
     let fontSize = this.ctx.canvas.height / 25;
     let fontWidth = fontSize / 2;
     let hab = [];
-    let fillColor = "rgba(21,255,0,0.9)";
 	
     // Fill with gradient
-    for(let i=0;i<skills.length;i++){
-      hab.push(new Habilidad(this.skillLabel[i], Math.round(skills[i] * escala), hab.length));
+    for(let i=0;i<this.skillData.length;i++){
+      hab.push(new Habilidad(this.skillLabel[i], Math.round(this.skillData[i] * escala), hab.length));
     }
     for (let n of hab) {
       n.setAttribs(hab.length);
@@ -75,7 +75,6 @@ export class CanvasComponent implements OnInit {
     grd.addColorStop(0.6, "cyan");
     grd.addColorStop(0.4, "magenta");
     this.ctx.fillStyle = grd;
-    //this.ctx.fillStyle=fillColor;
     this.ctx.fill();
 
     //Dibuja la guia
@@ -126,7 +125,5 @@ export class CanvasComponent implements OnInit {
       }
       this.ctx.fillText(text, x_text + x_offset, y_text + y_offset);
     }
-
-
   }
 }

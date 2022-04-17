@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-secciones',
@@ -16,6 +16,7 @@ export class SeccionesComponent implements OnInit {
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
+  faEdit=faEdit;
   @Output() edicion:boolean=false;
   isSkill:boolean=false;
 
@@ -69,6 +70,7 @@ export class SeccionesComponent implements OnInit {
       }
     })
   }
+  
   async typeSeccion(){
     let aux:string=this.seccion;
     this.seccion="";
@@ -80,6 +82,9 @@ export class SeccionesComponent implements OnInit {
   }
   addSeccion(){
     this.clkService.setBtnClk({id:this.frameId+10,name:"addSec",pressed:true});
+  }
+  modifySeccion(){
+    this.clkService.setBtnClk({id:17,name:"modSec",pressed:true});
   }
   private delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );

@@ -42,8 +42,7 @@ export class ModalGenericoComponent implements OnInit {
     else
       this.errorMsg[3]=true;
     if(this.errorMsg[0]==false && this.errorMsg[1]==false && this.errorMsg[2]==false && this.errorMsg[3]==false)
-      this.addXp(e,p,fi,fe);   
-    
+      this.addXp(e,p,fi,fe);       
   }
   addXp(e:string,p:string,fi:string,fe:string){
     this.dataSvc.addData();

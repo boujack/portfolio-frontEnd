@@ -1,12 +1,20 @@
-import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable,Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
-  private tempSk:Subject<number[]>=new Subject;
-  constructor(private dbJson:HttpClient) { }
+  private skValues:number[]=[];
+  private skLabels:Subject<string[]>=new Subject;
+
+  constructor(private dbJson:HttpClient) {
+    this.dbJson.get('./assets/db/db.json').subscribe(d=>{
+      let aux:any = d;
+      this.skValues=aux.habilidades.values;
+      this.skLabels.next(aux.habilidades.labels);
+    })
+  }
 
   getData():Observable<any>{
     return this.dbJson.get('./assets/db/db.json');
@@ -17,10 +25,17 @@ export class DatosService {
   addData(){
     console.log("add DB data");
   }
-  editData(sk:number[]){
-    this.tempSk.next(sk);
+  editSkValues(sk:number[]){
+    this.skValues=sk;
   }
-  getSkData():Observable<number[]>{
-    return this.tempSk.asObservable();
+  editSkLables(sk:string[]){
+    this.skLabels.next(sk);
   }
+  getSkLabels():Observable<string[]>{
+    return this.skLabels.asObservable();
+  }
+  getSkValues():number[]{
+    return this.skValues;
+  }
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
@@ -9,27 +11,67 @@ import { DatosService } from 'src/app/services/datos.service';
 export class ModalSkComponent implements OnInit {
   @Input() visible:string;
   @Output() submit:EventEmitter<string> = new EventEmitter;
-  labels:string[]=["Hab_0","Hab_1","Hab_2","Hab_3","Hab_4","Hab_5"];
-  error:boolean[]=[false,false,false,false,false,false];
+  error:boolean[];
   errorMsg:boolean;
-  constructor(private dataSvc:DatosService) { }
+  faPlus=faPlus;
+  faTrash=faTrashCan;
+  inputLNames:string[]=[];
+  inputVNames:string[]=[];
+  indice:number=0;
+
+  skillForm:FormGroup=new FormGroup({});
+
+  constructor(private dataSvc:DatosService) { 
+  }
 
   ngOnInit(): void {
-
+    this.dataSvc.getSkLabels().subscribe(data=> {
+      this.loadInputs(data,this.dataSvc.getSkValues());
+    })
+      
   }
-  validation(sk:number[]){
-    this.errorMsg=false;
-    for(let i=0;i<sk.length;i++){
-      if(sk[i]<0||sk[i]>100){
-        this.error[i]=true;
-        this.errorMsg=true;
-      }
+
+  removeControl(i:number){
+    this.skillForm.removeControl("label"+i);
+    this.skillForm.removeControl("value"+i);
+  }
+
+  loadInputs(l:string[],v:number[]){
+    for(let i = this.indice-1;i>=0;i--){
+      this.skillForm.removeControl(this.inputVNames[i]);
+      this.skillForm.removeControl(this.inputLNames[i]);
+      this.inputLNames.pop();
+      this.inputVNames.pop();
+      this.indice--;
     }
-    if(!this.errorMsg)
-      this.setCanvas(sk);
-  }
-  setCanvas(sk:number[]){
-    this.dataSvc.editData(sk)
+    for(let i = 0;i<l.length;i++){
+      this.inputLNames.push("label"+this.indice);
+      this.inputVNames.push("value"+this.indice);
+      this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',Validators.minLength(3),));
+      this.skillForm.addControl(this.inputVNames[this.indice],new FormControl('',[Validators.min(0),Validators.max(100)]));
+      this.skillForm.get(this.inputLNames[this.indice])?.setValue(l[i]);
+      this.skillForm.get(this.inputVNames[this.indice])?.setValue(v[i]);
+      this.indice++; 
+    }
   }
 
+  setCanvas(){
+    let values:number[]=[];
+    let labels:string[]=[];
+    for(let i = 0; i<this.indice;i++){
+      labels.push(this.skillForm.get(this.inputLNames[i])?.value);
+      values.push(this.skillForm.get(this.inputVNames[i])?.value);
+    }
+    this.dataSvc.editSkValues(values);
+    this.dataSvc.editSkLables(labels);
+    this.submit.emit("false");
+  }
+
+  addSeccion(){
+    this.inputLNames.push("label"+this.indice);
+    this.inputVNames.push("value"+this.indice);
+    this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',Validators.minLength(3)));
+    this.skillForm.addControl(this.inputVNames[this.indice],new FormControl('',[Validators.min(0),Validators.max(100)]));
+    this.indice++;  
+  }
 }

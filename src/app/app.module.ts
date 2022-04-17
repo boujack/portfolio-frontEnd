@@ -21,6 +21,7 @@ import { SeccionComponent } from './components/seccion/seccion.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ModalGenericoComponent } from './components/modal-generico/modal-generico.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CanvasComponent } from './components/canvas/canvas.component';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

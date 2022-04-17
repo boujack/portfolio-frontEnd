@@ -54,12 +54,8 @@
                     }
                 ],
     "habilidades":{
-                    "mgc":85,
-                    "str":68,
-                    "int":75,
-                    "spr":55,
-                    "dst":45,
-                    "sta":95
+                    "labels":["Hab_0","Hab_1","Hab_2","Hab_3","Hab_4","Hab_5"],
+                    "values":[85,68,75,55,45,95]
                 },
     "descripcion":"Esta es una descripcion de prueba para probar que se puede hacer algo en este framework",
     "users":[

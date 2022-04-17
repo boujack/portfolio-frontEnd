@@ -1,20 +1,24 @@
 <div class="modal">
     <h2>Editar Hard & Soft Skill Level</h2>
-    <label class="etiqueta-modal">{{labels[0]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[0]}" #sk0>
-    <label class="etiqueta-modal">{{labels[1]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[1]}" #sk1>
-    <label class="etiqueta-modal">{{labels[2]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[2]}" #sk2>
-    <label class="etiqueta-modal">{{labels[3]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[3]}" #sk3>
-    <label class="etiqueta-modal">{{labels[4]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[4]}" #sk4>
-    <label class="etiqueta-modal">{{labels[5]}}</label>
-    <input type="number" [ngClass]="{'value-error':error[5]}" #sk5>
+    <div class="input-box"><label for="">Etiqueta</label><label for="">Valor</label></div>
+    <form [formGroup]="skillForm">
+        <div class="input-box" *ngFor="let l of inputLNames, index as i">
+            <input class="input" type="text" formControlName="label{{i}}">
+            <input class="input" type="number" formControlName="value{{i}}">
+            <button class="button-or" (click)="removeControl(i)">
+                <fa-icon [icon]=faTrash></fa-icon>
+            </button>
+        </div>
+    </form>
+
+    <button 
+        class="button-or" 
+        (click)="addSeccion()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
     <button 
         id="sk-submit" 
         class="button-or submit-button"
-        (click)="validation([+sk0.value,+sk1.value,+sk2.value,+sk3.value,+sk4.value,+sk5.value])">
+        (click)="setCanvas()">
         Aceptar</button>
 </div>
