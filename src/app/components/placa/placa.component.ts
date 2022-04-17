@@ -53,4 +53,8 @@ export class PlacaComponent implements OnInit {
   private delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
+
+  editButton(){
+    this.clkSvc.setBtnClk({id:16,name:"placaEdit",pressed:true});
+  }
 }

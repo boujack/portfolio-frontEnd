@@ -200,3 +200,13 @@ img,a{
     'placa'
     'skill';
 }
+
+.fa-red-soc{
+    font-size: 1.5rem;
+    margin:0.5rem;
+    transition: font-size 100ms ease-in-out;
+}
+.fa-red-soc:hover{
+    font-size: 2rem;
+    transition: font-size 100ms ease-in-out;
+}

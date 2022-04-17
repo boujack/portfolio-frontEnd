@@ -2,7 +2,8 @@
     <p class="type-description">{{description}}<span id="blink-t" class="type-description"></span></p>
     <button 
         class="edit-icon edit edit-desc" 
-        *ngIf="edicion">
+        *ngIf="edicion"
+        (click)="editButton()">
         <fa-icon [icon]="faEdit"></fa-icon>    
     </button>
 </div>
