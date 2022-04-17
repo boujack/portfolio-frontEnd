@@ -17,3 +17,7 @@
     margin-bottom: 0.5rem;
     margin-right: 0.5rem;
 }
+.trash{
+    color:lime;
+    cursor: pointer;
+}

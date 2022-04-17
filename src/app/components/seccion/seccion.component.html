@@ -2,14 +2,14 @@
     <input class="h1-skill" type="text" name="instituto" value={{e.titulo}} [disabled]="disabled">
     <div class="edit-buttons">
         <button 
-            class="rm button-or" 
+            class="rm edit-icon" 
             *ngIf="edicion"
             (click)="remove()"
             >
             <fa-icon [icon]="faTrash"></fa-icon>
         </button>
         <button 
-            class="edit ed-edit button-or" 
+            class="edit ed-edit edit-icon" 
             *ngIf="edicion"
             (click)="enableEdit()"
             >

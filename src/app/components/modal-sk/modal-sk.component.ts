@@ -25,15 +25,21 @@ export class ModalSkComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSvc.getSkLabels().subscribe(data=> {
-      this.loadInputs(data,this.dataSvc.getSkValues());
-    })
-      
+    this.loadInputs(this.dataSvc.getSkL(),this.dataSvc.getSkValues());
   }
 
   removeControl(i:number){
     this.skillForm.removeControl("label"+i);
     this.skillForm.removeControl("value"+i);
+    this.inputLNames.filter(function(value, index, arr){ 
+      if(value==="label"+i)
+        arr.splice(index,1);
+    });
+    this.inputVNames.filter(function(value, index, arr){ 
+      if(value==="value"+i)
+        arr.splice(index,1);
+    });
+    this.indice--;
   }
 
   loadInputs(l:string[],v:number[]){
@@ -42,8 +48,8 @@ export class ModalSkComponent implements OnInit {
       this.skillForm.removeControl(this.inputLNames[i]);
       this.inputLNames.pop();
       this.inputVNames.pop();
-      this.indice--;
     }
+    this.indice=0;
     for(let i = 0;i<l.length;i++){
       this.inputLNames.push("label"+this.indice);
       this.inputVNames.push("value"+this.indice);
@@ -63,6 +69,7 @@ export class ModalSkComponent implements OnInit {
       values.push(this.skillForm.get(this.inputVNames[i])?.value);
     }
     this.dataSvc.editSkValues(values);
+    this.dataSvc.editSkL(labels);
     this.dataSvc.editSkLables(labels);
     this.submit.emit("false");
   }

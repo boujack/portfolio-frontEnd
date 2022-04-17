@@ -26,6 +26,8 @@ export class CanvasComponent implements OnInit {
       this.skillData=this.dataSvc.getSkValues();
       this.drawCanvas();
     })
+    this.skillLabel=this.dataSvc.getSkL();
+    this.skillData=this.dataSvc.getSkValues();
   }
   ngAfterViewInit(){
     this.canvasEl=this.canvas.nativeElement;

@@ -83,9 +83,6 @@ export class SeccionesComponent implements OnInit {
   addSeccion(){
     this.clkService.setBtnClk({id:this.frameId+10,name:"addSec",pressed:true});
   }
-  modifySeccion(){
-    this.clkService.setBtnClk({id:17,name:"modSec",pressed:true});
-  }
   private delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }

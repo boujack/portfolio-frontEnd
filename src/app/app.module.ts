@@ -10,7 +10,6 @@ import { BannerComponent } from './components/banner/banner.component';
 import { PlacaComponent } from './components/placa/placa.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
-import { CuadroSkComponent } from './components/cuadro-sk/cuadro-sk.component';
 import { ModalsComponent } from './components/modals/modals.component';
 import { ModalLoginComponent } from './components/modal-login/modal-login.component';
 import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
@@ -34,7 +33,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     PlacaComponent,
     PerfilComponent,
     SeccionesComponent,
-    CuadroSkComponent,
     ModalsComponent,
     ModalLoginComponent,
     ModalSkComponent,

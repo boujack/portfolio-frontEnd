@@ -5,14 +5,14 @@
         <div class="input-box" *ngFor="let l of inputLNames, index as i">
             <input class="input" type="text" formControlName="label{{i}}">
             <input class="input" type="number" formControlName="value{{i}}">
-            <button class="button-or" (click)="removeControl(i)">
+            <span class="edit-icon" (click)="removeControl(i)">
                 <fa-icon [icon]=faTrash></fa-icon>
-            </button>
+            </span>
         </div>
     </form>
 
     <button 
-        class="button-or" 
+        class="edit-icon" 
         (click)="addSeccion()">
             <fa-icon [icon]="faPlus"></fa-icon>
         </button>

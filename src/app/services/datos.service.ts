@@ -7,12 +7,13 @@ import { Observable,Subject } from 'rxjs';
 export class DatosService {
   private skValues:number[]=[];
   private skLabels:Subject<string[]>=new Subject;
+  private skL:string[]=[];
 
   constructor(private dbJson:HttpClient) {
     this.dbJson.get('./assets/db/db.json').subscribe(d=>{
       let aux:any = d;
       this.skValues=aux.habilidades.values;
-      this.skLabels.next(aux.habilidades.labels);
+      this.skL=aux.habilidades.labels;
     })
   }
 
@@ -37,5 +38,10 @@ export class DatosService {
   getSkValues():number[]{
     return this.skValues;
   }
-
+  getSkL():string[]{
+    return this.skL;
+  }
+  editSkL(sk:string[]){
+    this.skL=sk;
+  }
 }
