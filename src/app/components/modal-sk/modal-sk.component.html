@@ -1,10 +1,18 @@
 <div class="modal">
     <h2>Editar Hard & Soft Skill Level</h2>
     <div class="input-box"><label for="">Etiqueta</label><label for="">Valor</label></div>
-    <form [formGroup]="skillForm">
+    <form class="form-modal" [formGroup]="skillForm">
         <div class="input-box" *ngFor="let l of inputLNames, index as i">
-            <input class="input" type="text" formControlName="label{{i}}">
-            <input class="input" type="number" formControlName="value{{i}}">
+            <input 
+                class="input"
+                [class.input-error]="skillForm.get(inputLNames[i])?.touched && skillForm.get(inputLNames[i])?.invalid"  
+                type="text" 
+                formControlName="label{{i}}">
+            <input 
+                class="input"
+                [class.input-error]="skillForm.get(inputVNames[i])?.touched && skillForm.get(inputVNames[i])?.invalid"  
+                type="number" 
+                formControlName="value{{i}}">
             <span class="edit-icon" (click)="removeControl(i)">
                 <fa-icon [icon]=faTrash></fa-icon>
             </span>

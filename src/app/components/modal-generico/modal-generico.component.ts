@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
@@ -18,31 +19,22 @@ export class ModalGenericoComponent implements OnInit {
   titulo:string;
   @Output() submit:EventEmitter<string>=new EventEmitter;
   @Input() modalId:number;
-  constructor(private dataSvc:DatosService) { }
+  genForm:FormGroup;
+  constructor(private dataSvc:DatosService) { 
+    this.genForm=new FormGroup({
+      title:new FormControl('',Validators.required),
+      subtitle:new FormControl('',Validators.required),
+      feIni:new FormControl('',Validators.required),
+      feFin:new FormControl('',Validators.required)
+    })
+  }
 
   ngOnInit(): void {
     this.titulo=this.titles[this.modalId-10];
     this.label=this.labels[this.modalId-10];
   }
-  validacion(e:string,p:string,fi:string,fe:string){
-    if(e.length>3 && e.length<=20)
-      this.errorMsg[0]=false;
-    else
-      this.errorMsg[0]=true;
-    if(p.length>3 && p.length<=20)
-      this.errorMsg[1]=false;
-    else
-      this.errorMsg[1]=true;
-    if(fi.length==10)
-      this.errorMsg[2]=false;
-    else
-      this.errorMsg[2]=true;
-    if(fe.length==10)
-      this.errorMsg[3]=false;
-    else
-      this.errorMsg[3]=true;
-    if(this.errorMsg[0]==false && this.errorMsg[1]==false && this.errorMsg[2]==false && this.errorMsg[3]==false)
-      this.addXp(e,p,fi,fe);       
+  validacion(){
+    this.addXp(this.genForm.get("title")?.value,this.genForm.get("subtitle")?.value,this.genForm.get("feIni")?.value,this.genForm.get("feFin")?.value);       
   }
   addXp(e:string,p:string,fi:string,fe:string){
     this.dataSvc.addData();

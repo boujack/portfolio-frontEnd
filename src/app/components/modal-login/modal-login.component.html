@@ -1,14 +1,23 @@
 <div class="modal">
     <h2>Ingresar</h2>
-    <p class="error-msg" *ngIf="authError">Usuario y/o contraseña incorrectos</p>
-    <label for="username" class="etiqueta-modal">Usuario/E-mail</label>
-    <input type="text" name="username" #username>
-    <label for="password" class="etiqueta-modal">Contraseña</label>
-    <input type="password" name="password" #pass>
-    
+    <p class="error-msg" *ngIf="authError"> Usuario y/o contraseña incorrectos </p>
+    <form class="form-modal" [formGroup]="loginForm">
+        <label for="">Usuario</label>
+        <input
+            [class.input-error]="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" 
+            type="text" 
+            formControlName="username" 
+            required>
+        <label for="">Contraseña</label>
+        <input
+            [class.input-error]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"  
+            type="password" 
+            formControlName="password"
+            required>
+    </form>
     <button 
         class="button-or submit-button"
-        (click)="tryLogin(username.value,pass.value)"
+        (click)="tryLogin()"
         >
         Acceder
     </button>

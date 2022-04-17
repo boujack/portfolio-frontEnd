@@ -1,35 +1,34 @@
 <div class="modal">
     <h2>{{titulo}}</h2>
-    <label for="empresa" class="etiqueta-modal">{{label[0]}}</label>
-    <input 
-        type="text" 
-        name="empresa" 
-        #title
-        [ngClass]="{'error-msg':errorMsg[0]}"
-        >
-    <label for="exp-puesto" class="etiqueta-modal">{{label[1]}}</label>
-    <input 
-        type="text" 
-        name="puesto" 
-        #subTitle
-        [ngClass]="{'error-msg':errorMsg[1]}"
-        >
-    <label for="ingreso" class="etiqueta-modal">{{label[2]}}</label>
-    <input 
-        type="date" 
-        name="ingreso" 
-        #feIni
-        [ngClass]="{'error-msg':errorMsg[2]}"
-        >
-    <label for="egreso" class="etiqueta-modal">{{label[3]}}</label>
-    <input 
-        type="date" 
-        name="egreso"  
-        #feFin
-        [ngClass]="{'error-msg':errorMsg[3]}"
-        >
-    <button 
-        class="button-or submit-button"
-        (click)="validacion(title.value,subTitle.value,feIni.value,feFin.value)"
-        >Aceptar</button>
+    <form class="form-modal" [formGroup]="genForm">
+        <label for="empresa" class="etiqueta-modal">{{label[0]}}</label>
+        <input 
+            type="text" 
+            name="empresa" 
+            formControlName="title"
+            [class.input-error]="genForm.get('title')?.touched && genForm.get('title')?.invalid">
+        <label for="exp-puesto" class="etiqueta-modal">{{label[1]}}</label>
+        <input 
+            type="text" 
+            name="puesto" 
+            formControlName="subtitle"
+            [class.input-error]="genForm.get('subtitle')?.touched && genForm.get('subtitle')?.invalid">
+        <label for="ingreso" class="etiqueta-modal">{{label[2]}}</label>
+        <input 
+            type="date" 
+            name="ingreso" 
+            formControlName="feIni"
+            [class.input-error]="genForm.get('feIni')?.touched && genForm.get('feIni')?.invalid">
+        <label for="egreso" class="etiqueta-modal">{{label[3]}}</label>
+        <input 
+            type="date" 
+            name="egreso"  
+            formControlName="feFin"
+            [class.input-error]="genForm.get('feFin')?.touched && genForm.get('feFin')?.invalid">
+        <button 
+            class="button-or submit-button"
+            (click)="validacion()">
+            Aceptar</button>
+    </form>
+    
 </div>

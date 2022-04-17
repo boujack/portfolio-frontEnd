@@ -21,3 +21,6 @@
     color:lime;
     cursor: pointer;
 }
+.error{
+    border:solid yellow 2px;
+}

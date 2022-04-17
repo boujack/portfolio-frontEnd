@@ -1,9 +1,16 @@
 .error-msg{
+    color:black;
     font-family: 'ShareTech';
+    font-weight: bold;
+    text-shadow: none;
+    transform: skewX(-15deg);
     animation: 
     blink-caret-t 1s step-end infinite; 
 }
 @keyframes blink-caret-t {
-    from, to { color: lime }
-    50% { color: transparent; }
+    from, to { background-color: yellow;color:black }
+    50% { background-color: transparent; color:yellow }
   }
+.error{
+    border:solid yellow 2px;
+}

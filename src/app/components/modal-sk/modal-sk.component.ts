@@ -53,8 +53,8 @@ export class ModalSkComponent implements OnInit {
     for(let i = 0;i<l.length;i++){
       this.inputLNames.push("label"+this.indice);
       this.inputVNames.push("value"+this.indice);
-      this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',Validators.minLength(3),));
-      this.skillForm.addControl(this.inputVNames[this.indice],new FormControl('',[Validators.min(0),Validators.max(100)]));
+      this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',[Validators.required,Validators.minLength(3)]));
+      this.skillForm.addControl(this.inputVNames[this.indice],new FormControl('',[Validators.required,Validators.min(0),Validators.max(100)]));
       this.skillForm.get(this.inputLNames[this.indice])?.setValue(l[i]);
       this.skillForm.get(this.inputVNames[this.indice])?.setValue(v[i]);
       this.indice++; 
