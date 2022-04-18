@@ -26,7 +26,7 @@ export class LoginButtonComponent implements OnInit {
   }
   onClick(){
     if(!this.logged)
-      this.clkSvc.setBtnClk({id:15,name:"logModal",pressed:true});
+      this.clkSvc.setBtnClk(15);
     else
       this.clkSvc.setEdit(false);    
   }

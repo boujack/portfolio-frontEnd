@@ -15,9 +15,9 @@ export class ModalsComponent implements OnInit {
 
   ngOnInit(): void {
     this.clkSvc.getBtnClk().subscribe(data=>{
-      if(data.id>=10 && data.id<20){
+      if(data>=10 && data<20){
         this.visible="true";
-        this.modalId=data.id;
+        this.modalId=data;
       }
     })
   }

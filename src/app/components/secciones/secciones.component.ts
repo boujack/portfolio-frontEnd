@@ -25,9 +25,9 @@ export class SeccionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clkService.getBtnClk().subscribe(data =>{
-      if(data.id>=0 && data.id<10)
+      if(data>=0 && data<10)
       {
-        this.frameId=data.id;
+        this.frameId=data;
         this.onFrameChange();
       }
     })
@@ -58,7 +58,7 @@ export class SeccionesComponent implements OnInit {
     }
   }
   addSeccion(){
-    this.clkService.setBtnClk({id:this.frameId+10,name:"addSec",pressed:true});
+    this.clkService.setBtnClk(this.frameId+10);
   }
   private delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );

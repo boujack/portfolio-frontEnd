@@ -30,7 +30,7 @@ export class ModalLoginComponent implements OnInit {
           this.loginForm.get("password")?.markAsUntouched();
           success=true;
           this.authError=false;
-          this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});
+          this.clkSvc.setBtnClk(25);
           this.clkSvc.setEdit(true);
           this.submit.emit("false");
         }

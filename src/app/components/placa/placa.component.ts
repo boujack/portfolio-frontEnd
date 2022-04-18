@@ -58,6 +58,6 @@ export class PlacaComponent implements OnInit {
   }
 
   editButton(){
-    this.clkSvc.setBtnClk({id:16,name:"placaEdit",pressed:true});
+    this.clkSvc.setBtnClk(16);
   }
 }

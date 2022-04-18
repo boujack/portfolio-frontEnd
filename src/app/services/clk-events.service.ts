@@ -1,27 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-export interface Boton{
-  id:number,
-  name:string,
-  pressed:boolean
-}
 @Injectable({
   providedIn: 'root'
 })
 export class ClkEventsService {
   private enabled:boolean=false;
   private editEnable:Subject<boolean> = new Subject;
-  private btnClicked:Subject<Boton> = new Subject;
+  private btnClicked:Subject<number> = new Subject;
   private uiStatus:Subject<boolean> = new Subject;
   constructor() {
     this.editEnable.next(false);
    }
-  setBtnClk(btn:Boton){
+  setBtnClk(btn:number){
     if(this.enabled)
       this.btnClicked.next(btn);
   }
-  getBtnClk():Observable<Boton>{
+  getBtnClk():Observable<number>{
     return this.btnClicked.asObservable();
   }
   enableUI(){
