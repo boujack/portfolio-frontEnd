@@ -25,6 +25,10 @@ export class ModalLoginComponent implements OnInit {
       let success:boolean=false;
       for(let user of data.users){
         if(user.user===this.loginForm.get("username")?.value && user.pass===this.loginForm.get("password")?.value){
+          this.loginForm.get("username")?.setValue("");
+          this.loginForm.get("username")?.markAsUntouched();
+          this.loginForm.get("password")?.setValue("");
+          this.loginForm.get("password")?.markAsUntouched();
           success=true;
           this.authError=false;
           this.clkSvc.setBtnClk({id:25,name:"loginSuccess",pressed:true});

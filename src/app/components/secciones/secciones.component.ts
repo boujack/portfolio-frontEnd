@@ -39,36 +39,13 @@ export class SeccionesComponent implements OnInit {
   onFrameChange(){
     this.currStyle="false";
     this.sOpen.emit();
-    this.dbService.getData().subscribe(data => {
-      this.seccion=this.seccArray[this.frameId];
-      this.currStyle="true";
-      this.typeSeccion();
-      this.isSkill=false;
-      switch(this.frameId)
-      {
-        case 0:{
-          this.sec=data.experiencia;          
-          break;
-        }
-        case 1:{
-          this.sec=data.educacion;     
-          break;
-        }
-        case 2:{
-          this.isSkill=true;
-          this.sec=data.habilidades;
-          break;
-        }
-        case 3:{
-          this.sec=data.proyectos;
-          break;
-        }
-        default:{
-          this.currStyle="false";
-          break;
-        }
-      }
-    })
+    this.seccion=this.seccArray[this.frameId];
+    this.currStyle="true";
+    this.typeSeccion();
+    this.isSkill=false;
+    if(this.frameId==2)
+      this.isSkill=true;
+    this.sec=this.dbService.getValues(this.frameId);
   }
   
   async typeSeccion(){
