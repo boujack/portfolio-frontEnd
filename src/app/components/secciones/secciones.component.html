@@ -16,7 +16,7 @@
         </div>
     </div>
     <div *ngFor="let e of sec">
-        <app-seccion [e]="e" [edicion]="edicion"></app-seccion>
+        <app-seccion [e]="e" [edicion]="edicion" [seccion]="seccion"></app-seccion>
     </div>
 </div>
 <div *ngIf="isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">

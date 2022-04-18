@@ -6,13 +6,14 @@ import { Observable,of,Subject } from 'rxjs';
 })
 export class DatosService {
   private skValues:number[]=[];
-  private skL:string[]=[];
-  private skLabels:Subject<string[]>=new Subject;
+  private skL:string[]=[];  
   private experiencia:any[];
   private educacion:any[];
   private proyectos:any[];
   private users:any[];
   private descripcion:string="";
+
+  private skLabels:Subject<string[]>=new Subject;
   private obsDesc:Subject<string>=new Subject
   
   constructor(private dbJson:HttpClient) {
@@ -27,8 +28,34 @@ export class DatosService {
       this.descripcion=aux.descripcion;
     })
   }
-  removeData(){
-    console.log("remove DB data");
+  removeData(seccion:string,id:number){
+    console.log(seccion+":"+id);
+    switch(seccion){
+      case "Experiencia":{
+        this.experiencia.filter(function(value, index, arr){ 
+          if(value.id==id)
+            arr.splice(index,1);
+        });
+        console.log(this.experiencia);
+        break;
+      }
+      case "Educacion":{
+        this.educacion.filter(function(value, index, arr){ 
+          if(value.id==id)
+            arr.splice(index,1);
+        });
+        console.log(this.educacion);
+        break;
+      }
+      case "Proyectos":{
+        this.proyectos.filter(function(value, index, arr){ 
+          if(value.id==id)
+            arr.splice(index,1);
+        });
+        console.log(this.proyectos);
+        break;
+      }
+    }
   }
   addData(){
     console.log("add DB data");

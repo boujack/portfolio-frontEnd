@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faTrashCan, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-seccion',
@@ -15,7 +16,7 @@ export class SeccionComponent implements OnInit {
   faTrash=faTrashCan;
   faEdit=faEdit;
   disabled:boolean=true;
-  constructor() { }
+  constructor(private dataSvc:DatosService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +31,7 @@ export class SeccionComponent implements OnInit {
     }    
   }
   remove(){
-    console.log("remove");
+    this.dataSvc.removeData(this.seccion,this.e.id);
   }
 
 }
