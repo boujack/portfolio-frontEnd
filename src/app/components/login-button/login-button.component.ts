@@ -9,6 +9,7 @@ import { ClkEventsService } from 'src/app/services/clk-events.service';
 export class LoginButtonComponent implements OnInit {
   logged:boolean=false;
   loginText:string="Login";
+  disabled:boolean=true;
   constructor(private clkSvc:ClkEventsService) {
   }
 
@@ -22,6 +23,10 @@ export class LoginButtonComponent implements OnInit {
         this.loginText="Login"
         this.logged=false;
       }
+    })
+    this.clkSvc.getUIStatus().subscribe(data => {
+      if(data)
+        this.disabled=false;
     })
   }
   onClick(){

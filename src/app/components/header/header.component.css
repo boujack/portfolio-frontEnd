@@ -2,8 +2,8 @@
 header{
     top:0px;
     left:0px;
-    margin:0.5rem;
-    width: calc(100% - 1rem);
+    margin:var(--box-margin);
+    width: calc(100% - var(--box-margin)*2);
     height: var(--navbar-height);
     display: grid;
     grid-template-areas: 'ap-logo ap-title red-soc';

@@ -6,9 +6,9 @@
 .banner{
     position: relative;
     display:grid;
-    margin:0.5rem;
-    max-width: calc(100%-1rem);
-    height: 85vh;
+    margin:var(--box-margin);
+    max-width: calc(100% - var(--box-margin)*2);
+    height: calc(100vh - var(--navbar-height) - var(--box-margin)*3);
     grid-auto-columns: 1fr;
     background-color: rgba(0,0,0,0.8);
     background-position: 50% 50%;

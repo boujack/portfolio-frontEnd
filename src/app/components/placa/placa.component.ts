@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNodes,faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { DatosService } from 'src/app/services/datos.service';
@@ -15,6 +15,7 @@ export class PlacaComponent implements OnInit {
   d:Subject<string>=new Subject;
   newDesc:string;
   faEdit=faEdit;
+  faNode=faCircleNodes;
   edicion:boolean;
 
   constructor(private datosSvc:DatosService,private clkSvc:ClkEventsService) { }

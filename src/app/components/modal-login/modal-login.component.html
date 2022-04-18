@@ -2,13 +2,13 @@
     <h2>Ingresar</h2>
     <p class="error-msg" *ngIf="authError"> Usuario y/o contraseña incorrectos </p>
     <form class="form-modal" [formGroup]="loginForm">
-        <label for="">Usuario</label>
+        <label class="etiqueta-modal">Usuario</label>
         <input
             [class.input-error]="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" 
             type="text" 
             formControlName="username" 
             required>
-        <label for="">Contraseña</label>
+        <label class="etiqueta-modal">Contraseña</label>
         <input
             [class.input-error]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"  
             type="password" 

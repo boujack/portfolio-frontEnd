@@ -2,9 +2,12 @@
 /*Cuadro de perfil*/
 .foto-perfil{
     position:relative;
-    min-width: var(--foto-perfil-size);
-    max-width: 13rem;
+    /* min-width: var(--foto-perfil-size);
+    max-width: 30vw; */
+    width: var(--foto-perfil-size);
+    height: var(--foto-perfil-size);
     border-radius: 50%;
+    object-fit: cover;
     transform: rotateZ(-45deg);
     animation-duration: 5s;
     animation-name: glow-5;
@@ -19,8 +22,10 @@
     transform: rotateZ(-45deg);
 }
 .profile-frame{
-    min-width: var(--foto-perfil-size);
-    max-width: 13rem;
+    /* min-width: var(--foto-perfil-size);
+    max-width: 13rem; */
+    width: var(--foto-perfil-size);
+    height: var(--foto-perfil-size);
     border:solid 0.2rem var(--bd-color-2);
     box-shadow: 0 0 1rem var(--bd-color-2);
     background: rgba(0,0,0,0.5);

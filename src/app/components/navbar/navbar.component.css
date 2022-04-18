@@ -16,6 +16,7 @@
     font-family: 'GlitchInside';
     color:white;
     text-shadow: 0 0 0.2rem var(--bd-color-1);
+    
 }
 .primary-navbar>ul{
     display: flex;
@@ -67,10 +68,10 @@
     .primary-navbar{
         position:absolute;
         right: 0;
-        top: 0;
-        background-color: rgba(0,0,0,0.5);
-        backdrop-filter: blur(0.5rem);
-        height: 100vh;
+        top:calc(var(--navbar-height) + var(--box-margin));
+        box-shadow: 0 0 0.2rem var(--bd-color-2);
+        background: rgba(0,0,0,0.8);
+        height: calc(100vh - var(--navbar-height) - var(--box-margin) * 3);
         width: auto;
         display:grid;
         grid-template-rows: var(--navbar-height) max-content auto;

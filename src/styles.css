@@ -37,6 +37,7 @@ font-family: 'Turret Road', cursive; */
     --bd-color-1:rgb(34, 125, 216);
     --bd-color-2:rgb(126, 98, 182);
     --navbar-height:4rem;
+    --box-margin:0.5rem;
 }
 body{
     position:relative;
