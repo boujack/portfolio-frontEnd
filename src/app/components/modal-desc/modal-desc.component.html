@@ -1,5 +1,9 @@
 <div class="modal">
     <h2>Descripcion:</h2>
-    <textarea type="text" cols="30" rows="5" id="desc-input"></textarea>
-    <button id="desc-submit"  class="button-or submit-button">Aceptar</button>
+    <textarea type="text" cols="30" rows="5" id="desc-input" #desc></textarea>
+    <button 
+        id="desc-submit"  
+        class="button-or submit-button"
+        (click)="submitDesc(desc.value)"
+        >Aceptar</button>
 </div>

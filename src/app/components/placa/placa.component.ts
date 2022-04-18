@@ -26,18 +26,21 @@ export class PlacaComponent implements OnInit {
     this.clkSvc.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
+    this.datosSvc.getDescChange().subscribe(d=>{
+      this.newDesc=d;
+      this.d.next(d);
+    })
   }
   
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    this.datosSvc.getData().subscribe(data=>{
-      if(this.newDesc!=data.descripcion){
-        this.newDesc=data.descripcion;
-        this.d.next(data.descripcion);
+    
+      if(this.newDesc!=this.datosSvc.getDesc()){
+        this.newDesc=this.datosSvc.getDesc();
+        this.d.next(this.datosSvc.getDesc());
         this.animate="true"
       }
       this.clkSvc.enableUI();     
-    })   
   }
 
   async typeDescription(){

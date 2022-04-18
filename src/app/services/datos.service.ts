@@ -8,9 +8,12 @@ export class DatosService {
   private skValues:number[]=[];
   private skL:string[]=[];
   private skLabels:Subject<string[]>=new Subject;
-  private experiencia:any[]
-  private educacion:any[]
-  private proyectos:any[]
+  private experiencia:any[];
+  private educacion:any[];
+  private proyectos:any[];
+  private users:any[];
+  private descripcion:string="";
+  private obsDesc:Subject<string>=new Subject
   
   constructor(private dbJson:HttpClient) {
     this.dbJson.get('./assets/db/db.json').subscribe(d=>{
@@ -20,11 +23,9 @@ export class DatosService {
       this.experiencia=aux.experiencia;
       this.proyectos=aux.proyectos;
       this.educacion=aux.educacion;
+      this.users=aux.users;
+      this.descripcion=aux.descripcion;
     })
-  }
-
-  getData():Observable<any>{
-    return this.dbJson.get('./assets/db/db.json');
   }
   removeData(){
     console.log("remove DB data");
@@ -70,5 +71,18 @@ export class DatosService {
       }
     }
     return aux;
+  }
+  getUsers():any[]{
+    return this.users;
+  }
+  getDesc():string{
+    return this.descripcion;
+  }
+  setDesc(d:string){
+    this.descripcion=d;
+    this.obsDesc.next(d);
+  }
+  getDescChange():Observable<string>{
+    return this.obsDesc.asObservable();
   }
 }

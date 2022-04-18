@@ -21,9 +21,8 @@ export class ModalLoginComponent implements OnInit {
   ngOnInit(): void {
   }
   tryLogin(){
-    this.dataSvc.getData().subscribe(data=>{
       let success:boolean=false;
-      for(let user of data.users){
+      for(let user of this.dataSvc.getUsers()){
         if(user.user===this.loginForm.get("username")?.value && user.pass===this.loginForm.get("password")?.value){
           this.loginForm.get("username")?.setValue("");
           this.loginForm.get("username")?.markAsUntouched();
@@ -38,7 +37,6 @@ export class ModalLoginComponent implements OnInit {
       }
       if(!success)
         this.authError=true;
-    })
   }
 
 }
