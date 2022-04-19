@@ -57,8 +57,53 @@ export class DatosService {
       }
     }
   }
-  addData(){
-    console.log("add DB data");
+  editData(seccion:string,info:any){
+    switch(seccion){
+      case "Experiencia":{
+        this.experiencia.filter(function(value, index, arr){ 
+          if(value.id==info.id)
+            arr[index]=info;
+        });
+        console.log(this.experiencia);
+        break;
+      }
+      case "Educacion":{
+        this.educacion.filter(function(value, index, arr){ 
+          if(value.id==info.id)
+            arr[index]=info;
+        });
+        console.log(this.educacion);
+        break;
+      }
+      case "Proyectos":{
+        this.proyectos.filter(function(value, index, arr){ 
+          if(value.id==info.id)
+            arr[index]=info;
+        });
+        console.log(this.proyectos);
+        break;
+      }
+    }
+  }
+  addData(seccion:number,info:any){
+    switch(seccion){
+      case 0:{
+        info.id=this.experiencia.length+1;
+        this.experiencia.push(info);
+        console.log(this.experiencia);
+        break;
+      }
+      case 1:{
+        info.id=this.educacion.length+1;
+        this.educacion.push(info);
+        break;
+      }
+      case 3:{
+        info.id=this.proyectos.length+1;
+        this.proyectos.push(info);
+        break;
+      }
+    }
   }
   editSkValues(sk:number[]){
     this.skValues=sk;

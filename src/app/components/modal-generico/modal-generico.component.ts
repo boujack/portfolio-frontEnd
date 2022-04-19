@@ -10,10 +10,10 @@ import { DatosService } from 'src/app/services/datos.service';
 export class ModalGenericoComponent implements OnInit {
   @Input() visible:string;
   errorMsg:boolean[]=[false,false,false,false];
-  labels:string[][]=[["Empresa:","Puesto:","Fecha de Ingreso:","Fecha de Egreso:"],
-                     ["Institucion:","Titulo:","Fecha de Inicio:","Fecha de Egreso:"],
+  labels:string[][]=[["Empresa","Puesto","Fecha de Ingreso","Fecha de Egreso"],
+                     ["Institucion","Titulo","Fecha de Inicio","Fecha de Egreso"],
                      ["","","",""],
-                     ["Proyecto","Descripcion","Inicio:","Finalizacion:"]];
+                     ["Proyecto","Descripcion","Fecha Inicio","Fecha Fin"]];
   label:string[];
   titles:string[]=["Añadir Experiencia Laboral","Añadir Estudio","","Añadir Proyecto"];
   titulo:string;
@@ -37,7 +37,7 @@ export class ModalGenericoComponent implements OnInit {
     this.addXp(this.genForm.get("title")?.value,this.genForm.get("subtitle")?.value,this.genForm.get("feIni")?.value,this.genForm.get("feFin")?.value);       
   }
   addXp(e:string,p:string,fi:string,fe:string){
-    this.dataSvc.addData();
+    this.dataSvc.addData(this.modalId-10,{id:0,labels:this.label,titulo:e,subtitulo:p,fecha_0:fi,fecha_1:fe})
     this.submit.emit("false");
   }
   ngOnChange(){
