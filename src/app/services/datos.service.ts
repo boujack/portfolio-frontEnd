@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable,of,Subject } from 'rxjs';
+import { Usuario } from 'src/models/Usuario';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +15,10 @@ export class DatosService {
   private descripcion:string="";
 
   private skLabels:Subject<string[]>=new Subject;
-  private obsDesc:Subject<string>=new Subject
+  private obsDesc:Subject<string>=new Subject;
+  private apiUrl:String="http://localhost:8080";
   
-  constructor(private dbJson:HttpClient) {
+  constructor(private dbJson:HttpClient, private jpaServer:HttpClient) {
     this.dbJson.get('./assets/db/db.json').subscribe(d=>{
       let aux:any = d;
       this.skValues=aux.habilidades.values;
@@ -25,7 +27,10 @@ export class DatosService {
       this.proyectos=aux.proyectos;
       this.educacion=aux.educacion;
       this.users=aux.users;
-      this.descripcion=aux.descripcion;
+    })
+    this.jpaServer.get<Usuario>(this.apiUrl+'/user').subscribe(user=>{
+      let aux:any = user; 
+      this.descripcion=aux.descripcion; 
     })
   }
   removeData(seccion:string,id:number){
