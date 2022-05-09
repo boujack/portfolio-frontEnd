@@ -21,6 +21,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { ModalGenericoComponent } from './components/modal-generico/modal-generico.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { EducacionComponent } from './components/educacion/educacion.component';
+import { EduItemComponent } from './components/edu-item/edu-item.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalDescComponent,
     SeccionComponent,
     ModalGenericoComponent,
-    CanvasComponent
+    CanvasComponent,
+    EducacionComponent,
+    EduItemComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
