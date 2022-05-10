@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { EduItemComponent } from './components/edu-item/edu-item.component';
+import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EduItemComponent } from './components/edu-item/edu-item.component';
     ModalGenericoComponent,
     CanvasComponent,
     EducacionComponent,
-    EduItemComponent
+    EduItemComponent,
+    ModalEdComponent
   ],
   imports: [
     BrowserModule,

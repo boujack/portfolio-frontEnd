@@ -1,0 +1,43 @@
+<div class="modal">
+    <h2>Añadir Educacion</h2>
+    <form class="form-modal" [formGroup]="genForm">
+        <label for="instituto" class="etiqueta-modal">Institucion</label>
+        <input 
+            type="text" 
+            name="instituto" 
+            formControlName="instituto"
+            [class.input-error]="genForm.get('instituto')?.touched && genForm.get('instituto')?.invalid">
+        <label for="titulo" class="etiqueta-modal">Titulo</label>
+        <input 
+            type="text" 
+            name="titulo" 
+            formControlName="titulo"
+            [class.input-error]="genForm.get('titulo')?.touched && genForm.get('titulo')?.invalid">
+        <label for="nivel" class="etiqueta-modal">Nivel</label>
+        <input 
+            type="text" 
+            name="nivel" 
+            formControlName="nivel"
+            [class.input-error]="genForm.get('nivel')?.touched && genForm.get('nivel')?.invalid">
+        <label for="ingreso" class="etiqueta-modal">Fecha de Inicio</label>
+        <input 
+            type="date" 
+            name="ingreso" 
+            formControlName="ingreso"
+            [class.input-error]="genForm.get('ingreso')?.touched && genForm.get('ingreso')?.invalid">
+        <label for="egreso" class="etiqueta-modal">Fecha de Finalizacion</label>
+        <input 
+            type="date" 
+            name="egreso"  
+            formControlName="egreso"
+            [class.input-error]="genForm.get('egreso')?.touched && genForm.get('egreso')?.invalid">
+        <input 
+            type="submit" 
+            class="button-or submit-button"
+            (click)="addEd()"
+            [disabled]="genForm.invalid"
+            value="Aceptar">
+    </form>
+    
+</div>
+
