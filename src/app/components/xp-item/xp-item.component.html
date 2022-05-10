@@ -1,0 +1,21 @@
+<div>
+    <form class="descripcion-skill" [formGroup]="seccionForm">
+        <input class="h1-skill" type="text" formControlName="empresa">
+        <div class="edit-buttons">
+            <span class="rm edit-icon" *ngIf="edicion" (click)="remove()">
+                <fa-icon [icon]="faTrash"></fa-icon>
+            </span>
+            <button class="edit ed-edit edit-icon" *ngIf="edicion" (click)="enableEdit()">
+                <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+        </div>
+        <label for="puesto">Titulo:</label>
+        <input type="text" formControlName="puesto">
+        <label for="tipo">Nivel:</label>
+        <input type="text" formControlName="tipo">
+        <label for="fe-ingreso">Fecha Ingreso:</label>
+        <input type="date" formControlName="ingreso">
+        <label for="fe-egreso">Fecha Egreso:</label>
+        <input type="date" formControlName="egreso">
+    </form>
+</div>

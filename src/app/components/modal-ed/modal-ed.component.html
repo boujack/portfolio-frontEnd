@@ -14,11 +14,12 @@
             formControlName="titulo"
             [class.input-error]="genForm.get('titulo')?.touched && genForm.get('titulo')?.invalid">
         <label for="nivel" class="etiqueta-modal">Nivel</label>
-        <input 
-            type="text" 
+        <select 
             name="nivel" 
             formControlName="nivel"
             [class.input-error]="genForm.get('nivel')?.touched && genForm.get('nivel')?.invalid">
+            <option *ngFor="let n of niveles" [value]="n">{{n}}</option>
+        </select>
         <label for="ingreso" class="etiqueta-modal">Fecha de Inicio</label>
         <input 
             type="date" 

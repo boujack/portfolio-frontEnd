@@ -1,7 +1,7 @@
 <div class="exp-modal-bg modal-bg" [attr.data-visible]="visible">
     <div class="relative-modal">
         <app-modal-generico 
-            *ngIf="modalId>=10&&modalId<=13&&modalId!=12&&modalId!=11" 
+            *ngIf="modalId==13" 
             [modalId]="modalId"
             (submit)="visible=$event">
         </app-modal-generico>
@@ -21,6 +21,10 @@
             *ngIf="modalId==11"
             (submit)="visible=$event">
         </app-modal-ed>
+        <app-modal-xp
+            *ngIf="modalId==10"
+            (submit)="visible=$event">
+        </app-modal-xp>
         <span 
             class="modal-close edit-icon" 
             (click)="modalClose()">

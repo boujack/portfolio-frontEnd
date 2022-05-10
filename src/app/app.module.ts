@@ -25,6 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { EduItemComponent } from './components/edu-item/edu-item.component';
 import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
+import { ModalXpComponent } from './components/modal-xp/modal-xp.component';
+import { ExperienciaComponent } from './components/experiencia/experiencia.component';
+import { XpItemComponent } from './components/xp-item/xp-item.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
     CanvasComponent,
     EducacionComponent,
     EduItemComponent,
-    ModalEdComponent
+    ModalEdComponent,
+    ModalXpComponent,
+    ExperienciaComponent,
+    XpItemComponent
   ],
   imports: [
     BrowserModule,

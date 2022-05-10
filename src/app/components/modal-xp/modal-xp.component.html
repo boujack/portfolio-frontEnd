@@ -1,0 +1,44 @@
+<div class="modal">
+    <h2>Añadir Experiencia</h2>
+    <form class="form-modal" [formGroup]="genForm">
+        <label for="empresa" class="etiqueta-modal">Empresa</label>
+        <input 
+            type="text" 
+            name="empresa" 
+            formControlName="empresa"
+            [class.input-error]="genForm.get('empresa')?.touched && genForm.get('empresa')?.invalid">
+        <label for="puesto" class="etiqueta-modal">Puesto</label>
+        <input 
+            type="text" 
+            name="puesto" 
+            formControlName="puesto"
+            [class.input-error]="genForm.get('puesto')?.touched && genForm.get('puesto')?.invalid">
+        <label for="tipo" class="etiqueta-modal">Tipo</label>
+        <select 
+            name="tipo" 
+            formControlName="tipo"
+            [class.input-error]="genForm.get('tipo')?.touched && genForm.get('tipo')?.invalid">
+            <option *ngFor="let t of tipos" [value]="t">{{t}}</option>
+        </select>
+        <label for="ingreso" class="etiqueta-modal">Fecha de Ingreso</label>
+        <input 
+            type="date" 
+            name="ingreso" 
+            formControlName="ingreso"
+            [class.input-error]="genForm.get('ingreso')?.touched && genForm.get('ingreso')?.invalid">
+        <label for="egreso" class="etiqueta-modal">Fecha de Egreso</label>
+        <input 
+            type="date" 
+            name="egreso"  
+            formControlName="egreso"
+            [class.input-error]="genForm.get('egreso')?.touched && genForm.get('egreso')?.invalid">
+        <input 
+            type="submit" 
+            class="button-or submit-button"
+            (click)="addXp()"
+            [disabled]="genForm.invalid"
+            value="Aceptar">
+    </form>
+    
+</div>
+

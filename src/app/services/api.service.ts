@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { EduModel } from 'src/models/EduModel';
 import { Usuario } from 'src/models/Usuario';
 

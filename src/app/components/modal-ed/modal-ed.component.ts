@@ -13,6 +13,7 @@ export class ModalEdComponent implements OnInit {
   @Input() visible:string;
   @Output() submit:EventEmitter<string>=new EventEmitter;
   genForm:FormGroup;
+  niveles:String[]=["Secundario","Secundario Incompleto","Terciario","Terciario Incompleto","Universitario","Univeristario Incompleto","Otro"];
 
   constructor(private apiSvc:ApiService) { 
     this.genForm=new FormGroup({
@@ -20,7 +21,7 @@ export class ModalEdComponent implements OnInit {
       titulo:new FormControl('',Validators.required),
       nivel:new FormControl('',Validators.required),
       ingreso:new FormControl('',Validators.required),
-      egreso:new FormControl('',Validators.required)
+      egreso:new FormControl('')
     })
   }
 
