@@ -28,6 +28,9 @@ import { ModalEdComponent } from './components/modal-ed/modal-ed.component';
 import { ModalXpComponent } from './components/modal-xp/modal-xp.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { XpItemComponent } from './components/xp-item/xp-item.component';
+import { ModalPyComponent } from './components/modal-py/modal-py.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { PyItemComponent } from './components/py-item/py-item.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { XpItemComponent } from './components/xp-item/xp-item.component';
     ModalEdComponent,
     ModalXpComponent,
     ExperienciaComponent,
-    XpItemComponent
+    XpItemComponent,
+    ModalPyComponent,
+    ProyectosComponent,
+    PyItemComponent
   ],
   imports: [
     BrowserModule,

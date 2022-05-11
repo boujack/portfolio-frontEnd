@@ -1,0 +1,38 @@
+<div class="modal">
+    <h2>Añadir Proyecto</h2>
+    <form class="form-modal" [formGroup]="genForm">
+        <label for="nombre" class="etiqueta-modal">Nombre</label>
+        <input 
+            type="text" 
+            name="nombre" 
+            formControlName="nombre"
+            [class.input-error]="genForm.get('nombre')?.touched && genForm.get('nombre')?.invalid">
+        <label for="descripcion" class="etiqueta-modal">Descripcion</label>
+        <textarea 
+            type="text" 
+            cols="30" 
+            rows="5" 
+            formControlName="descripcion"
+            [class.input-error]="genForm.get('descripcion')?.touched && genForm.get('descripcion')?.invalid">
+        </textarea>
+        <label for="inicio" class="etiqueta-modal">Fecha de inicio</label>
+        <input 
+            type="date" 
+            name="inicio" 
+            formControlName="inicio"
+            [class.input-error]="genForm.get('inicio')?.touched && genForm.get('inicio')?.invalid">
+        <label for="fin" class="etiqueta-modal">Fecha de fin</label>
+        <input 
+            type="date" 
+            name="fin"  
+            formControlName="fin"
+            [class.input-error]="genForm.get('fin')?.touched && genForm.get('fin')?.invalid">
+        <input 
+            type="submit" 
+            class="button-or submit-button"
+            (click)="addPy()"
+            [disabled]="genForm.invalid"
+            value="Aceptar">
+    </form>
+    
+</div>

@@ -2,7 +2,10 @@
 <app-cuadro-ed></app-cuadro-ed>
 <app-cuadro-sk></app-cuadro-sk>
 <app-cuadro-py></app-cuadro-py> -->
-<div *ngIf="!isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
+<app-experiencia *ngIf="frameId==0"></app-experiencia>
+<app-educacion *ngIf="frameId==1"></app-educacion>
+<app-proyectos *ngIf="frameId==3"></app-proyectos>
+<!-- <div *ngIf="!isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
     <div class="titulo-skill-div">
         <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
         <div class="edit-buttons">
@@ -35,5 +38,5 @@
     <div class="descripcion-skill canvas-skill" #canvasDiv>
         <app-canvas [ancho]="canvasDiv.clientWidth" [alto]="canvasDiv.clientHeight"></app-canvas>
     </div>
-</div>
+</div> -->
 

@@ -45,7 +45,7 @@ export class SeccionesComponent implements OnInit {
     this.isSkill=false;
     if(this.frameId==2)
       this.isSkill=true;
-    this.sec=this.dbService.getValues(this.frameId);
+    //this.sec=this.dbService.getValues(this.frameId);
   }
   
   async typeSeccion(){
