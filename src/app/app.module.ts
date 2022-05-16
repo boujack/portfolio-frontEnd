@@ -18,7 +18,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SeccionComponent } from './components/seccion/seccion.component';
 
 import {HttpClientModule} from '@angular/common/http';
-import { ModalGenericoComponent } from './components/modal-generico/modal-generico.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +48,6 @@ import { SkillsComponent } from './components/skills/skills.component';
     ModalSkComponent,
     ModalDescComponent,
     SeccionComponent,
-    ModalGenericoComponent,
     CanvasComponent,
     EducacionComponent,
     EduItemComponent,

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faTrashCan, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ApiXpService } from 'src/app/services/api-xp.service';
 
@@ -20,7 +21,7 @@ export class XpItemComponent implements OnInit {
   faTrash=faTrashCan;
   faEdit=faEdit;
   disabled:boolean=true;
-  constructor(private apiSvc:ApiXpService) { 
+  constructor(private apiSvc:ApiXpService,private router:Router) { 
     this.seccionForm=new FormGroup({
       empresa:new FormControl('',[Validators.required]),
       puesto:new FormControl('',[Validators.required]),
@@ -58,6 +59,8 @@ export class XpItemComponent implements OnInit {
 
   remove(){
     this.apiSvc.rmExp(this.e.id);
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['experiencia']);
+    });
   }
-
 }

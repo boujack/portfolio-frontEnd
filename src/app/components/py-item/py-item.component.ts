@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faTrashCan, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ApiPyService } from 'src/app/services/api-py.service';
 
@@ -18,7 +19,7 @@ export class PyItemComponent implements OnInit {
   faTrash=faTrashCan;
   faEdit=faEdit;
   disabled:boolean=true;
-  constructor(private apiSvc:ApiPyService) { 
+  constructor(private apiSvc:ApiPyService,private router:Router) { 
     this.seccionForm=new FormGroup({
       nombre:new FormControl('',[Validators.required]),
       descripcion:new FormControl('',[Validators.required]),
@@ -54,5 +55,8 @@ export class PyItemComponent implements OnInit {
   remove(){
     this.apiSvc.rmPy(this.e.id);
     this.apiSvc.getPyData();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['proyectos']);
+    });
   }
 }

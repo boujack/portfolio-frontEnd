@@ -38,7 +38,9 @@ export class ModalPyComponent implements OnInit {
     this.apiSvc.savePy(py);
     this.submit.emit("false"); 
     this.apiSvc.getPyData();  
-    this.router.navigateByUrl("/proyectos").then();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['proyectos']);
+    });
   }
 
   ngOnChange(){

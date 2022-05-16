@@ -85,7 +85,9 @@ export class ModalSkComponent implements OnInit {
     this.apiSvc.saveAllSk(sk);    
     this.submit.emit("false"); 
     this.apiSvc.getSkData();
-    this.router.navigateByUrl("/skills").then();  
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['skills']);
+    });
   }
 
   addSeccion(){

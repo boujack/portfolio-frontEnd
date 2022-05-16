@@ -40,7 +40,9 @@ export class ModalXpComponent implements OnInit {
     this.apiSvc.saveExp(xp);
     this.submit.emit("false"); 
     this.apiSvc.getExpData();
-    this.router.navigateByUrl("/experiencia").then();      
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['experiencia']);
+    });    
   }
 
   ngOnChange(){

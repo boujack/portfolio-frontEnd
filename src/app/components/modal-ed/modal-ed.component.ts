@@ -40,7 +40,9 @@ export class ModalEdComponent implements OnInit {
     this.apiSvc.saveEdu(ed);
     this.submit.emit("false");
     this.apiSvc.getEduData();   
-    this.router.navigateByUrl("/educacion").then();  
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['educacion']);
+    });
   }
 
   ngOnChange(){
