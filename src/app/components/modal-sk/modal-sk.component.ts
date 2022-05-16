@@ -37,8 +37,6 @@ export class ModalSkComponent implements OnInit {
   }
 
   removeControl(i:number){
-    this.apiSvc.rmSk(this.skills[i].id);
-    //add api delete
     this.skillForm.removeControl("label"+i);
     this.skillForm.removeControl("value"+i);
     this.inputLNames.filter(function(value, index, arr){ 
@@ -50,7 +48,7 @@ export class ModalSkComponent implements OnInit {
         arr.splice(index,1);
     });
     this.indice--;
-    this.apiSvc.getSkData();    
+    console.log(this.indice);
   }
 
   loadInputs(){
@@ -74,7 +72,10 @@ export class ModalSkComponent implements OnInit {
 
   setCanvas(){
     let sk:SkModel[]=[];
-    for(let i = this.skills.length; i<this.indice;i++){
+    for(let s of this.skills){
+      this.apiSvc.rmSk(s.id);
+    }
+    for(let i = 0; i<this.indice;i++){
       sk.push({ id:1,
                 nombre:this.skillForm.get(this.inputLNames[i])?.value,
                 valor:this.skillForm.get(this.inputVNames[i])?.value
