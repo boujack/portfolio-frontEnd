@@ -29,6 +29,10 @@ export class SkillsComponent implements OnInit {
       this.sec=skData;
       this.canvas.drawCanvas()
     })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
+    })
+    this.edicion=this.clkService.getEnabled();
   }
 
   ngAfterViewInit():void{

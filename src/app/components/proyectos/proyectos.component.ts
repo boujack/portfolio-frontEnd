@@ -17,6 +17,7 @@ export class ProyectosComponent implements OnInit {
   faPlus=faPlus;
   faEdit=faEdit;
   @Input() edicion:boolean;
+  secLenght:number=0;
 
   constructor(private apiSvc:ApiPyService, private clkService:ClkEventsService) {     
   }
@@ -24,7 +25,12 @@ export class ProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.apiSvc.project.subscribe(pyData=>{
       this.sec=pyData;
+      console.log(this.sec);
     })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
+    })
+    this.edicion=this.clkService.getEnabled();
   }
 
   ngAfterViewInit():void{

@@ -26,6 +26,10 @@ export class ExperienciaComponent implements OnInit {
     this.apiSvc.experiencia.subscribe(xpData=>{
       this.sec=xpData;
     })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
+    })
+    this.edicion=this.clkService.getEnabled();
   }
 
   ngAfterViewInit():void{

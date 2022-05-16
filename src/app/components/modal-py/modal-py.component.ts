@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiPyService } from 'src/app/services/api-py.service';
 import { PyModel } from 'src/models/PyModel';
 
@@ -15,7 +16,7 @@ export class ModalPyComponent implements OnInit {
   @Output() submit:EventEmitter<string>=new EventEmitter;
   genForm:FormGroup;
 
-  constructor(private apiSvc:ApiPyService) { 
+  constructor(private apiSvc:ApiPyService, private router:Router) { 
     this.genForm=new FormGroup({
       nombre:new FormControl('',Validators.required),
       descripcion:new FormControl('',Validators.required),
@@ -35,11 +36,12 @@ export class ModalPyComponent implements OnInit {
     py.inicio=this.genForm.get('inicio')?.value;
     py.fin=this.genForm.get('fin')?.value;
     this.apiSvc.savePy(py);
-    this.submit.emit("false");     
+    this.submit.emit("false"); 
+    this.apiSvc.getPyData();  
+    this.router.navigateByUrl("/proyectos").then();
   }
 
   ngOnChange(){
   }
-
 
 }

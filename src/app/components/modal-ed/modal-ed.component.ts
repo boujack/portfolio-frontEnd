@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { EduModel } from 'src/models/EduModel';
 
@@ -15,7 +16,7 @@ export class ModalEdComponent implements OnInit {
   genForm:FormGroup;
   niveles:String[]=["Secundario","Secundario Incompleto","Terciario","Terciario Incompleto","Universitario","Univeristario Incompleto","Otro"];
 
-  constructor(private apiSvc:ApiService) { 
+  constructor(private apiSvc:ApiService,private router:Router) { 
     this.genForm=new FormGroup({
       instituto:new FormControl('',Validators.required),
       titulo:new FormControl('',Validators.required),
@@ -38,7 +39,8 @@ export class ModalEdComponent implements OnInit {
     ed.egreso=this.genForm.get('egreso')?.value;
     this.apiSvc.saveEdu(ed);
     this.submit.emit("false");
-    this.apiSvc.getEduData();     
+    this.apiSvc.getEduData();   
+    this.router.navigateByUrl("/educacion").then();  
   }
 
   ngOnChange(){

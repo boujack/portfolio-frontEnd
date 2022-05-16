@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiXpService } from 'src/app/services/api-xp.service';
 import { XpModel } from 'src/models/XpModel';
 
@@ -15,7 +16,7 @@ export class ModalXpComponent implements OnInit {
   genForm:FormGroup;
   tipos:String[]=["Full-Time","Part-Time","Pasantia","Freelance","Otro"];
 
-  constructor(private apiSvc:ApiXpService) { 
+  constructor(private apiSvc:ApiXpService,private router:Router) { 
     this.genForm=new FormGroup({
       empresa:new FormControl('',Validators.required),
       puesto:new FormControl('',Validators.required),
@@ -37,7 +38,9 @@ export class ModalXpComponent implements OnInit {
     xp.ingreso=this.genForm.get('ingreso')?.value;
     xp.egreso=this.genForm.get('egreso')?.value;
     this.apiSvc.saveExp(xp);
-    this.submit.emit("false");     
+    this.submit.emit("false"); 
+    this.apiSvc.getExpData();
+    this.router.navigateByUrl("/experiencia").then();      
   }
 
   ngOnChange(){

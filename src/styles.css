@@ -210,6 +210,21 @@ img,a{
     'placa'
     'skill';
 }
+@media (max-width:40em){
+    .duo-column{
+        grid-template-areas:
+        'profile'
+        'placa'
+        'skill';
+    }
+    .single-column{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        'profile'
+        'placa'
+        'skill';
+    }
+}
 .input-error{
     border:solid red 2px;
 }

@@ -28,6 +28,10 @@ export class EducacionComponent implements OnInit {
     this.apiSvc.educacion.subscribe(edData=>{
       this.sec=edData;
     })
+    this.clkService.getEditStatus().subscribe(status=>{
+      this.edicion=status;
+    })
+    this.edicion=this.clkService.getEnabled();
   }
   
   ngAfterViewInit():void{

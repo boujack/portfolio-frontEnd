@@ -53,5 +53,6 @@ export class PyItemComponent implements OnInit {
 
   remove(){
     this.apiSvc.rmPy(this.e.id);
+    this.apiSvc.getPyData();
   }
 }

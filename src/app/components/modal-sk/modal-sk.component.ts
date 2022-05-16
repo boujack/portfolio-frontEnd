@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { ApiSkService } from 'src/app/services/api-sk.service';
 import { SkModel } from 'src/models/SkModel';
@@ -22,7 +23,7 @@ export class ModalSkComponent implements OnInit {
   skills:SkModel[];
   skillForm:FormGroup=new FormGroup({});
 
-  constructor(private apiSvc:ApiSkService) { 
+  constructor(private apiSvc:ApiSkService,private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -83,6 +84,8 @@ export class ModalSkComponent implements OnInit {
     }
     this.apiSvc.saveAllSk(sk);    
     this.submit.emit("false"); 
+    this.apiSvc.getSkData();
+    this.router.navigateByUrl("/skills").then();  
   }
 
   addSeccion(){

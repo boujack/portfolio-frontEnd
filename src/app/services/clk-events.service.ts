@@ -26,6 +26,9 @@ export class ClkEventsService {
   getUIStatus():Observable<boolean>{
     return this.uiStatus.asObservable();
   }
+  getEnabled():boolean{
+    return this.enabled;
+  }
   setEdit(x:boolean){
     this.editEnable.next(x);
   }
