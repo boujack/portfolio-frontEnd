@@ -31,6 +31,7 @@ import { XpItemComponent } from './components/xp-item/xp-item.component';
 import { ModalPyComponent } from './components/modal-py/modal-py.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { PyItemComponent } from './components/py-item/py-item.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PyItemComponent } from './components/py-item/py-item.component';
     XpItemComponent,
     ModalPyComponent,
     ProyectosComponent,
-    PyItemComponent
+    PyItemComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

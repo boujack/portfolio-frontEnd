@@ -17,7 +17,7 @@ export class EducacionComponent implements OnInit {
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
   faEdit=faEdit;
-  @Output() edicion:boolean=false;
+  @Input() edicion:boolean;
 
   constructor(private apiSvc:ApiService, private clkService:ClkEventsService) { 
     
@@ -25,20 +25,14 @@ export class EducacionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clkService.getEditStatus().subscribe(status=>{
-      this.edicion=status;
-    })
     this.apiSvc.educacion.subscribe(edData=>{
       this.sec=edData;
     })
   }
-
-  onFrameChange(){
-    this.typeSeccion();
-  }
+  
   ngAfterViewInit():void{
     this.apiSvc.getEduData();
-    this.onFrameChange()
+    this.typeSeccion();
   }
   
   async typeSeccion(){

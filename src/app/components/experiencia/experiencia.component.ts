@@ -12,31 +12,25 @@ import { XpModel } from 'src/models/XpModel';
 export class ExperienciaComponent implements OnInit {
 
   @Output() sec:XpModel[];
-  @Output() seccion:string="Educacion";
+  @Output() seccion:string="Experiencia";
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
   faEdit=faEdit;
-  @Output() edicion:boolean=false;
+  @Input() edicion:boolean;
 
   constructor(private apiSvc:ApiXpService, private clkService:ClkEventsService) {     
   }
 
   ngOnInit(): void {
-    this.clkService.getEditStatus().subscribe(status=>{
-      this.edicion=status;
-    })
-    this.apiSvc.educacion.subscribe(xpData=>{
+    this.apiSvc.experiencia.subscribe(xpData=>{
       this.sec=xpData;
     })
   }
 
-  onFrameChange(){
-    this.typeSeccion();
-  }
   ngAfterViewInit():void{
     this.apiSvc.getExpData();
-    this.onFrameChange()
+    this.typeSeccion();
   }
   
   async typeSeccion(){

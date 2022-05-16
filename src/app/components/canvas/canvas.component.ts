@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, HostListener } from '@angular/core';
-import { DatosService } from 'src/app/services/datos.service';
 import { Habilidad } from 'src/models/Habilidad';
+import { SkModel } from 'src/models/SkModel';
 
 @Component({
   selector: 'app-canvas',
@@ -11,23 +11,15 @@ export class CanvasComponent implements OnInit {
   @ViewChild('habCanvas')canvas: ElementRef; 
   canvasEl:HTMLCanvasElement; 
   private ctx:any;
+  @Input() skills:SkModel[];
   @Input() ancho:number;
   @Input() alto:number;
-  private skillData:number[]=[50,50,50,50,50,50];
-  private skillLabel:string[]=["Magia","Fuerza","Inteligencia","Espiritu","Destreza","Stamina"];
 
-  constructor(private dataSvc:DatosService) {
+  constructor() {
     
   }
 
   ngOnInit(): void {
-    this.dataSvc.getSkLabels().subscribe(skData=>{
-      this.skillLabel=skData;
-      this.skillData=this.dataSvc.getSkValues();
-      this.drawCanvas();
-    })
-    this.skillLabel=this.dataSvc.getSkL();
-    this.skillData=this.dataSvc.getSkValues();
   }
   ngAfterViewInit(){
     this.canvasEl=this.canvas.nativeElement;
@@ -38,8 +30,7 @@ export class CanvasComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-    onResize(event:any) {
-      
+    onResize(event:any) {      
       let size = Math.min(this.ancho,this.alto);
       this.ctx.canvas.width=this.ancho;
       this.ctx.canvas.height=this.alto;
@@ -57,8 +48,8 @@ export class CanvasComponent implements OnInit {
     let hab = [];
 	
     // Fill with gradient
-    for(let i=0;i<this.skillData.length;i++){
-      hab.push(new Habilidad(this.skillLabel[i], Math.round(this.skillData[i] * escala), hab.length));
+    for(let i=0;i<this.skills.length;i++){
+      hab.push(new Habilidad(this.skills[i].nombre, Math.round(this.skills[i].valor * escala), hab.length));
     }
     for (let n of hab) {
       n.setAttribs(hab.length);

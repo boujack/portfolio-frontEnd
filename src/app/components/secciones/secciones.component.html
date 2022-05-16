@@ -1,42 +1,6 @@
-<!-- <app-cuadro-xp></app-cuadro-xp>
-<app-cuadro-ed></app-cuadro-ed>
-<app-cuadro-sk></app-cuadro-sk>
-<app-cuadro-py></app-cuadro-py> -->
-<app-experiencia *ngIf="frameId==0"></app-experiencia>
-<app-educacion *ngIf="frameId==1"></app-educacion>
-<app-proyectos *ngIf="frameId==3"></app-proyectos>
-<!-- <div *ngIf="!isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
-    <div class="titulo-skill-div">
-        <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
-        <div class="edit-buttons">
-            <button 
-                class="add ed-add edit-icon" 
-                *ngIf="edicion"
-                (click)="addSeccion()"
-                >
-                <fa-icon [icon]="faPlus"></fa-icon>
-            </button>
-        </div>
-    </div>
-    <div *ngFor="let e of sec">
-        <app-seccion [e]="e" [edicion]="edicion" [seccion]="seccion"></app-seccion>
-    </div>
-</div>
-<div *ngIf="isSkill" class="detalle-skill" id="skill" [attr.data-visible]="currStyle">
-    <div class="titulo-skill-div">
-        <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
-        <div class="edit-buttons">
-            <button 
-                class="add ed-add edit-icon" 
-                *ngIf="edicion"
-                (click)="addSeccion()"
-                >
-                <fa-icon [icon]="faPlus"></fa-icon>
-            </button>
-        </div>
-    </div>
-    <div class="descripcion-skill canvas-skill" #canvasDiv>
-        <app-canvas [ancho]="canvasDiv.clientWidth" [alto]="canvasDiv.clientHeight"></app-canvas>
-    </div>
-</div> -->
+
+<app-experiencia *ngIf="frameId==0" [edicion]="edicion"></app-experiencia>
+<app-educacion *ngIf="frameId==1" [edicion]="edicion"></app-educacion>
+<app-proyectos *ngIf="frameId==3" [edicion]="edicion"></app-proyectos>
+<app-skills *ngIf="frameId==2" [edicion]="edicion"></app-skills>
 

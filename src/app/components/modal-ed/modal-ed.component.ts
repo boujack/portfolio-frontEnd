@@ -37,7 +37,8 @@ export class ModalEdComponent implements OnInit {
     ed.ingreso=this.genForm.get('ingreso')?.value;
     ed.egreso=this.genForm.get('egreso')?.value;
     this.apiSvc.saveEdu(ed);
-    this.submit.emit("false");     
+    this.submit.emit("false");
+    this.apiSvc.getEduData();     
   }
 
   ngOnChange(){

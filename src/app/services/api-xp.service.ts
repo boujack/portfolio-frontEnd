@@ -9,14 +9,14 @@ import { XpModel } from 'src/models/XpModel';
 export class ApiXpService {
 
   apiUrl:String="http://localhost:8080";
-  educacion:Subject<XpModel[]>=new Subject;
+  experiencia:Subject<XpModel[]>=new Subject;
 
   constructor(private jpaServer:HttpClient) {
   }
 
   getExpData(){
     this.jpaServer.get<XpModel[]>(this.apiUrl+'/experiencia').subscribe(xpData=>{      
-      this.educacion.next(xpData);      
+      this.experiencia.next(xpData);      
     })
   }
   rmExp(id:number){

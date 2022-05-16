@@ -21,7 +21,7 @@ export class SeccionesComponent implements OnInit {
   isSkill:boolean=false;
 
 
-  constructor(private dbService:DatosService, private clkService:ClkEventsService) { }
+  constructor(private clkService:ClkEventsService) { }
 
   ngOnInit(): void {
     this.clkService.getBtnClk().subscribe(data =>{

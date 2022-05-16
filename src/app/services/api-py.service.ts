@@ -9,14 +9,14 @@ import { PyModel } from 'src/models/PyModel';
 export class ApiPyService {
 
   apiUrl:String="http://localhost:8080";
-  educacion:Subject<PyModel[]>=new Subject;
+  project:Subject<PyModel[]>=new Subject;
 
   constructor(private jpaServer:HttpClient) {
   }
 
   getPyData(){
     this.jpaServer.get<PyModel[]>(this.apiUrl+'/proyecto').subscribe(pyData=>{      
-      this.educacion.next(pyData);      
+      this.project.next(pyData);      
     })
   }
   rmPy(id:number){

@@ -1,0 +1,17 @@
+<div class="detalle-skill" id="skill" data-visible="true">
+    <div class="titulo-skill-div">
+        <h2 class="titulo-skill">{{seccion}}<span class="type-description"></span></h2>
+        <div class="edit-buttons">
+            <button 
+                class="add ed-add edit-icon" 
+                *ngIf="edicion"
+                (click)="addSeccion()"
+                >
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <div class="descripcion-skill canvas-skill" #canvasDiv>
+        <app-canvas *ngIf="sec" [ancho]="canvasDiv.clientWidth" [alto]="canvasDiv.clientHeight" [skills]="sec" #appCanvas></app-canvas>
+    </div>
+</div>

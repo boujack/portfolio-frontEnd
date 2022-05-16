@@ -16,26 +16,20 @@ export class ProyectosComponent implements OnInit {
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
   faEdit=faEdit;
-  @Output() edicion:boolean=false;
+  @Input() edicion:boolean;
 
   constructor(private apiSvc:ApiPyService, private clkService:ClkEventsService) {     
   }
 
   ngOnInit(): void {
-    this.clkService.getEditStatus().subscribe(status=>{
-      this.edicion=status;
-    })
-    this.apiSvc.educacion.subscribe(xpData=>{
-      this.sec=xpData;
+    this.apiSvc.project.subscribe(pyData=>{
+      this.sec=pyData;
     })
   }
 
-  onFrameChange(){
-    this.typeSeccion();
-  }
   ngAfterViewInit():void{
     this.apiSvc.getPyData();
-    this.onFrameChange()
+    this.typeSeccion();
   }
   
   async typeSeccion(){
