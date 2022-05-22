@@ -17,6 +17,7 @@ export class SkillsComponent implements OnInit {
   @Output() seccion:string="Hard & Soft Skills";
   @Output() currStyle:string="";
   @Output() sOpen = new EventEmitter();
+  enabled:boolean;
   faPlus=faPlus;
   faEdit=faEdit;
   @Output() edicion:boolean=false;

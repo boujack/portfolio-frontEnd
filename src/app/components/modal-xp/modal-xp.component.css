@@ -1,3 +1,10 @@
 .error-msg{
     border:solid orangered;
 }
+.modal select{
+    background-color: rgb(61, 61, 61);
+    color:rgb(21, 255, 0);
+    text-shadow: 0 0 0.2rem rgb(21, 255, 0);
+    font-family: 'Conthrax';
+    text-align: center;  
+}

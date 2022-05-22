@@ -17,6 +17,7 @@ export class XpItemComponent implements OnInit {
   @Input() visible:string="false";
   @Input() currStyle:any;
   @Input() edicion:boolean;
+  tipos:String[]=["Full-Time","Part-Time","Pasantia","Freelance","Otro"];
   seccionForm:FormGroup;
   faTrash=faTrashCan;
   faEdit=faEdit;

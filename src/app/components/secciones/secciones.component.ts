@@ -9,7 +9,7 @@ import { ClkEventsService } from 'src/app/services/clk-events.service';
 export class SeccionesComponent implements OnInit {
   @Output() sOpen = new EventEmitter();
   @Output() edicion:boolean=false;
-
+  routeEnabled:boolean=false;
 
   constructor(private clkService:ClkEventsService) { }
 
@@ -18,6 +18,7 @@ export class SeccionesComponent implements OnInit {
       if(data>=0 && data<10)
       {
         this.sOpen.emit();
+        this.routeEnabled=true;
       }
     })
   }

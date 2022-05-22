@@ -12,14 +12,18 @@
     top:0;
     right: 0;
 }
-.descripcion-skill input[disabled]{
+.descripcion-skill input:disabled,select:disabled{
     background-color: transparent;
     border:none;
     color:white;
     text-shadow: 0 0 0.2rem var(--bd-color-1);
     font-family: 'Conthrax';
+    appearance: none;
 }
-.descripcion-skill input{
+.descripcion-skill select:disabled{
+    text-rendering: auto;
+}
+.descripcion-skill input,select{
     background-color: rgb(61, 61, 61);
     color:rgb(21, 255, 0);
     text-shadow: 0 0 0.2rem rgb(21, 255, 0);

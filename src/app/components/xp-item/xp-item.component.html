@@ -13,7 +13,12 @@
         <label for="puesto">Titulo:</label>
         <input type="text" formControlName="puesto">
         <label for="tipo">Nivel:</label>
-        <input type="text" formControlName="tipo">
+        <select 
+            name="tipo" 
+            formControlName="tipo"
+            [class.input-error]="seccionForm.get('tipo')?.touched && seccionForm.get('tipo')?.invalid">
+            <option *ngFor="let t of tipos" [value]="t">{{t}}</option>
+        </select>
         <label for="fe-ingreso">Fecha Ingreso:</label>
         <input type="date" formControlName="ingreso">
         <label for="fe-egreso">Fecha Egreso:</label>
