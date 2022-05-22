@@ -35,13 +35,14 @@ export class PlacaComponent implements OnInit {
   
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    
-      if(this.newDesc!=this.datosSvc.getDesc()){
-        this.newDesc=this.datosSvc.getDesc();
+    if(event.key=='Enter'){
+       if(this.newDesc!=this.datosSvc.getDesc()){
+        this.newDesc=this.datosSvc.getUsers().nombre + "·" +this.datosSvc.getUsers().apellido+ "-> " + this.datosSvc.getDesc();
         this.d.next(this.datosSvc.getDesc());
         this.animate="true"
       }
-      this.clkSvc.enableUI();     
+      this.clkSvc.enableUI(); 
+    }    
   }
 
   async typeDescription(){

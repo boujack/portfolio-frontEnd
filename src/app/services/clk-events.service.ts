@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { faListNumeric } from '@fortawesome/free-solid-svg-icons';
+import { Observable, Subject,of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClkEventsService {
-  private enabled:boolean=false;
+  private enabled:boolean;
   private editEnable:Subject<boolean> = new Subject;
+  private edit:boolean=false;
   private btnClicked:Subject<number> = new Subject;
   private uiStatus:Subject<boolean> = new Subject;
   constructor() {
@@ -26,11 +28,12 @@ export class ClkEventsService {
   getUIStatus():Observable<boolean>{
     return this.uiStatus.asObservable();
   }
-  getEnabled():boolean{
-    return this.enabled;
-  }
   setEdit(x:boolean){
     this.editEnable.next(x);
+    this.edit=x;
+  }
+  getEdit():boolean{
+    return this.edit;
   }
   getEditStatus():Observable<boolean>{
     return this.editEnable.asObservable();

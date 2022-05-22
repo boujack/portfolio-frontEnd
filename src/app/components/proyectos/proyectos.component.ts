@@ -16,7 +16,7 @@ export class ProyectosComponent implements OnInit {
   @Output() sOpen = new EventEmitter();
   faPlus=faPlus;
   faEdit=faEdit;
-  @Input() edicion:boolean;
+  @Input() edicion:boolean=false;
   secLenght:number=0;
 
   constructor(private apiSvc:ApiPyService, private clkService:ClkEventsService) {     
@@ -30,7 +30,7 @@ export class ProyectosComponent implements OnInit {
     this.clkService.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
-    this.edicion=this.clkService.getEnabled();
+    this.edicion=this.clkService.getEdit();
   }
 
   ngAfterViewInit():void{

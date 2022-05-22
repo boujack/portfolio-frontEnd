@@ -15,7 +15,6 @@ import { ModalLoginComponent } from './components/modal-login/modal-login.compon
 import { ModalSkComponent } from './components/modal-sk/modal-sk.component';
 import { ModalDescComponent } from './components/modal-desc/modal-desc.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SeccionComponent } from './components/seccion/seccion.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { CanvasComponent } from './components/canvas/canvas.component';
@@ -47,7 +46,6 @@ import { SkillsComponent } from './components/skills/skills.component';
     ModalLoginComponent,
     ModalSkComponent,
     ModalDescComponent,
-    SeccionComponent,
     CanvasComponent,
     EducacionComponent,
     EduItemComponent,

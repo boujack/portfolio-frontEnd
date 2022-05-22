@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
@@ -13,10 +12,10 @@ export class BannerComponent implements OnInit {
   columnas:any="single-column";
   animate:string="false";
   faEdit=faEdit;
-  edicion:boolean;
+  edicion:boolean=false;
   bgFile:string="circuit_banner_3.png";
 
-  constructor(private clkSvc:ClkEventsService, private http:HttpClient) { }
+  constructor(private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
     this.clkSvc.getUIStatus().subscribe(data => {

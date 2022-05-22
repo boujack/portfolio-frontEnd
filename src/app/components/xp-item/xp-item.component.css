@@ -1,5 +1,5 @@
 .h1-skill{
-    grid-column:span 2;
+    grid-column:span 3;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -29,7 +29,7 @@
 }
 .descripcion-skill{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:0.2fr 0.8fr 1fr;
     align-items: center;
     justify-content: left;
     border-radius:0rem;
@@ -41,4 +41,11 @@
     margin: 2rem;
     padding: 1rem;
     box-shadow: 0 0 0.2rem var(--bd-color-1);
+}
+.logoXP{
+    grid-row:span 4;
+    grid-column: 1 2;
+    width: 5rem;
+    height: 5rem;
+    filter:hue-rotate(90deg);
 }

@@ -19,11 +19,12 @@ export class ModalLoginComponent implements OnInit {
   constructor(private dataSvc:DatosService,private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
+    this.clkSvc.setEdit(false);
   }
   tryLogin(){
       let success:boolean=false;
-      for(let user of this.dataSvc.getUsers()){
-        if(user.user===this.loginForm.get("username")?.value && user.pass===this.loginForm.get("password")?.value){
+      let user = this.dataSvc.getUsers();
+        if(user.username===this.loginForm.get("username")?.value && user.password===this.loginForm.get("password")?.value){
           this.loginForm.get("username")?.setValue("");
           this.loginForm.get("username")?.markAsUntouched();
           this.loginForm.get("password")?.setValue("");
@@ -33,8 +34,7 @@ export class ModalLoginComponent implements OnInit {
           this.clkSvc.setBtnClk(25);
           this.clkSvc.setEdit(true);
           this.submit.emit("false");
-        }
-      }
+        }      
       if(!success)
         this.authError=true;
   }

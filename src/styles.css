@@ -224,6 +224,12 @@ img,a{
         'placa'
         'skill';
     }
+    app-banner{
+        overflow:scroll;
+    }
+    app-banner::-webkit-scrollbar{
+        display:none;
+    }
 }
 .input-error{
     border:solid red 2px;

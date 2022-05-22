@@ -42,3 +42,18 @@
     padding: 1rem;
     box-shadow: 0 0 0.2rem var(--bd-color-1);
 }
+textarea[disabled]{
+    background-color: transparent;
+    border:none;
+    color:white;
+    text-shadow: 0 0 0.2rem var(--bd-color-1);
+    font-family: 'Conthrax';
+    resize: none;
+}
+textarea{
+    background-color: rgb(61, 61, 61);
+    color:rgb(21, 255, 0);
+    text-shadow: 0 0 0.2rem rgb(21, 255, 0);
+    font-family: 'Conthrax';
+    resize:none
+}
