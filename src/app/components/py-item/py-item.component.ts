@@ -15,6 +15,7 @@ export class PyItemComponent implements OnInit {
   @Input() visible:string="false";
   @Input() currStyle:any;
   @Input() edicion:boolean;
+  logo:string="";
   seccionForm:FormGroup;
   faTrash=faTrashCan;
   faEdit=faEdit;
@@ -33,6 +34,7 @@ export class PyItemComponent implements OnInit {
     this.seccionForm.get('descripcion')?.setValue(this.e.descripcion);
     this.seccionForm.get('inicio')?.setValue(this.e.inicio);
     this.seccionForm.get('fin')?.setValue(this.e.fin);
+    this.logo=this.e.logo;
     this.seccionForm.disable();
   }
 

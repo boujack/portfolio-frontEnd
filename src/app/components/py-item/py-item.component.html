@@ -9,8 +9,10 @@
                 <fa-icon [icon]="faEdit"></fa-icon>
             </button>
         </div>
+        <img *ngIf="logo" class="logo" [src]="'/assets/'+logo" alt="">
+        <p *ngIf="!logo" class="logo"></p>
         <label for="descripcion">Descripcion:</label>
-        <textarea cols="30" rows="2" type="text" formControlName="descripcion"></textarea>
+        <textarea cols="30" [rows]="1+e.descripcion.length/30" type="text" formControlName="descripcion"></textarea>
         <label for="fe-inicio">Fecha inicio:</label>
         <input type="date" formControlName="inicio">
         <label for="fe-fin">Fecha fin:</label>

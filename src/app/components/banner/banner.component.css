@@ -56,3 +56,9 @@
 .bg-file{
     display: none;
 }
+@media (max-width:40em){
+    .banner{
+        min-height: calc(100vh - var(--navbar-height) - var(--box-margin)*3);
+        height: fit-content;
+    }
+}

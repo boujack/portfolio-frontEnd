@@ -5,6 +5,7 @@ export class EduModel{
     instituto:string;
     titulo:string;
     nivel:string;
+    logo:string;
     constructor(){        
 	}
 

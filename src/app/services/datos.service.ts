@@ -16,7 +16,6 @@ export class DatosService {
       let aux:any = user; 
       this.user=user;
       this.descripcion=aux.descripcion; 
-      console.log(user);
     })
   }
   getUsers():Usuario{
@@ -28,6 +27,8 @@ export class DatosService {
   setDesc(d:string){
     this.descripcion=d;
     this.obsDesc.next(d);
+    this.user.descripcion=d;
+    this.jpaServer.post(this.apiUrl+"/user",this.user).subscribe();
   }
   getDescChange():Observable<string>{
     return this.obsDesc.asObservable();

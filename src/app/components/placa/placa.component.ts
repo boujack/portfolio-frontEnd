@@ -28,7 +28,7 @@ export class PlacaComponent implements OnInit {
       this.edicion=status;
     })
     this.datosSvc.getDescChange().subscribe(d=>{
-      this.newDesc=d;
+      this.newDesc=this.datosSvc.getUsers().nombre + "·" +this.datosSvc.getUsers().apellido+ "-> " + d;
       this.d.next(d);
     })
   }

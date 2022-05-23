@@ -4,6 +4,7 @@ export class PyModel{
     fin:string;
     nombre:string;
     descripcion:string;
+    logo:string;
     constructor(){        
 	}
 

@@ -230,6 +230,9 @@ img,a{
     app-banner::-webkit-scrollbar{
         display:none;
     }
+    .descripcion-skill{
+        display: block;
+    }
 }
 .input-error{
     border:solid red 2px;

@@ -9,10 +9,11 @@
                 <fa-icon [icon]="faEdit"></fa-icon>
             </button>
         </div>
-        <img class="logoXP" src="../../../assets/naturLogo.png" alt=" ">
-        <label for="puesto">Titulo:</label>
+        <img *ngIf="logo" class="logo" [src]="'/assets/'+logo" alt="">
+        <p *ngIf="!logo" class="logo"></p>
+        <label for="puesto">Puesto:</label>
         <input type="text" formControlName="puesto">
-        <label for="tipo">Nivel:</label>
+        <label for="tipo">Tipo:</label>
         <select 
             name="tipo" 
             formControlName="tipo"

@@ -14,6 +14,7 @@ export class EduItemComponent implements OnInit {
   @Input() visible:string="false";
   @Input() currStyle:any;
   @Input() edicion:boolean;
+  logo:string="";
   seccionForm:FormGroup;
   faTrash=faTrashCan;
   faEdit=faEdit;
@@ -21,7 +22,7 @@ export class EduItemComponent implements OnInit {
   constructor(private apiSvc:ApiService,private router:Router) { 
     this.seccionForm=new FormGroup({
       instituto:new FormControl('',[Validators.required]),
-      titulo:new FormControl('',[Validators.required]),
+      titulo:new FormControl(''),
       nivel:new FormControl('',[Validators.required]),
       feIni:new FormControl('',[Validators.required]),
       feFin:new FormControl('',[Validators.required])
@@ -34,6 +35,7 @@ export class EduItemComponent implements OnInit {
     this.seccionForm.get('nivel')?.setValue(this.e.nivel);
     this.seccionForm.get('feIni')?.setValue(this.e.ingreso);
     this.seccionForm.get('feFin')?.setValue(this.e.egreso);
+    this.logo=this.e.logo;
     this.seccionForm.disable();
   }
   enableEdit(){

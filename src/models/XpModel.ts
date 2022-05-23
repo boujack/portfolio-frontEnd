@@ -5,6 +5,7 @@ export class XpModel{
     empresa:string;
     puesto:string;
     tipo:string;
+    logo:string;
     constructor(){        
 	}
 

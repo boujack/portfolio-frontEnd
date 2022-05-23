@@ -18,6 +18,7 @@ export class XpItemComponent implements OnInit {
   @Input() currStyle:any;
   @Input() edicion:boolean;
   tipos:String[]=["Full-Time","Part-Time","Pasantia","Freelance","Otro"];
+  logo:string="";
   seccionForm:FormGroup;
   faTrash=faTrashCan;
   faEdit=faEdit;
@@ -38,6 +39,7 @@ export class XpItemComponent implements OnInit {
     this.seccionForm.get('tipo')?.setValue(this.e.tipo);
     this.seccionForm.get('ingreso')?.setValue(this.e.ingreso);
     this.seccionForm.get('egreso')?.setValue(this.e.egreso);
+    this.logo=this.e.logo;
     this.seccionForm.disable();
   }
 
