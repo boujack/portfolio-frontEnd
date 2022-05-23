@@ -10,6 +10,7 @@ export class DatosService {
   private user:Usuario;
   private descripcion:string="";
   private obsDesc:Subject<string>=new Subject;
+  userSubj:Subject<Usuario>=new Subject;
   
   constructor(private jpaServer:HttpClient) {
     this.jpaServer.get<Usuario>(environment.springBootUrl+'/user').subscribe(user=>{
@@ -19,6 +20,12 @@ export class DatosService {
     })
   }
   getUsers():Usuario{
+    this.jpaServer.get<Usuario>(environment.springBootUrl+'/user').subscribe(user=>{
+      let aux:any = user; 
+      this.user=user;
+      this.userSubj.next(user);
+      this.descripcion=aux.descripcion; 
+    })
     return this.user;
   }
   getDesc():string{
@@ -28,6 +35,14 @@ export class DatosService {
     this.descripcion=d;
     this.obsDesc.next(d);
     this.user.descripcion=d;
+    this.jpaServer.post(environment.springBootUrl+"/user",this.user).subscribe();
+  }
+  setBgImg(url:string){
+    this.user.urlBanner=url;
+    this.jpaServer.post(environment.springBootUrl+"/user",this.user).subscribe();
+  }
+  setProfImg(url:string){
+    this.user.urlPerfil=url;
     this.jpaServer.post(environment.springBootUrl+"/user",this.user).subscribe();
   }
   getDescChange():Observable<string>{

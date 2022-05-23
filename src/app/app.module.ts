@@ -30,6 +30,9 @@ import { ModalPyComponent } from './components/modal-py/modal-py.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { PyItemComponent } from './components/py-item/py-item.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { environment } from 'src/environments/environment';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import { SkillsComponent } from './components/skills/skills.component';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

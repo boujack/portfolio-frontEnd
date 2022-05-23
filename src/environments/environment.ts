@@ -4,16 +4,18 @@
 
 export const environment = {
   production: false,
-  springBootUrl: "https://localhost:8080",
-  firebase:{
-    apiKey: "AIzaSyBGHpBYHlvvsonyTWcqlMjz-y1OgBEXaH4",
-    authDomain: "appportfolio24.firebaseapp.com",
-    projectId: "appportfolio24",
-    storageBucket: "appportfolio24.appspot.com",
-    messagingSenderId: "624116234586",
-    appId: "1:624116234586:web:25cf1c711a3f9f87c25b63"
+  springBootUrl: "http://localhost:8080",
+  firebase: {
+    projectId: 'appportfolio24',
+    appId: '1:624116234586:web:25cf1c711a3f9f87c25b63',
+    storageBucket: 'appportfolio24.appspot.com',
+    locationId: 'southamerica-east1',
+    apiKey: 'AIzaSyBGHpBYHlvvsonyTWcqlMjz-y1OgBEXaH4',
+    authDomain: 'appportfolio24.firebaseapp.com',
+    messagingSenderId: '624116234586',
   }
 };
+//firebase deploy --only hosting:svaldes
 
 /*
  * For easier debugging in development mode, you can import the following file
