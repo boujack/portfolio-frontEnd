@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { XpModel } from 'src/models/XpModel';
 
 @Injectable({
@@ -8,21 +9,20 @@ import { XpModel } from 'src/models/XpModel';
 })
 export class ApiXpService {
 
-  apiUrl:String="http://localhost:8080";
   experiencia:Subject<XpModel[]>=new Subject;
 
   constructor(private jpaServer:HttpClient) {
   }
 
   getExpData(){
-    this.jpaServer.get<XpModel[]>(this.apiUrl+'/experiencia').subscribe(xpData=>{      
+    this.jpaServer.get<XpModel[]>(environment.springBootUrl+'/experiencia').subscribe(xpData=>{      
       this.experiencia.next(xpData);      
     })
   }
   rmExp(id:number){
-    this.jpaServer.delete(this.apiUrl+'/rm/exp?id='+id).subscribe()
+    this.jpaServer.delete(environment.springBootUrl+'/rm/exp?id='+id).subscribe()
   }
   saveExp(e:XpModel){
-    this.jpaServer.post(this.apiUrl+"/new/exp",e).subscribe();
+    this.jpaServer.post(environment.springBootUrl+"/new/exp",e).subscribe();
   }
 }

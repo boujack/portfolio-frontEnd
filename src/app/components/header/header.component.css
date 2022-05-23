@@ -36,7 +36,7 @@ header[data-visible="true"]{
 header>span{
     grid-area:ap-title;
     color:white;
-    font-family: 'ArcadeClassic';
+    font-family: 'Goldman';
     font-size: 1rem;
     text-shadow: 0 0 1rem var(--bd-color-2);
     margin-left:1rem;  

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { EduModel } from 'src/models/EduModel';
 import { Usuario } from 'src/models/Usuario';
 
@@ -9,31 +10,30 @@ import { Usuario } from 'src/models/Usuario';
 })
 export class ApiService {
 
-  apiUrl:String="http://localhost:8080";
   userdata:Usuario=new Usuario();
   educacion:Subject<EduModel[]>=new Subject;
 
   constructor(private jpaServer:HttpClient) { 
-    this.jpaServer.get<Usuario>(this.apiUrl+'/user').subscribe(user=>{
+    this.jpaServer.get<Usuario>(environment.springBootUrl+'/user').subscribe(user=>{
       this.userdata=user;
     })
   }
   
   getUserData():Usuario{
-    this.jpaServer.get<Usuario>(this.apiUrl+'/user').subscribe(user=>{
+    this.jpaServer.get<Usuario>(environment.springBootUrl+'/user').subscribe(user=>{
       this.userdata=user;
     })
     return this.userdata;
   }
   getEduData(){
-    this.jpaServer.get<EduModel[]>(this.apiUrl+'/educacion').subscribe(edData=>{      
+    this.jpaServer.get<EduModel[]>(environment.springBootUrl+'/educacion').subscribe(edData=>{      
       this.educacion.next(edData);      
     })
   }
   rmEdu(id:number){
-    this.jpaServer.delete(this.apiUrl+'/rm/edu?id='+id).subscribe()
+    this.jpaServer.delete(environment.springBootUrl+'/rm/edu?id='+id).subscribe()
   }
   saveEdu(e:EduModel){
-    this.jpaServer.post(this.apiUrl+"/new/edu",e).subscribe();
+    this.jpaServer.post(environment.springBootUrl+"/new/edu",e).subscribe();
   }
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { faListNumeric } from '@fortawesome/free-solid-svg-icons';
-import { Observable, Subject,of } from 'rxjs';
+import { Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
