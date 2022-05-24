@@ -22,31 +22,31 @@ export class PlacaComponent implements OnInit {
   constructor(private datosSvc:ApiUserService,private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
-    this.d.subscribe(async data =>{      
-      this.typeDescription();
-    });
     this.clkSvc.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
     this.datosSvc.userSubj.subscribe((u)=>{
-      this.newDesc=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
+      if(this.newDesc!=u.nombre + "·" +u.apellido+ "-> " + u.descripcion)
+        this.d.next(u.nombre + "·" +u.apellido+ "-> " + u.descripcion)
     })
   }
   
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if(event.key=='Enter'){
+    if(event.key=='Enter'&&!this.clkSvc.getEnabled()){
       this.datosSvc.getUser().then((u)=>{
-        this.description=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
-        this.d.next(u.nombre + "·" +u.apellido+ "-> " + u.descripcion);
-        this.typeDescription;
+        this.d.subscribe(async data =>{      
+          this.newDesc=data;
+          this.typeDescription();
+        });
+        this.newDesc=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
+        this.d.next(this.newDesc);
       })
       this.clkSvc.enableUI(); 
     }    
   }
 
   async typeDescription(){
-    this.newDesc=this.description
     this.description="";
       for(let i=0;i<this.newDesc.length;i++ )
       {

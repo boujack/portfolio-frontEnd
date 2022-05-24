@@ -16,6 +16,5 @@ export class ModalDescComponent implements OnInit {
   async submitDesc(d:string){
     await this.dataSvc.setDesc(d);
     this.submit.emit("false");
-    await this.dataSvc.getUser();
   }
 }
