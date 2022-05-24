@@ -3,7 +3,7 @@ import { faEdit, faPlus} from '@fortawesome/free-solid-svg-icons';
 import { ApiSkService } from 'src/app/services/api-sk.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { SkModel } from 'src/models/SkModel';
-import { CanvasComponent } from '../canvas/canvas.component';
+import { CanvasComponent } from './canvas/canvas.component';
 
 @Component({
   selector: 'app-skills',

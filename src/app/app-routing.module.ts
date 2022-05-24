@@ -1,9 +1,9 @@
 import { NgModule} from '@angular/core';
-import { EducacionComponent } from './components/educacion/educacion.component';
-import { ExperienciaComponent } from './components/experiencia/experiencia.component';
+import { EducacionComponent } from './components/banner/secciones/educacion/educacion.component';
+import { ExperienciaComponent } from './components/banner/secciones/experiencia/experiencia.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillsComponent } from './components/skills/skills.component';
-import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { SkillsComponent } from './components/banner/secciones/skills/skills.component';
+import { ProyectosComponent } from './components/banner/secciones/proyectos/proyectos.component';
 const routes: Routes = [
   { path: 'educacion', component: EducacionComponent },
   { path: 'experiencia', component: ExperienciaComponent },
