@@ -60,8 +60,9 @@ export class XpItemComponent implements OnInit {
     }    
   }
 
-  remove(){
-    this.apiSvc.rmExp(this.e.id);
+  async remove(){
+    await this.apiSvc.rmExp(this.e.id);
+    await this.apiSvc.getExpData();
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['experiencia']);
     });

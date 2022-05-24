@@ -54,9 +54,9 @@ export class PyItemComponent implements OnInit {
     }    
   }
 
-  remove(){
-    this.apiSvc.rmPy(this.e.id);
-    this.apiSvc.getPyData();
+  async remove(){
+    await this.apiSvc.rmPy(this.e.id);
+    await this.apiSvc.getPyData();
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['proyectos']);
     });

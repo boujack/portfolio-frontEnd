@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators , FormControl} from '@angular/forms';
+import { ApiUserService } from 'src/app/services/api-user.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
   selector: 'app-modal-login',
@@ -16,7 +16,7 @@ export class ModalLoginComponent implements OnInit {
     username:new FormControl('',[Validators.required, Validators.minLength(3)]),
     password:new FormControl('',[Validators.required, Validators.minLength(3)])
   })
-  constructor(private dataSvc:DatosService,private clkSvc:ClkEventsService) { }
+  constructor(private dataSvc:ApiUserService,private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
     this.clkSvc.setEdit(false);

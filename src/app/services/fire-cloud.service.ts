@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs';
-import { DatosService } from './datos.service';
+import { ApiUserService } from './api-user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FireCloudService {
 
-  constructor(private fireStorage:AngularFireStorage, private apiSvc:DatosService) { }
+  constructor(private fireStorage:AngularFireStorage, private apiSvc:ApiUserService) { }
   
   uploadImg(f:File,dir:string){
 
@@ -26,8 +26,22 @@ export class FireCloudService {
         uploadTask.snapshotChanges().pipe(finalize(() => {
           storageRef.getDownloadURL().subscribe((downloadURL: any) => {
           console.log(downloadURL);
-          this.apiSvc.setBgImg(downloadURL);
-          this.apiSvc.getUsers();
+          switch(dir){
+            case "banner":{
+              this.apiSvc.setBgImg(downloadURL);
+              break;
+            }
+            case "profile":{
+              this.apiSvc.setProfImg(downloadURL);
+              break;
+            }
+            case "logo":{
+              break;
+            }
+            default:{
+              break;
+            }
+          }
           });
         })
   ).subscribe();

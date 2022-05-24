@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faTrashCan, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiEdService } from 'src/app/services/api-ed.service';
 
 @Component({
   selector: 'app-edu-item',
@@ -19,7 +19,7 @@ export class EduItemComponent implements OnInit {
   faTrash=faTrashCan;
   faEdit=faEdit;
   disabled:boolean=true;
-  constructor(private apiSvc:ApiService,private router:Router) { 
+  constructor(private apiSvc:ApiEdService,private router:Router) { 
     this.seccionForm=new FormGroup({
       instituto:new FormControl('',[Validators.required]),
       titulo:new FormControl(''),
@@ -54,8 +54,9 @@ export class EduItemComponent implements OnInit {
       this.apiSvc.saveEdu(this.e);
     }    
   }
-  remove(){
-    this.apiSvc.rmEdu(this.e.id);
+  async remove(){
+    await this.apiSvc.rmEdu(this.e.id);
+    await this.apiSvc.getEduData();
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['educacion']);
     });

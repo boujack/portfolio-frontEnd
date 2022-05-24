@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiEdService } from 'src/app/services/api-ed.service';
 import { EduModel } from 'src/models/EduModel';
 
 @Component({
@@ -16,7 +16,7 @@ export class ModalEdComponent implements OnInit {
   genForm:FormGroup;
   niveles:String[]=["Primario","Primario Incompleto","Secundario","Secundario Incompleto","Terciario","Terciario Incompleto","Universitario","Univeristario Incompleto","Otro"];
 
-  constructor(private apiSvc:ApiService,private router:Router) { 
+  constructor(private apiSvc:ApiEdService,private router:Router) { 
     this.genForm=new FormGroup({
       instituto:new FormControl('',Validators.required),
       titulo:new FormControl(''),
@@ -29,7 +29,7 @@ export class ModalEdComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addEd(){
+  async addEd(){
     let ed:EduModel = new EduModel;
     ed.id=1;
     ed.instituto=this.genForm.get('instituto')?.value;
@@ -40,9 +40,9 @@ export class ModalEdComponent implements OnInit {
       ed.egreso=this.genForm.get('egreso')?.value;
     else
       ed.egreso="";
-    this.apiSvc.saveEdu(ed);
+    await this.apiSvc.saveEdu(ed);
     this.submit.emit("false");
-    this.apiSvc.getEduData();   
+    await this.apiSvc.getEduData();   
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['educacion']);
     });

@@ -28,22 +28,18 @@ export class ModalPyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPy(){
+  async addPy(){
     let py:PyModel = new PyModel;
     py.id=1;
     py.nombre=this.genForm.get('nombre')?.value;
     py.descripcion=this.genForm.get('descripcion')?.value;
     py.inicio=this.genForm.get('inicio')?.value;
     py.fin=this.genForm.get('fin')?.value;
-    this.apiSvc.savePy(py);
+    await this.apiSvc.savePy(py);
     this.submit.emit("false"); 
-    this.apiSvc.getPyData();  
+    await this.apiSvc.getPyData();  
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['proyectos']);
     });
   }
-
-  ngOnChange(){
-  }
-
 }

@@ -15,17 +15,36 @@ export class ApiSkService {
   }
 
   getSkData(){
-    this.jpaServer.get<SkModel[]>(environment.springBootUrl+'/skill').subscribe(skData=>{      
-      this.skill.next(skData);      
+    return new Promise<SkModel[]>((resolve)=>{
+      this.jpaServer.get<SkModel[]>(environment.springBootUrl+'/skill').subscribe(skData=>{      
+        this.skill.next(skData);
+        resolve(skData);      
+      })
     })
+    
   }
   rmSk(id:number){
-    this.jpaServer.delete(environment.springBootUrl+'/rm/sk?id='+id).subscribe()
+    return new Promise<boolean>((resolve)=>{
+      this.jpaServer.delete(environment.springBootUrl+'/rm/sk?id='+id)
+      .subscribe(()=>{
+        resolve(true)
+      })
+    })    
   }
   saveSk(e:SkModel){
-    this.jpaServer.post(environment.springBootUrl+"/new/sk",e).subscribe();    
+    return new Promise<boolean>((resolve)=>{
+      this.jpaServer.post(environment.springBootUrl+"/new/sk",e)
+      .subscribe(()=>{
+        resolve(true)
+      });  
+    })      
   }
   saveAllSk(s:SkModel[]){
-    this.jpaServer.post(environment.springBootUrl+"/new/skAll",s).subscribe();
+    return new Promise<boolean>((resolve)=>{
+      this.jpaServer.post(environment.springBootUrl+"/new/skAll",s)
+      .subscribe(()=>{
+        resolve(true)
+      });
+    })
   }
 }

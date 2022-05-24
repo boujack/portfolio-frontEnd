@@ -29,7 +29,7 @@ export class ModalXpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addXp(){
+  async addXp(){
     let xp:XpModel = new XpModel;
     xp.id=1;
     xp.empresa=this.genForm.get('empresa')?.value;
@@ -37,9 +37,9 @@ export class ModalXpComponent implements OnInit {
     xp.tipo=this.genForm.get('tipo')?.value;
     xp.ingreso=this.genForm.get('ingreso')?.value;
     xp.egreso=this.genForm.get('egreso')?.value;
-    this.apiSvc.saveExp(xp);
+    await this.apiSvc.saveExp(xp);
     this.submit.emit("false"); 
-    this.apiSvc.getExpData();
+    await this.apiSvc.getExpData();
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['experiencia']);
     });    

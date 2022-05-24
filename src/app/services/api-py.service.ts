@@ -15,14 +15,29 @@ export class ApiPyService {
   }
 
   getPyData(){
-    this.jpaServer.get<PyModel[]>(environment.springBootUrl+'/proyecto').subscribe(pyData=>{      
-      this.project.next(pyData);      
+    return new Promise<PyModel[]>((resolve)=>{
+      this.jpaServer.get<PyModel[]>(environment.springBootUrl+'/proyecto')
+      .subscribe(pyData=>{      
+        this.project.next(pyData);
+        resolve(pyData);     
+      })
     })
   }
   rmPy(id:number){
-    this.jpaServer.delete(environment.springBootUrl+'/rm/py?id='+id).subscribe()
+    return new Promise<boolean>((resolve)=>{
+      this.jpaServer.delete(environment.springBootUrl+'/rm/py?id='+id)
+      .subscribe(()=>{
+        resolve(true);
+      })
+    })
+    
   }
   savePy(e:PyModel){
-    this.jpaServer.post(environment.springBootUrl+"/new/py",e).subscribe();
+    return new Promise<boolean>((resolve)=>{
+      this.jpaServer.post(environment.springBootUrl+"/new/py",e)
+      .subscribe(()=>{
+        resolve(true);
+      });}
+    )
   }
 }

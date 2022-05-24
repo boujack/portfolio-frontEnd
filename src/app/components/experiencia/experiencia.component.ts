@@ -32,7 +32,7 @@ export class ExperienciaComponent implements OnInit {
     this.edicion=this.clkService.getEdit();
   }
 
-  ngAfterViewInit():void{
+  ngAfterViewInit(){
     this.apiSvc.getExpData();
     this.typeSeccion();
   }
@@ -52,10 +52,6 @@ export class ExperienciaComponent implements OnInit {
 
   addSeccion(){
     this.clkService.setBtnClk(10);
-  }
-  enableEdit(){ 
-  }
-  remove(){
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { ApiUserService } from 'src/app/services/api-user.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { DatosService } from 'src/app/services/datos.service';
 import { FireCloudService } from 'src/app/services/fire-cloud.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class BannerComponent implements OnInit {
   edicion:boolean=false;
   bgUrl:string;
 
-  constructor(private clkSvc:ClkEventsService,private fireCloudSvc:FireCloudService,private apiSvc:DatosService) { }
+  constructor(private clkSvc:ClkEventsService,private fireCloudSvc:FireCloudService,private apiSvc:ApiUserService) { }
 
   ngOnInit(): void {
     this.clkSvc.getUIStatus().subscribe(data => {
@@ -27,9 +27,8 @@ export class BannerComponent implements OnInit {
     this.clkSvc.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
-    this.apiSvc.userSubj.subscribe(s=>{
-      console.log(s.urlBanner)
-      this.bgUrl=s.urlBanner;
+    this.apiSvc.getReq().then((u)=>{
+      this.bgUrl=u.urlBanner
     })
   }
   sectOpen(){
@@ -38,5 +37,8 @@ export class BannerComponent implements OnInit {
   bgImgSelected(e:any){
     const file:File = e.target.files[0];
     this.fireCloudSvc.uploadImg(file,"banner");
+    this.apiSvc.getReq().then((u)=>{
+      this.bgUrl=u.urlBanner
+    })
   }
 }

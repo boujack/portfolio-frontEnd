@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FireCloudService } from 'src/app/services/fire-cloud.service';
+import { ApiUserService } from 'src/app/services/api-user.service';
 
 @Component({
   selector: 'app-perfil',
@@ -14,7 +16,7 @@ export class PerfilComponent implements OnInit {
   faEdit=faEdit;
   profFile:string="profile.png"
 
-  constructor(private clkService:ClkEventsService) {
+  constructor(private clkService:ClkEventsService,private fireCloudSvc:FireCloudService,private apiSvc:ApiUserService) {
   }
 
   ngOnInit(): void {
@@ -25,6 +27,9 @@ export class PerfilComponent implements OnInit {
     this.clkService.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
+    this.apiSvc.userSubj.subscribe(s=>{
+      this.profFile=s.urlPerfil;
+    })
   }
   
   runeClick(a:number){
@@ -32,8 +37,7 @@ export class PerfilComponent implements OnInit {
   }
   profImgSelected(e:any){
     const file:File = e.target.files[0];
-        if(file){
-          this.profFile = file.name;
-        }
+    this.fireCloudSvc.uploadImg(file,"profile");
+    this.profFile=this.apiSvc.getUsers().urlPerfil;
   }
 }

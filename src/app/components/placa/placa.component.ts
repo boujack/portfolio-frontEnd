@@ -1,8 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { faCircleNodes,faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
+import { ApiUserService } from 'src/app/services/api-user.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { DatosService } from 'src/app/services/datos.service';
+
 @Component({
   selector: 'app-placa',
   templateUrl: './placa.component.html',
@@ -18,7 +19,7 @@ export class PlacaComponent implements OnInit {
   faNode=faCircleNodes;
   edicion:boolean;
 
-  constructor(private datosSvc:DatosService,private clkSvc:ClkEventsService) { }
+  constructor(private datosSvc:ApiUserService,private clkSvc:ClkEventsService) { }
 
   ngOnInit(): void {
     this.d.subscribe(async data =>{      

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DatosService } from 'src/app/services/datos.service';
+import { ApiUserService } from 'src/app/services/api-user.service';
 
 @Component({
   selector: 'app-modal-desc',
@@ -9,7 +9,7 @@ import { DatosService } from 'src/app/services/datos.service';
 export class ModalDescComponent implements OnInit {
   @Input() visible:string;
   @Output() submit:EventEmitter<string> = new EventEmitter;
-  constructor(private dataSvc:DatosService) { }
+  constructor(private dataSvc:ApiUserService) { }
 
   ngOnInit(): void {
   }

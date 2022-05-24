@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faEdit, faPlus} from '@fortawesome/free-solid-svg-icons';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiEdService } from 'src/app/services/api-ed.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
 import { EduModel } from 'src/models/EduModel';
 
@@ -19,7 +19,7 @@ export class EducacionComponent implements OnInit {
   faEdit=faEdit;
   @Output() edicion:boolean=false;
 
-  constructor(private apiSvc:ApiService, private clkService:ClkEventsService) { 
+  constructor(private apiSvc:ApiEdService, private clkService:ClkEventsService) { 
     
     
   }
