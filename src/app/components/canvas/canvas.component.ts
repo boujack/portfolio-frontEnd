@@ -26,6 +26,7 @@ export class CanvasComponent implements OnInit {
     this.ctx = this.canvasEl.getContext('2d');
     this.ctx.canvas.width=this.ancho;
     this.ctx.canvas.height=this.alto;
+    
     this.drawCanvas()
   }
 
@@ -38,6 +39,7 @@ export class CanvasComponent implements OnInit {
   }
 
   drawCanvas(){
+    return new Promise<boolean>((resolve)=>{
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     let x_center = this.ctx.canvas.width / 2;
     let y_center = this.ctx.canvas.height / 2;
@@ -45,6 +47,8 @@ export class CanvasComponent implements OnInit {
     let escala = graphModule / 100;
     let fontSize = this.ctx.canvas.height / 25;
     let fontWidth = fontSize / 2;
+    this.ctx.font = fontSize + "px 'GlitchInside'";
+    
     let hab = [];
 	
     // Fill with gradient
@@ -95,7 +99,6 @@ export class CanvasComponent implements OnInit {
 
     //Añade las etiquetas
     this.ctx.fillStyle = "rgba(255,255,255,1)";
-    this.ctx.font = fontSize + "px GlitchInside";
     for (let i = 0; i < hab.length; i++) {
       let text = hab[i].name + " (" + Math.round(hab[i].modulo / escala) + ")";
       let x_text = Math.round(graphModule * Math.cos(Math.PI * hab[i].angulo / 180)) + x_center;
@@ -118,5 +121,7 @@ export class CanvasComponent implements OnInit {
       }
       this.ctx.fillText(text, x_text + x_offset, y_text + y_offset);
     }
+    resolve(true);
+    })
   }
 }

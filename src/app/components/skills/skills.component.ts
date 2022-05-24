@@ -37,8 +37,13 @@ export class SkillsComponent implements OnInit {
   }
 
   ngAfterViewInit():void{
-    this.apiSvc.getSkData();
+    this.inicio();
     this.typeSeccion();
+  }
+
+
+  async inicio(){
+    await this.apiSvc.getSkData();
   }
   
   async typeSeccion(){

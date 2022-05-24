@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators , FormControl} from '@angular/forms';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
+import { Usuario } from 'src/models/Usuario';
 
 @Component({
   selector: 'app-modal-login',
@@ -23,8 +24,9 @@ export class ModalLoginComponent implements OnInit {
   }
   tryLogin(){
       let success:boolean=false;
-      let user = this.dataSvc.getUsers();
-        if(user.username===this.loginForm.get("username")?.value && user.password===this.loginForm.get("password")?.value){
+      this.dataSvc.getUser().then((u)=>{
+      
+        if(u.username===this.loginForm.get("username")?.value && u.password===this.loginForm.get("password")?.value){
           this.loginForm.get("username")?.setValue("");
           this.loginForm.get("username")?.markAsUntouched();
           this.loginForm.get("password")?.setValue("");
@@ -34,9 +36,10 @@ export class ModalLoginComponent implements OnInit {
           this.clkSvc.setBtnClk(25);
           this.clkSvc.setEdit(true);
           this.submit.emit("false");
-        }      
+        }   
       if(!success)
         this.authError=true;
+      })  
   }
 
 }

@@ -237,3 +237,20 @@ img,a{
 .input-error{
     border:solid red 2px;
 }
+
+.custom-scroll::-webkit-scrollbar{
+    display:block;
+    width:1rem;
+}
+.custom-scroll::-webkit-scrollbar-thumb{
+    background-color: rgba(0,255,0,0.1);
+}
+.custom-scroll::-webkit-scrollbar:horizontal{
+    display:none
+}
+.custom-scroll::-webkit-scrollbar-button:vertical:start:decrement{
+    background: transparent url(assets/arrow-up.png) no-repeat center center;
+}
+.custom-scroll::-webkit-scrollbar-button:vertical:end:increment{
+    background: transparent url(assets/arrow-down.png) no-repeat center center;
+}

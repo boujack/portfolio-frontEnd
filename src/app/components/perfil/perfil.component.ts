@@ -14,7 +14,7 @@ export class PerfilComponent implements OnInit {
   animate:string="false";
   edicion:boolean=false;
   faEdit=faEdit;
-  profFile:string="profile.png"
+  profFile:string
 
   constructor(private clkService:ClkEventsService,private fireCloudSvc:FireCloudService,private apiSvc:ApiUserService) {
   }
@@ -27,17 +27,20 @@ export class PerfilComponent implements OnInit {
     this.clkService.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
-    this.apiSvc.userSubj.subscribe(s=>{
-      this.profFile=s.urlPerfil;
+    this.apiSvc.getUser().then((u)=>{
+      this.profFile=u.urlPerfil;
+    })
+    this.apiSvc.userSubj.subscribe((u)=>{
+      if(u.urlPerfil!=this.profFile)
+        this.profFile=u.urlPerfil;
     })
   }
   
   runeClick(a:number){
     this.clkService.setBtnClk(a);
   }
-  profImgSelected(e:any){
+  async profImgSelected(e:any){
     const file:File = e.target.files[0];
-    this.fireCloudSvc.uploadImg(file,"profile");
-    this.profFile=this.apiSvc.getUsers().urlPerfil;
+    await this.fireCloudSvc.uploadImg(file,"profile");
   }
 }

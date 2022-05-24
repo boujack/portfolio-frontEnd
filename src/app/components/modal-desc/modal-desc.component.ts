@@ -13,8 +13,9 @@ export class ModalDescComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  submitDesc(d:string){
-    this.dataSvc.setDesc(d);
+  async submitDesc(d:string){
+    await this.dataSvc.setDesc(d);
     this.submit.emit("false");
+    await this.dataSvc.getUser();
   }
 }

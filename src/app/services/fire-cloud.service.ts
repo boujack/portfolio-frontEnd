@@ -14,7 +14,7 @@ export class FireCloudService {
 
     let fileExt:string = f.name.split('.')[f.name.split('.').length-1];
     let fileRef:string;
-
+    return new Promise<boolean>((resolve)=>{
     if(dir==="banner"||dir==="profile"){
       fileRef=dir+"/"+dir+"."+fileExt;
     }
@@ -25,7 +25,6 @@ export class FireCloudService {
         const uploadTask = this.fireStorage.upload(fileRef,f);
         uploadTask.snapshotChanges().pipe(finalize(() => {
           storageRef.getDownloadURL().subscribe((downloadURL: any) => {
-          console.log(downloadURL);
           switch(dir){
             case "banner":{
               this.apiSvc.setBgImg(downloadURL);
@@ -44,6 +43,6 @@ export class FireCloudService {
           }
           });
         })
-  ).subscribe();
+  ).subscribe();})
   }
 }

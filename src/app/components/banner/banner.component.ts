@@ -15,7 +15,7 @@ export class BannerComponent implements OnInit {
   animate:string="false";
   faEdit=faEdit;
   edicion:boolean=false;
-  bgUrl:string;
+  @Output() bgUrl:string;
 
   constructor(private clkSvc:ClkEventsService,private fireCloudSvc:FireCloudService,private apiSvc:ApiUserService) { }
 
@@ -27,18 +27,19 @@ export class BannerComponent implements OnInit {
     this.clkSvc.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
-    this.apiSvc.getReq().then((u)=>{
+    this.apiSvc.getUser().then((u)=>{
       this.bgUrl=u.urlBanner
+    })
+    this.apiSvc.userSubj.subscribe((u)=>{
+      if(u.urlPerfil!=this.bgUrl)
+        this.bgUrl=u.urlBanner;
     })
   }
   sectOpen(){
     this.columnas="duo-column";
   }
-  bgImgSelected(e:any){
+  async bgImgSelected(e:any){
     const file:File = e.target.files[0];
-    this.fireCloudSvc.uploadImg(file,"banner");
-    this.apiSvc.getReq().then((u)=>{
-      this.bgUrl=u.urlBanner
-    })
+    await this.fireCloudSvc.uploadImg(file,"banner");
   }
 }

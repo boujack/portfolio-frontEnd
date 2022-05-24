@@ -49,7 +49,6 @@ export class ModalSkComponent implements OnInit {
         arr.splice(index,1);
     });
     this.indice--;
-    console.log(this.indice);
   }
 
   loadInputs(){
@@ -63,7 +62,7 @@ export class ModalSkComponent implements OnInit {
     for(let i = 0;i<this.skills.length;i++){
       this.inputLNames.push("label"+this.indice);
       this.inputVNames.push("value"+this.indice);
-      this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',[Validators.required,Validators.minLength(3)]));
+      this.skillForm.addControl(this.inputLNames[this.indice],new FormControl('',[Validators.required,Validators.minLength(1)]));
       this.skillForm.addControl(this.inputVNames[this.indice],new FormControl('',[Validators.required,Validators.min(0),Validators.max(100)]));
       this.skillForm.get(this.inputLNames[this.indice])?.setValue(this.skills[i].nombre);
       this.skillForm.get(this.inputVNames[this.indice])?.setValue(this.skills[i].valor);
@@ -71,7 +70,7 @@ export class ModalSkComponent implements OnInit {
     }
   }
 
-  setCanvas(){
+  async setCanvas(){
     let sk:SkModel[]=[];
     for(let s of this.skills){
       this.apiSvc.rmSk(s.id);
@@ -82,9 +81,9 @@ export class ModalSkComponent implements OnInit {
                 valor:this.skillForm.get(this.inputVNames[i])?.value
               })
     }
-    this.apiSvc.saveAllSk(sk);    
+    await this.apiSvc.saveAllSk(sk);    
     this.submit.emit("false"); 
-    this.apiSvc.getSkData();
+    await this.apiSvc.getSkData();
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['skills']);
     });

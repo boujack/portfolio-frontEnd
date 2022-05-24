@@ -28,25 +28,25 @@ export class PlacaComponent implements OnInit {
     this.clkSvc.getEditStatus().subscribe(status=>{
       this.edicion=status;
     })
-    this.datosSvc.getDescChange().subscribe(d=>{
-      this.newDesc=this.datosSvc.getUsers().nombre + "·" +this.datosSvc.getUsers().apellido+ "-> " + d;
-      this.d.next(d);
+    this.datosSvc.userSubj.subscribe((u)=>{
+      this.newDesc=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
     })
   }
   
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if(event.key=='Enter'){
-       if(this.newDesc!=this.datosSvc.getDesc()){
-        this.newDesc=this.datosSvc.getUsers().nombre + "·" +this.datosSvc.getUsers().apellido+ "-> " + this.datosSvc.getDesc();
-        this.d.next(this.datosSvc.getDesc());
-        this.animate="true"
-      }
+      this.datosSvc.getUser().then((u)=>{
+        this.description=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
+        this.d.next(u.nombre + "·" +u.apellido+ "-> " + u.descripcion);
+        this.typeDescription;
+      })
       this.clkSvc.enableUI(); 
     }    
   }
 
   async typeDescription(){
+    this.newDesc=this.description
     this.description="";
       for(let i=0;i<this.newDesc.length;i++ )
       {
