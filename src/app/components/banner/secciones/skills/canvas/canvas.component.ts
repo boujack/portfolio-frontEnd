@@ -45,7 +45,7 @@ export class CanvasComponent implements OnInit {
     let y_center = this.ctx.canvas.height / 2;
     const graphModule = (Math.min(this.ctx.canvas.width, this.ctx.canvas.height) - 150) / 2;
     let escala = graphModule / 100;
-    let fontSize = this.ctx.canvas.height / 25;
+    let fontSize = this.ctx.canvas.width / 25;
     let fontWidth = fontSize / 2;
     this.ctx.font = fontSize + "px 'GlitchInside'";
     
