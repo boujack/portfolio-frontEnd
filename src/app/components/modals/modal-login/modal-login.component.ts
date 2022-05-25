@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators , FormControl} from '@angular/forms';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ClkEventsService } from 'src/app/services/clk-events.service';
-import { Usuario } from 'src/models/Usuario';
+import * as CryptoJS from 'crypto-js'
 
 @Component({
   selector: 'app-modal-login',
@@ -13,6 +13,8 @@ export class ModalLoginComponent implements OnInit {
   @Input() value:string;
   @Output() submit:EventEmitter<string> = new EventEmitter;
   authError:boolean=false;
+  
+
   loginForm:FormGroup=new FormGroup({
     username:new FormControl('',[Validators.required, Validators.minLength(3)]),
     password:new FormControl('',[Validators.required, Validators.minLength(3)])
@@ -24,9 +26,9 @@ export class ModalLoginComponent implements OnInit {
   }
   tryLogin(){
       let success:boolean=false;
+      let hashed:string = CryptoJS.SHA256(this.loginForm.get("password")?.value).toString();
       this.dataSvc.getUser().then((u)=>{
-      
-        if(u.username===this.loginForm.get("username")?.value && u.password===this.loginForm.get("password")?.value){
+        if(u.username===this.loginForm.get("username")?.value && u.password===hashed){
           this.loginForm.get("username")?.setValue("");
           this.loginForm.get("username")?.markAsUntouched();
           this.loginForm.get("password")?.setValue("");

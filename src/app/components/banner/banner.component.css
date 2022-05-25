@@ -10,7 +10,7 @@
     max-width: calc(100% - var(--box-margin)*2);
     height: calc(100vh - var(--navbar-height) - var(--box-margin)*3);
     grid-auto-columns: 1fr;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgb(14, 3, 22);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;

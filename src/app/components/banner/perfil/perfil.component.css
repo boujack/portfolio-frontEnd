@@ -4,9 +4,11 @@
     position:relative;
     /* min-width: var(--foto-perfil-size);
     max-width: 30vw; */
-    width: var(--foto-perfil-size);
-    height: var(--foto-perfil-size);
-    border-radius: 50%;
+    width: calc(var(--foto-perfil-size) * 1.5);
+    height: calc(var(--foto-perfil-size) * 1.5);
+    bottom: calc(var(--foto-perfil-size) * 0.25);
+    right: calc(var(--foto-perfil-size) * 0.25);
+    border-radius: 0%;
     object-fit: cover;
     transform: rotateZ(-45deg);
     animation-duration: 5s;
