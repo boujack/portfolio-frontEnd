@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiEdService } from 'src/app/services/api-ed.service';
+import { FireCloudService } from 'src/app/services/fire-cloud.service';
 import { EduModel } from 'src/models/EduModel';
 
 @Component({
@@ -16,13 +17,15 @@ export class ModalEdComponent implements OnInit {
   genForm:FormGroup;
   niveles:String[]=["Primario","Primario Incompleto","Secundario","Secundario Incompleto","Terciario","Terciario Incompleto","Universitario","Univeristario Incompleto","Otro"];
 
-  constructor(private apiSvc:ApiEdService,private router:Router) { 
+  constructor(private apiSvc:ApiEdService,private router:Router,private fireCloudSvc:FireCloudService) { 
     this.genForm=new FormGroup({
       instituto:new FormControl('',Validators.required),
       titulo:new FormControl(''),
       nivel:new FormControl('',Validators.required),
       ingreso:new FormControl('',Validators.required),
-      egreso:new FormControl('')
+      egreso:new FormControl(''),
+      logo:new FormControl(''),
+      logofile: new FormControl('')
     })
   }
 
@@ -36,6 +39,7 @@ export class ModalEdComponent implements OnInit {
     ed.titulo=this.genForm.get('titulo')?.value;
     ed.nivel=this.genForm.get('nivel')?.value;
     ed.ingreso=this.genForm.get('ingreso')?.value;
+    ed.logo=this.genForm.get('logo')?.value;
     if(this.genForm.get('egreso')?.value)
       ed.egreso=this.genForm.get('egreso')?.value;
     else
@@ -45,10 +49,16 @@ export class ModalEdComponent implements OnInit {
     await this.apiSvc.getEduData();   
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate(['educacion']);
-    });
+    })
+    this.genForm.reset();
   }
 
-  ngOnChange(){
+  async uploadLogo(e:any){
+    const file:File = e.target.files[0];
+    this.fireCloudSvc.uploadImg(file,"logo")
+    .then((url)=>{
+      this.genForm.get('logo')?.setValue(url);
+    });
   }
 
 

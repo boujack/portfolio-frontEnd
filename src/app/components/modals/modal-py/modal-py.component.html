@@ -27,6 +27,22 @@
             name="fin"  
             formControlName="fin"
             [class.input-error]="genForm.get('fin')?.touched && genForm.get('fin')?.invalid">
+        <label for="logo" class="etiqueta-modal">Logo</label>
+        <input 
+            type="text" 
+            name="logo"  
+            formControlName="logo"
+            [class.input-error]="genForm.get('logo')?.touched && genForm.get('logo')?.invalid">
+        <span 
+            (click)="upFile.click()"
+            class="button-or">
+            Examinar</span>
+        <input 
+            type="file"
+            formControlName="logofile"
+            #upFile
+            style="display:none"
+            (change)="uploadLogo($event)">
         <input 
             type="submit" 
             class="button-or submit-button"

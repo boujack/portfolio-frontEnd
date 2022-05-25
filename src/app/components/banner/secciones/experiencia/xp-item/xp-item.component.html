@@ -9,7 +9,7 @@
                 <fa-icon [icon]="faEdit"></fa-icon>
             </button>
         </div>
-        <img *ngIf="logo" class="logo" [src]="'/assets/'+logo" alt="">
+        <img *ngIf="logo" class="logo" [src]="logo" alt="">
         <p *ngIf="!logo" class="logo"></p>
         <label for="puesto">Puesto:</label>
         <input type="text" formControlName="puesto">

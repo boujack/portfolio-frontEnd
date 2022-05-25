@@ -14,7 +14,7 @@ export class FireCloudService {
 
     let fileExt:string = f.name.split('.')[f.name.split('.').length-1];
     let fileRef:string;
-    return new Promise<boolean>((resolve)=>{
+    return new Promise<string>((resolve)=>{
     if(dir==="banner"||dir==="profile"){
       fileRef=dir+"/"+dir+"."+fileExt;
     }
@@ -34,13 +34,11 @@ export class FireCloudService {
               this.apiSvc.setProfImg(downloadURL);
               break;
             }
-            case "logo":{
-              break;
-            }
             default:{
               break;
             }
           }
+          resolve(downloadURL);
           });
         })
   ).subscribe();})
