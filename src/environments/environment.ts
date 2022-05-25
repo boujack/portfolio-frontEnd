@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  springBootUrl: "http://localhost:8080",
+  production: false,  
   firebase: {
     projectId: 'appportfolio24',
     appId: '1:624116234586:web:25cf1c711a3f9f87c25b63',
@@ -12,7 +11,7 @@ export const environment = {
     locationId: 'southamerica-east1',
     apiKey: 'AIzaSyBGHpBYHlvvsonyTWcqlMjz-y1OgBEXaH4',
     authDomain: 'appportfolio24.firebaseapp.com',
-    messagingSenderId: '624116234586',
+    messagingSenderId: '624116234586'
   }
 };
 //firebase deploy --only hosting:svaldes

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { SkModel } from 'src/models/SkModel';
 
 @Injectable({
@@ -10,13 +9,14 @@ import { SkModel } from 'src/models/SkModel';
 export class ApiSkService {
 
   skill:Subject<SkModel[]>=new Subject;
+  springBootUrl:string = 'https://portfolio-argprog.herokuapp.com'
 
   constructor(private jpaServer:HttpClient) {
   }
 
   getSkData(){
     return new Promise<SkModel[]>((resolve)=>{
-      this.jpaServer.get<SkModel[]>(environment.springBootUrl+'/skill').subscribe(skData=>{      
+      this.jpaServer.get<SkModel[]>(this.springBootUrl+'/skill').subscribe(skData=>{      
         this.skill.next(skData);
         resolve(skData);      
       })
@@ -25,7 +25,7 @@ export class ApiSkService {
   }
   rmSk(id:number){
     return new Promise<boolean>((resolve)=>{
-      this.jpaServer.delete(environment.springBootUrl+'/rm/sk?id='+id)
+      this.jpaServer.delete(this.springBootUrl+'/rm/sk?id='+id)
       .subscribe(()=>{
         resolve(true)
       })
@@ -33,7 +33,7 @@ export class ApiSkService {
   }
   saveSk(e:SkModel){
     return new Promise<boolean>((resolve)=>{
-      this.jpaServer.post(environment.springBootUrl+"/new/sk",e)
+      this.jpaServer.post(this.springBootUrl+"/new/sk",e)
       .subscribe(()=>{
         resolve(true)
       });  
@@ -41,7 +41,7 @@ export class ApiSkService {
   }
   saveAllSk(s:SkModel[]){
     return new Promise<boolean>((resolve)=>{
-      this.jpaServer.post(environment.springBootUrl+"/new/skAll",s)
+      this.jpaServer.post(this.springBootUrl+"/new/skAll",s)
       .subscribe(()=>{
         resolve(true)
       });

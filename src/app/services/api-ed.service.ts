@@ -10,13 +10,14 @@ import { EduModel } from 'src/models/EduModel';
 export class ApiEdService {
 
   educacion:Subject<EduModel[]>=new Subject;  
+  springBootUrl:string = 'https://portfolio-argprog.herokuapp.com'
 
   constructor(private apiSvc:HttpClient) { 
   }
 
   getEduData(){
     return new Promise<EduModel[]>((resolve)=>{
-      this.apiSvc.get<EduModel[]>(environment.springBootUrl+'/educacion')
+      this.apiSvc.get<EduModel[]>(this.springBootUrl+'/educacion')
       .subscribe(edData=>{      
         this.educacion.next(edData);
         resolve(edData)      
@@ -27,7 +28,7 @@ export class ApiEdService {
 
   rmEdu(id:number){
     return new Promise<boolean>((resolve)=>{
-      this.apiSvc.delete(environment.springBootUrl+'/rm/edu?id='+id)
+      this.apiSvc.delete(this.springBootUrl+'/rm/edu?id='+id)
       .subscribe(()=>{
         resolve(true);
       })
@@ -37,7 +38,7 @@ export class ApiEdService {
 
   saveEdu(e:EduModel){
     return new Promise<boolean>((resolve)=>{
-      this.apiSvc.post(environment.springBootUrl+"/new/edu",e)
+      this.apiSvc.post(this.springBootUrl+"/new/edu",e)
       .subscribe(()=>{
         resolve(true);
       });
