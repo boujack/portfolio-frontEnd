@@ -45,6 +45,20 @@ export class PlacaComponent implements OnInit {
       this.clkSvc.enableUI(); 
     }    
   }
+  @HostListener('document:click',['$event'])
+  handleMouseEvent(event:MouseEvent){
+    if(event.button==0&&!this.clkSvc.getEnabled()){
+      this.datosSvc.getUser().then((u)=>{
+        this.d.subscribe(async data =>{      
+          this.newDesc=data;
+          this.typeDescription();
+        });
+        this.newDesc=u.nombre + "·" +u.apellido+ "-> " + u.descripcion;
+        this.d.next(this.newDesc);
+      })
+      this.clkSvc.enableUI(); 
+    } 
+  }
 
   async typeDescription(){
     this.description="";

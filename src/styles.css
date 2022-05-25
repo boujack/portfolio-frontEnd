@@ -254,3 +254,43 @@ img,a{
 .custom-scroll::-webkit-scrollbar-button:vertical:end:increment{
     background: transparent url(assets/arrow-down.png) no-repeat center center;
 }
+@keyframes glow-1 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(100%) hue-rotate(120deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-2 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(100%) hue-rotate(120deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-3 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(100%) hue-rotate(120deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}
+@keyframes glow-4 {
+    0% {filter: invert(0%) hue-rotate(0deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(100%) hue-rotate(120deg);}
+    100%{filter: invert(0%) hue-rotate(0deg);}
+}  
+@keyframes glow-5 {
+    0% {filter: invert(0%) hue-rotate(120deg);}
+    20%{filter: invert(0%) hue-rotate(0deg);}
+    40%{filter: invert(0%) hue-rotate(0deg);}
+    60%{filter: invert(0%) hue-rotate(0deg);}
+    80%{filter: invert(0%) hue-rotate(0deg);}
+    100%{filter: invert(0%) hue-rotate(120deg);}
+}
